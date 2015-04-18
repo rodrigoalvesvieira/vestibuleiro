@@ -6,6 +6,9 @@ gem 'rails', '4.2.1'
 # Use MongoDB as database
 gem 'mongoid', '~> 4.0.2'
 
+# Use ElasticSearch
+gem 'searchkick', '~> 0.8.7'
+
 # Use Devise for authentication
 gem 'devise', '~> 3.4.1'
 

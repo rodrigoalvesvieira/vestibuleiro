@@ -13,6 +13,15 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def search
+    @results = Set.new
+
+    @results.add Answer.search params[:search_term]
+    @results.add Question.search params[:search_term]
+
+    return @results.to_a
+  end
+
   # GET /questions/1
   # GET /questions/1.json
   def show

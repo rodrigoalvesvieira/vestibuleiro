@@ -4,11 +4,12 @@ Uma plataforma para obter uma resposta rápida e confiável para sua dúvida. (f
 
 ## Tech Specs
 
-| Ferramenta                           | Versão           |
+| Tool                                 | Version          |
 | ------------------------------------ |:----------------:|
 | Rails                                | 4.2.1            |
 | Ruby MRI                             | 2.2.1            |
 | MongoDB                              | >= 2.6.5         |
+| Elasticsearch                        | 1.5.1            |
 
 ## Setup
 
@@ -20,13 +21,21 @@ $ rake bower:install    # Instala as dependências de front-end do projeto
 $ rake db:seed          # Preenche o BD de desenvolvimento (local) com alguns dados prontos
 ```
 
-## Uso
+## Usage
 
 `$ foreman start`   - Inicia o servidor na porta 5000
 
 `$ spring rails c`  - Inicia o console interativo do Rails com a aplicação carregada
 
-## Testes
+###### Elasticsearch
+
+Vestibuleiro uses [Elasticsearch] to power its question and answers search engine.
+
+To index the models, run:
+
+
+
+## Tests
 
 Esse projeto utiliza o [RSpec] para testes de comportamento. Os seguintes comandos (entre **muitos** outros) estão disponíveis para executar a suíte de testes:
 
@@ -38,7 +47,7 @@ $ rspec spec/models   # Executa apenas um único teste de modelo (também dispon
 $ rspec spec/models/user_spec.rb # Executa apenas um arquivo de teste
 ```
 
-## Produção e deploy
+## Production and Deploy
 
 Esse projeto está [hospedado no Heroku]. Para deployar uma nova versão, execute o seguinte comando:
 
@@ -52,7 +61,7 @@ $ heroku run console         # Inicia o console do Rails no servidor remoto
 $ heroku logs --tail         # Imprime como stream o log do servidor remoto
 ```
 
-## Autores
+## Authors
 
 * Rodrigo Alves <rav2@cin.ufpe.br> - https://github.com/rodrigoalvesvieira
 * Tomer Simis <tls@cin.ufpe.br> - https://github.com/tomersimis
@@ -68,7 +77,8 @@ $ heroku logs --tail         # Imprime como stream o log do servidor remoto
 
 ## Copyright
 
-© 2015 Vestibuleiro. Todos os Direitos Reservados.
+© 2015 Vestibuleiro. All Rights Reserved.
 
 [RSpec]: http://rspec.info
 [hospedado no Heroku]: http://vestibuleiro.herokuapp.com
+[Elasticsearch]: https://github.com/elastic/elasticsearch
