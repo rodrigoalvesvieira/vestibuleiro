@@ -1,6 +1,6 @@
 # Vestibuleiro
 
-Uma plataforma para obter uma resposta rápida e confiavel para sua duvida. (focado em ensino médio).
+Uma plataforma para obter uma resposta rápida e confiável para sua dúvida. (focado em ensino médio).
 
 ## Tech Specs
 
@@ -54,16 +54,17 @@ $ heroku logs --tail         # Imprime como stream o log do servidor remoto
 
 ## Autores
 
-* Rodrigo Alves <rav2@cin.ufpe.br>
-* Tomer Simis <tls@cin.ufpe.br>
-* Guilherme Tavares <mgtc@cin.ufpe.br>
-* Samuel Paz <spm@cin.ufpe.br>
-* Marlon Reghert <mras@cin.ufpe.br>
-* Artur Montenegro <acmh@cin.ufpe.br>
-* Rodolfo José <rjsr@cin.ufpe.br>
-* Bruno Dutra <bdln@cin.ufpe.br>
-* Hugo Freire <hrfn@cin.ufpe.br>
-* Ângelo de Sant'Ana <assd@cin.ufpe.br>
+* Rodrigo Alves <rav2@cin.ufpe.br> - https://github.com/rodrigoalvesvieira
+* Tomer Simis <tls@cin.ufpe.br> - https://github.com/tomersimis
+* Guilherme Tavares <mgtc@cin.ufpe.br> - https://github.com/mguilhermetavares
+* Samuel Paz <spm@cin.ufpe.br> - https://github.com/pazspm
+* Marlon Reghert <mras@cin.ufpe.br> - https://github.com/marlonwc3
+* Artur Montenegro <acmh@cin.ufpe.br> - https://github.com/acmh
+* Rodolfo José <rjsr@cin.ufpe.br> - https://github.com/rjos
+* Bruno Dutra <bdln@cin.ufpe.br> - https://github.com/bdlneto
+* Hugo Freire <hrfn@cin.ufpe.br> - https://github.com/Hrfreire
+* Ângelo de Sant'Ana <assd@cin.ufpe.br> - https://github.com/AngeloDias
+* Danilo Dias <ddp2@cin.ufpe.br> - https://github.com/daniloddp
 
 ## Copyright
 
