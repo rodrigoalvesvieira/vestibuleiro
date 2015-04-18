@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :questions
   devise_for :users
 
-  root 'home#index'
+  root 'questions#index'
+
+  get 'sobre' => 'home#about', as: :about
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

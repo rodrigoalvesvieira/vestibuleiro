@@ -22,3 +22,5 @@
 en:
   app_name: "Vestibuleiro"
   hello: "Hello world"
+  search: "Buscar..."
+  about: "Sobre"

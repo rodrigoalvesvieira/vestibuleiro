@@ -25,6 +25,14 @@ class User
 
   field :name,               type: String
   field :nickname,           type: String
+  field :role,               type: String
+
+  ## Relationships
+  has_many :questions
+
+  ## Callbacks
+
+  ## Validations
 
   ## Confirmable
   # field :confirmation_token,   type: String
