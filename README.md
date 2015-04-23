@@ -34,6 +34,9 @@ Vestibuleiro uses [Elasticsearch] to power its question and answers search engin
 To index the models, run:
 
 
+## Documentation
+
+Refer to the project [Wiki] for the documentation of this project.
 
 ## Tests
 
@@ -82,3 +85,4 @@ $ heroku logs --tail         # Imprime como stream o log do servidor remoto
 [RSpec]: http://rspec.info
 [hospedado no Heroku]: http://vestibuleiro.herokuapp.com
 [Elasticsearch]: https://github.com/elastic/elasticsearch
+[Wiki]: https://github.com/tomersimis/vestibuleiro/wiki
