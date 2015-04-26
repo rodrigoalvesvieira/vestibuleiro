@@ -118,6 +118,10 @@ GEM
     optionable (0.2.0)
     origin (2.1.1)
     orm_adapter (0.5.0)
+    puma (2.11.2)
+      rack (>= 1.1, < 2.0)
+    pundit (1.0.0)
+      activesupport (>= 3.0.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -233,6 +237,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mongoid (~> 4.0.2)
+  puma (~> 2.11.2)
+  pundit (~> 1.0.0)
   rails (= 4.2.1)
   rails_12factor
   rspec-rails (~> 3.2.1)

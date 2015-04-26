@@ -1,9 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index, :show, :new]
 
   # GET /questions
-  # GET /questions.json
   def index
     @questions = Question.all
 
@@ -23,7 +22,6 @@ class QuestionsController < ApplicationController
   end
 
   # GET /questions/1
-  # GET /questions/1.json
   def show
     respond_to do |format|
       format.html # show.html.erb
@@ -41,23 +39,25 @@ class QuestionsController < ApplicationController
   end
 
   # POST /questions
-  # POST /questions.json
   def create
-    @question = Question.new(question_params)
+    if current_user
+      redirect_to new_user_session_url
+    else
+      @question = current_user.questions.new(question_params)
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render json: @question, status: :created }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @question.save
+          format.html { redirect_to @question, notice: 'Question was successfully created.' }
+          format.json { render json: @question, status: :created }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @question.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
 
   # PATCH/PUT /questions/1
-  # PATCH/PUT /questions/1.json
   def update
     respond_to do |format|
       if @question.update(question_params)
@@ -71,9 +71,8 @@ class QuestionsController < ApplicationController
   end
 
   # DELETE /questions/1
-  # DELETE /questions/1.json
   def destroy
-    @question.destroy
+    @question.unpublish
     respond_to do |format|
       format.html { redirect_to questions_url }
       format.json { head :no_content }

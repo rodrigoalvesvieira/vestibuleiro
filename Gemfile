@@ -13,6 +13,9 @@ gem 'chewy', '~> 0.7.0'
 # Use Devise for authentication
 gem 'devise', '~> 3.4.1'
 
+# Use Pundit for authorization
+gem 'pundit', '~> 1.0.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,6 +39,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 gem 'unicorn', '~> 4.8.3'
+
+gem 'puma', '~> 2.11.2'
 
 gem 'active_model_serializers', '~> 0.9.3'
 

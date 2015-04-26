@@ -27,6 +27,10 @@ $ rake db:seed          # Preenche o BD de desenvolvimento (local) com alguns da
 
 `$ spring rails c`  - Inicia o console interativo do Rails com a aplicação carregada
 
+### User authentication
+
+### User authorization
+
 ###### Elasticsearch
 
 Vestibuleiro uses [Elasticsearch] to power its question and answers search engine.
