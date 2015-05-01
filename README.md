@@ -25,6 +25,9 @@ $ rake db:seed          # Preenche o BD de desenvolvimento (local) com alguns da
 
 `$ foreman start`   - Inicia o servidor na porta 5000
 
+`$ foreman start -f Procfile.winms`  - Inicia o servidor (localhost:3000) em ambientes Win
+dows.
+
 `$ spring rails c`  - Inicia o console interativo do Rails com a aplicação carregada
 
 ### User authentication
