@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+gem 'delayed_job_mongoid'
+
+#Use therubyracer for Javascript runtime
+gem 'therubyracer'
+
+# Use mongoid-paperclip for files
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem 'aws-sdk', '~> 1.3.4'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 
