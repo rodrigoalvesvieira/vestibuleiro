@@ -9,6 +9,7 @@ class Answer
 
   ## Relationships
   belongs_to :question
+  has_one :analytics
 
   ## Callbacks
 

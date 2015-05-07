@@ -13,6 +13,7 @@ class Question
   ## Relationships
   belongs_to :user
   has_many :answers
+  has_one :analytics
 
   ## Callbacks
 

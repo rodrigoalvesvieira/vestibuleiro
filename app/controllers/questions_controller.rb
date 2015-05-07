@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show, :new]
+  before_action :set_question, only: [:show, :edit, :update, :update_analytics, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show, :new, :update_analytics]
 
   # GET /questions
   def index
@@ -68,6 +68,10 @@ class QuestionsController < ApplicationController
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def update_analytics
+    @question.increment_metadata params[:analytics]
   end
 
   # DELETE /questions/1
