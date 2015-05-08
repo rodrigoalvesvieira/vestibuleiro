@@ -27,6 +27,11 @@ class Question
     self.update_attributes :published, false
   end
 
+  # TODO: fix implementation
+  def mostly_upvoted_answer
+    self.answers.first
+  end
+
   class << self
 
     ## Takes a string and returns all questions from the database

@@ -28,8 +28,7 @@ class User
   field :role,               type: String
 
   ## Relationships
-  has_many :questions
-  has_many :answers
+  embeds_many :questions
 
   ## Callbacks
   after_create :setup_nickname

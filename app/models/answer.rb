@@ -8,9 +8,10 @@ class Answer
   field :body, type: String
 
   ## Relationships
-  belongs_to :question
-  has_one :analytics
+  # embedded_in :user
+  # embedded_in :question
 
+  # embeds_one :analytics
   ## Callbacks
 
   ## Validations
