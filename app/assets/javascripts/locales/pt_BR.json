@@ -1,0 +1,56 @@
+{
+  "app_name": "Vestibuleiro",
+  "findTrip": "Busca",
+  "app_headline": "Uma plataforma para obter uma resposta rápida e confiável para sua dúvida.",
+  "accountInfo": "Meus Dados",
+  "advancedSearch": "Busca Avançada",
+  "newQuestion": "Nova pergunta",
+  "edit": "Editar",
+  "destroy": "Apagar",
+  "back": "Voltar",
+  "save": "Salvar",
+  "saveQuestion": "Salvar pergunta",
+  "cancel": "Cancelar",
+  "signUp": "Criar conta",
+  "signOut": "Sair",
+  "delete_account": "Apagar conta",
+
+  "models": {
+    "user": {
+      "name": "Name",
+      "username": "Username",
+      "email": "Email",
+      "password": "Password"
+    },
+    "question": {
+      "title": "Título",
+      "body": "Descrição",
+      "tags": "Marcadores"
+    }
+  },
+
+  "flash": {
+    "accountCreated": "Conta criada com sucesso! Seja bem-vindo(a) ao Vestibuleiro!"
+  },
+
+  "templates": {
+    "home": {
+      "sign_up": "Sign up!",
+      "feature_one": "Keep track of all your travels",
+      "feature_description_one": "You can easily manage your past and future trips",
+      "feature_two": "Get a travel plan",
+      "feature_description_two": "Print your travel plan for next month",
+      "feature_three": "Filter",
+      "feature_description_three": "Trips are filterable."
+    },
+    "login": {
+      "email": "Email",
+      "password": "Senha",
+      "remember_me": "Lembrar-me",
+      "login": "Entrar"
+    },
+    "form": {
+      "commentHelp": "Seja o mais detalhado possível e ajude a quem pode lhe responder"
+    }
+  }
+}

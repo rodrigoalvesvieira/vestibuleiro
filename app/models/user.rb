@@ -29,6 +29,7 @@ class User
 
   ## Relationships
   has_many :questions
+  has_many :answers
 
   ## Callbacks
   after_create :setup_nickname

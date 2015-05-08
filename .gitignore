@@ -16,6 +16,9 @@ config/database.yml
 # Ignore Mac OS X files
 .DS_Store
 
+# Ignore Bower components
+app/assets/bower
+
 # Ignore access keys
 config/*.pem
 config/*.ppk
@@ -27,6 +30,7 @@ config/*.ppk
 
 # Ignore compressed assets
 
+public/assets
 public/assets/*.gz
 public/assets/**/*.gz
 public/assets/**/**/*.gz
