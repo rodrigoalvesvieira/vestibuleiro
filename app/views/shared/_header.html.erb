@@ -26,14 +26,19 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Entre <span class="caret"></span></a>
           <% end %>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
             <% if user_signed_in? %>
-              <li><%= link_to('Sair', destroy_user_session_path, method: :delete) %></li>
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><a href="#">One more separated link</a></li>
+              <% end %>
             <% else %>
-              <li><a href="#">One more separated link</a></li>
+              <li><%= link_to "Entrar", new_user_session_path %></li>
+              <li> <%= link_to "Fazer cadastro", new_user_registration_path %></li>
             <% end %>
           </ul>
         </li>

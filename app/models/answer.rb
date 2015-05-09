@@ -1,17 +1,17 @@
 class Answer
   ## Includes
   include Mongoid::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
   ## Fields
-  field :user_id, type: Integer
-  field :question_id, type: Integer
   field :body, type: String
 
   ## Relationships
-  # embedded_in :user
-  # embedded_in :question
+  embedded_in :user
+  embedded_in :question
 
-  # embeds_one :analytics
+  embeds_one :analytics
   ## Callbacks
 
   ## Validations
