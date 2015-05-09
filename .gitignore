@@ -17,7 +17,7 @@ config/database.yml
 .DS_Store
 
 # Ignore Bower components
-app/assets/bower
+app/assets/javascripts/bower
 
 # Ignore access keys
 config/*.pem
