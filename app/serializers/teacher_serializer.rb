@@ -1,3 +1,3 @@
 class TeacherSerializer < ActiveModel::Serializer
-  attributes :id, :name, :state, :city, :imagePerfil, :disciplines, :last_aswered, :direct_questions
+  attributes :id, :disciplines, :last_answered, :direct_questions
 end

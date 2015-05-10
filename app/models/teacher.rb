@@ -3,10 +3,6 @@ class Teacher < User
   include Mongoid::Document
 
   ##fields
-  field :name,            type: String
-  field :state,           type: String
-  field :city,            type: String
-  field :imagePerfil,     type: URI
   field :disciplines,     type: Array
   field :last_answered,    type: Array
   field :direct_questions, type:Array
