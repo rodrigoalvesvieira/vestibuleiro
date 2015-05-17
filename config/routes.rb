@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'questions#index'
 
   get 'sobre' => 'home#about', as: :about
+  get 'ajuda' => 'home#help', as: :help
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,10 +1,10 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show, :new]
+  before_action :set_question, only: [:show, :edit, :update, :update_analytics, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show, :new, :update_analytics]
 
   # GET /questions
   def index
-    @questions = Question.all
+    @questions = Question.where published: true
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,6 +23,8 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1
   def show
+    @new_answer = Answer.new
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @question }
@@ -41,8 +43,6 @@ class QuestionsController < ApplicationController
   # POST /questions
   def create
     if current_user
-      redirect_to new_user_session_url
-    else
       @question = current_user.questions.new(question_params)
 
       respond_to do |format|
@@ -54,6 +54,9 @@ class QuestionsController < ApplicationController
           format.json { render json: @question.errors, status: :unprocessable_entity }
         end
       end
+    else
+      # TODO: write code to allow user to post before signing up or signing in
+      redirect_to new_user_session_url
     end
   end
 
@@ -70,6 +73,10 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def update_analytics
+    @question.increment_metadata params[:analytics]
+  end
+
   # DELETE /questions/1
   def destroy
     @question.unpublish
@@ -79,14 +86,14 @@ class QuestionsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_question
-      @question = Question.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_question
+    @question = Question.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def question_params
-      params.require(:question).permit(:title, :body, :tags, :user_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def question_params
+    params.require(:question).permit(:title, :body, :tags, :user_id)
+  end
 end

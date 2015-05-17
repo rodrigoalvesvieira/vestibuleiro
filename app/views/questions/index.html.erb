@@ -1,33 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
 
-<h1>Listing Questions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Tags</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="col-md-8">
     <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.title %></td>
-        <td><%= question.body %></td>
-        <td><%= question.tags %></td>
-        <td><%= question.user_id %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <section class="question">
+        <h3>
+          <%= link_to question.title, question %>
+          <span class="label label-info"><%= time_ago_in_words question.created_at %></span>
+
+        </h3>
+        <p>
+          <%= question.body %></h3>
+        </p>
+      </section>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
+  <div class="col-md-4">
+    <br/>
+    <br/>
 
-<%= link_to 'New Question', new_question_path %>
+    <%= render "shared/sidebar" %>
+  </div>
+
+</div>

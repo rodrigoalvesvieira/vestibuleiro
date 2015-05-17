@@ -1,0 +1,18 @@
+{
+  "questions": [
+    {
+      "title": "Dúvida em questão de Física moderna",
+      "body": "Em 1905, Einstein propôs uma teoria simples e revolucionária para explicar o efeito fotoelétrico, a qual considera que a luz é constituída por partículas sem massa, chamadas de fótons. Cada fóton carrega uma energia dada por hf, onde h=4,1×10−15eV.s é a constante de Planck, e f é a frequência da luz. Einstein relacionou a energia cinética, E",
+      "answers": [
+        { "body": "A) impossível, porque a velocidade da luz que emerge da pessoa e se reflete no espelho não depende da velocidade da pessoa, nem da velocidade do espelho."}
+      ]
+    },
+    {
+      "title": "Problemas em questão de matemática: progressão geométrica",
+      "body": "Considere uma PG ILIMITADA ( infinitos termos) e decrescente. Nestas condições, podemos considerar que no limite teremos an = 0. Resolva a equação: x + x/2 + x/4 + x/8 + x/16 + ... =100.",
+      "answers": [
+        { "body": "O primeiro membro é uma PG de primeiro termo x e razão 1/2. Logo, substituindo na fórmula, vem:" }
+      ]
+    }
+  ]
+}

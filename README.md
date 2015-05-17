@@ -16,7 +16,7 @@ Uma plataforma para obter uma resposta rápida e confiável para sua dúvida. (f
 ```bash
 $ bundle install        # Instala as dependências do projeto (backend)
 
-$ rake bower:install    # Instala as dependências de front-end do projeto
+$ bower install         # Instala as dependências de front-end do projeto
 
 $ rake db:seed          # Preenche o BD de desenvolvimento (local) com alguns dados prontos
 ```

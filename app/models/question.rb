@@ -1,18 +1,20 @@
 class Question
   ## Includes
   include Mongoid::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
   ## Fields
   field :title,       type: String
   field :body,        type: String
-  field :tags,        type: Array
-  field :user_id,     type: Integer
+  field :tags,        type: Array, default: []
 
   field :published,   type: Boolean, default: true
 
   ## Relationships
   belongs_to :user
-  has_many :answers
+  embeds_many :answers
+  embeds_one :analytics
 
   ## Callbacks
 
@@ -24,6 +26,11 @@ class Question
   ## Methods
   def unpublish
     self.update_attributes :published, false
+  end
+
+  # TODO: fix implementation
+  def mostly_upvoted_answer
+    self.answers.first
   end
 
   class << self

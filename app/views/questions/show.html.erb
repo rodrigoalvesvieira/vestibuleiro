@@ -1,24 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
+<div class="row">
+  <div class="col-md-8">
+    <section class="col-md-1">
+    </section>
 
-<p>
-  <strong>Body:</strong>
-  <%= @question.body %>
-</p>
+    <section class="question-content col-md-11">
+      <h2><%= @question.title %></h2>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @question.tags %>
-</p>
+      <p><%= @question.body %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @question.user_id %>
-</p>
+      <% @question.tags.each do |tag| %>
+      <% end %>
+    </section>
+
+    <section class="answers-content">
+      <% @question.answers.each do |answer| %>
+        <article class="answer-component" id="answer-#{answer.id}">
+
+        </article>
+      <% end %>
+    </section>
+
+    <section class="new-answer-content">
+
+      <%= form_for(@new_answer, url: "questions", method: :post, html: { class: "form-horizontal" }) do |f| %>
+        <div class="form-group">
+
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-md-10">
+                <%= f.text_area :body, class: "form-control", placeholder: "Responda a pergunta..." %>
+              </div>
+
+              <div class="col-md-2">
+                <%= f.submit "Responder", class: "btn btn-success" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+
+    </section>
+
+  </div>
+
+  <div class="col-md-4">
+    <%= render "shared/sidebar" %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>

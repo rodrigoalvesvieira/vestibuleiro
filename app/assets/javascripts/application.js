@@ -14,4 +14,9 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+
+// JavaScript dependencies from Bower
+
+//= require ../bower/angular/angular.js
+//= require vestibuleiro.js
 //= require_tree .
