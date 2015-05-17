@@ -34,12 +34,18 @@ dows.
 
 ### User authorization
 
+### Tags
+
+This project contains a set of pre-defined tags of several different fields of study.
+To populate the local database with them, run:
+
+`$ rake tags:populate`
+
 ###### Elasticsearch
 
 Vestibuleiro uses [Elasticsearch] to power its question and answers search engine.
 
 To index the models, run:
-
 
 ## Documentation
 

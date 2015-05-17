@@ -1,19 +1,18 @@
 class Question
   ## Includes
   include Mongoid::Document
-  include Mongoid::Document
   include Mongoid::Timestamps
 
   ## Fields
   field :title,       type: String
   field :body,        type: String
-  field :tags,        type: Array, default: []
 
   field :published,   type: Boolean, default: true
 
   ## Relationships
   belongs_to :user
   embeds_many :answers
+  # embeds_many :tags
   embeds_one :analytics
 
   ## Callbacks

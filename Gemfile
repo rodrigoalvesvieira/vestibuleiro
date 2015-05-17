@@ -6,7 +6,7 @@ gem 'delayed_job_mongoid'
 gem 'therubyracer'
 
 # Use mongoid-paperclip for files
-gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem "mongoid-paperclip", require: "mongoid_paperclip"
 gem 'aws-sdk', '~> 1.3.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

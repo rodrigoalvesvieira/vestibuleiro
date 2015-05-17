@@ -1,7 +1,6 @@
 class Answer
   ## Includes
   include Mongoid::Document
-  include Mongoid::Document
   include Mongoid::Timestamps
 
   ## Fields
