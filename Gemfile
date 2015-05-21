@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'elasticsearch-model'
+
+gem 'elasticsearch-rails'
+
 gem 'delayed_job_mongoid'
 
 #Use therubyracer for Javascript runtime
