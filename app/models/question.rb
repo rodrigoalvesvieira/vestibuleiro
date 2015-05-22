@@ -10,9 +10,9 @@ class Question
   field :published,   type: Boolean, default: true
 
   ## Relationships
-  belongs_to :user
+  embedded_in :user
   embeds_many :answers
-  # embeds_many :tags
+  embeds_many :tags
   embeds_one :analytics
 
   ## Callbacks
@@ -39,6 +39,10 @@ class Question
     def search(search_term)
       term = /.*#{search_term}.*/i
       result = Set.new Question.find(term)
+    end
+
+    def filterByTag(tag)
+      result = Set.new Question.where(tags:tag)
     end
   end
 end

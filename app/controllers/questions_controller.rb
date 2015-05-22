@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :update_analytics, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show, :new, :update_analytics]
+  before_filter :authenticate_user!, except: [:index, :show, :new, :update_analytics, :filterByTag]
 
   # GET /questions
   def index
@@ -19,6 +19,21 @@ class QuestionsController < ApplicationController
     @results.add Question.search params[:search_term]
 
     return @results.to_a
+  end
+
+  def filterByTag
+    @results_tag = Set.new
+    @results     = Set.new
+
+    @results_tag.add Tag.search params[:tag_name]
+
+    @results_tag = @results_tag.to_a
+
+    @results_tag.each do |tag|
+      @results.add Question.filterByTag params[:tag]
+    end
+
+    @results = @results.to_a
   end
 
   # GET /questions/1

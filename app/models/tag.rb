@@ -9,7 +9,7 @@ class Tag
   field :description, type: String
 
   ## Relationships
-  # embedded_in :question
+  embedded_in :question
   ## Callbacks
 
   ## Validations
@@ -20,5 +20,10 @@ class Tag
 
   def to_s
     self.tag_name
+  end
+
+  def search(search_term)
+    term = /.*#{search_term}.*/i
+    result = Set.new Tag.where(title: term, tag_name: term)
   end
 end
