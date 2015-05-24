@@ -41,6 +41,10 @@ To populate the local database with them, run:
 
 `$ rake tags:populate`
 
+To delete all the existing tags, you can run:
+
+`$ rake tags:destroy`
+
 ###### Elasticsearch
 
 Vestibuleiro uses [Elasticsearch] to power its question and answers search engine.

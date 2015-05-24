@@ -4,12 +4,16 @@ class UsersController < ApplicationController
   end
 
   def edit
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def update
     @user = User.find(params[:id])
-    
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -21,11 +25,9 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name,:email,:school_year,:desired_course,:city,:avatar)
+      params.require(:user).permit(:name, :email, :school_year, :desired_course, :city, :avatar)
     end
-
 end

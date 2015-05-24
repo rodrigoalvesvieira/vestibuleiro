@@ -9,10 +9,14 @@ class Tag
   field :description, type: String
 
   ## Relationships
-  # embedded_in :question
+  embedded_in :discipline
   ## Callbacks
+  before_save :format_tag_name
 
   ## Validations
+  validates :title, presence: true
+  validates :tag_name, presence: true
+  validates :tag_name, uniqueness: true
 
   ## Extras
 
@@ -20,5 +24,11 @@ class Tag
 
   def to_s
     self.tag_name
+  end
+
+private
+  def format_tag_name
+    self.tag_name = self.tag_name.downcase
+    self.tag_name.gsub! " ", "-"
   end
 end

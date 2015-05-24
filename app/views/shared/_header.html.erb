@@ -7,11 +7,12 @@
     <div id="navbar">
       <ul class="nav navbar-nav">
         <li><%= link_to t("about"), about_path %></li>
+        <li><%= link_to "Disciplinas", disciplines_path %></li>
       </ul>
 
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group" data-ng-controller="SearchController" data-ng-submit="performSearch(searchInfo)">
-          <input type="text" data-ng-model="searchInfo.term" class="form-control" style="width: 500px" placeholder="<%= t "search" %>">
+          <input type="text" data-ng-model="searchInfo.term" class="form-control" style="width: 400px" placeholder="<%= t "search" %>">
         </div>
       </form>
 

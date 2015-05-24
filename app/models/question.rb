@@ -12,7 +12,7 @@ class Question
   ## Relationships
   belongs_to :user
   embeds_many :answers
-  # embeds_many :tags
+  embeds_many :tags
   embeds_one :analytics
 
   ## Callbacks

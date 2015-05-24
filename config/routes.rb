@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   resources :questions, :users, :teachers
+  resources :disciplines
+  
   devise_for :users
 
   root 'questions#index'

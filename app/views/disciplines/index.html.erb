@@ -1,0 +1,7 @@
+<h1>Disciplinas</h1>
+
+<ul>
+  <% @disciplines.each do |discipline| %>
+    <li><%= link_to discipline.name, discipline_path(discipline) %></li>
+  <% end %>
+</ul>
