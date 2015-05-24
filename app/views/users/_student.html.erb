@@ -1,6 +1,10 @@
 <div class="well">
   <h1><%= user.name %></h1>
 
+  <% if user.current_school.present? %>
+    <p><%= user.current_school %></p>
+  <% end %>
+
   <% if user.school_year.present? %>
     <p><%= user.school_year %><p>
   <% end %>

@@ -33,6 +33,7 @@ class User
   field :nickname,           type: String
   field :role,               type: String, default: ROLES.first
   field :school_year,        type: String
+  field :current_school,     type: String
   field :desired_course,     type: String
   field :city,               type: String
   field :state,              type: String
