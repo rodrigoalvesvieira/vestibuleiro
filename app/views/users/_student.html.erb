@@ -1,0 +1,18 @@
+<div class="well">
+  <h1><%= user.name %></h1>
+
+  <% if user.school_year.present? %>
+    <p><%= user.school_year %><p>
+  <% end %>
+
+  <% if user.desired_course.present? %>
+  <p><%= user.desired_course %><p>
+  <% end %>
+
+  <% if user.city.present? or user.state.present? %>
+    <p id="location"><%= "#{user.city}/#{user.state}" %></p>
+  <% end %>
+
+  <p>Perguntas <%= user.questions.count %></p>
+  <p>Respostas <%= user.answers.count %></p>
+</div>

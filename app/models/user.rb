@@ -3,6 +3,9 @@ class User
   include Mongoid::Paperclip
   include Mongoid::Timestamps
 
+  ## Constants
+  ROLES = %w(student teacher)
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -28,15 +31,12 @@ class User
 
   field :name,               type: String
   field :nickname,           type: String
-  field :role,               type: String
+  field :role,               type: String, default: ROLES.first
   field :school_year,        type: String
   field :desired_course,     type: String
   field :city,               type: String
   field :state,              type: String
   has_mongoid_attached_file :avatar
-  #embeds_many :pictures
-
-  ROLES = %w(student teacher)
 
   ## Relationships
   embeds_many :questions
