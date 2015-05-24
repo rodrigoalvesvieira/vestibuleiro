@@ -11,7 +11,8 @@ var app = angular.module("Vestibuleiro", [
   'Vestibuleiro.controllers',
   'Vestibuleiro.services',
   'angular-loading-bar',
-  'ui.date'
+  'ui.date',
+  'textAngular'
 ]);
 
 app.config([
