@@ -1,19 +1,12 @@
+<ul class="nav nav-tabs" id="feed-tabs">
+  <li role="presentation" class="active"><a data-tab="last-published" href="#">Últimas Feitas</a></li>
+  <li role="presentation"><a data-tab="popular" href="#">Mais Votadas</a></li>
+</ul>
+
 <div class="row">
 
-  <div class="col-md-8">
-    <% @questions.each do |question| %>
-      <section class="question">
-        <h3>
-          <%= link_to question.title, question %>
-          <span class="label label-info"><%= time_ago_in_words question.created_at %></span>
-
-        </h3>
-        <p>
-          <%= question.body %></h3>
-        </p>
-      </section>
-    <% end %>
-  </div>
+  <%= render "last_published_section", questions: @questions %>
+  <%= render "popular_section", questions: @questions %>
 
   <div class="col-md-4">
     <br/>
@@ -21,5 +14,13 @@
 
     <%= render "shared/sidebar" %>
   </div>
-
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#feed-tabs li a").click(function () {
+      $(this).parent("li").addClass("active");
+      var tabId = $(this).data("tab");
+    });
+  });
+</script>

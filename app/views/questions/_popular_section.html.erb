@@ -1,0 +1,14 @@
+<div class="col-md-8" id="popular_section">
+  <% questions.each do |question| %>
+    <section class="question">
+      <h3>
+        <%= link_to question.title, question %>
+        <span class="label label-info"><%= time_ago_in_words question.created_at %></span>
+
+      </h3>
+      <p>
+        <%= question.body %></h3>
+      </p>
+    </section>
+  <% end %>
+</div>
