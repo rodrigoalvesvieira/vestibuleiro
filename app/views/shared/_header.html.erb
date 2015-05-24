@@ -4,15 +4,14 @@
       <%= link_to t("app_name"), root_path, class: "navbar-brand" %>
     </div>
 
-    <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
     <div id="navbar">
       <ul class="nav navbar-nav">
         <li><%= link_to t("about"), about_path %></li>
       </ul>
 
       <form class="navbar-form navbar-left" role="search">
-        <div class="form-group ">
-          <input type="text" class="form-control" style="width: 500px" placeholder="<%= t "search" %>">
+        <div class="form-group" data-ng-controller="SearchController" data-ng-submit="performSearch(searchInfo)">
+          <input type="text" data-ng-model="searchInfo.term" class="form-control" style="width: 500px" placeholder="<%= t "search" %>">
         </div>
       </form>
 
