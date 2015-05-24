@@ -32,8 +32,11 @@ class User
   field :school_year,        type: String
   field :desired_course,     type: String
   field :city,               type: String
+  field :state,              type: String
   has_mongoid_attached_file :avatar
   #embeds_many :pictures
+
+  ROLES = %w(student teacher)
 
   ## Relationships
   embeds_many :questions
