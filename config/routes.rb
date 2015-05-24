@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :questions, :users, :teachers
   resources :disciplines
-  
+
+  get "tags/search/:search_term", to: "disciplines#search_tag", method: :json
+
   devise_for :users
 
   root 'questions#index'
