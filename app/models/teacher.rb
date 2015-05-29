@@ -3,9 +3,13 @@ class Teacher < User
   include Mongoid::Document
 
   ##fields
-  field :disciplines,     type: Array
+  field :disciplines,      type: Array
   field :last_answered,    type: Array
-  field :direct_questions, type:Array
+  field :direct_questions, type: Array
+  field :websites,         type: Array
+  field :workplace,        type: Array
+  field :email,            type: String, default: ""
+  field :phone_number,     type: String, default: ""
 
   ## Methods
 
