@@ -13,6 +13,14 @@
 
 
   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email, autofocus: true, class: "form-control"%>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
     <%= f.label :last_answered %><br>
     <%= f.text_field :last_answered %>
   </div>
@@ -23,6 +31,14 @@
   <div class="field">
     <%= f.label :disciplines %><br>
     <%= f.number_field :disciplines %>
+  </div>
+  <div class="field">
+    <%= f.label :websites %><br>
+    <%= f.number_field :websites %>
+  </div>
+  <div class="field">
+    <%= f.label :workplace %><br>
+    <%= f.number_field :workplace %>
   </div>
   <div class="actions">
     <%= f.submit %>
