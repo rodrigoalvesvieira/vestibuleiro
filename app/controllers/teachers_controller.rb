@@ -34,6 +34,7 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
+    @teacher.link_token = "/" + SecureRandom.hex
 
     respond_to do |format|
       if @teacher.save
@@ -78,6 +79,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params[:teacher]
+      params.require(:teacher).permit(:disciplines, :last_answered, :direct_questions, :link_token)
     end
 end
