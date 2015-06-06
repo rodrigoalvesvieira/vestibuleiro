@@ -1,0 +1,40 @@
+#home-title{
+	font-size: 46px;
+}
+
+#home-caller{
+	font-size: 20px !important;
+}
+
+#question-done{
+	background-color: #87C875 !important;
+}
+
+#question-answers-title{
+	margin-top: 50px;
+}
+
+#hide-chevron .menu-nav-arrow{
+	display: none;
+}
+
+.question-author.ranking {
+  position: relative;
+  top: 0px; left: 0px;
+  float: none;
+  text-align: center;
+  width: 71px;
+  height: 71px;
+  overflow: hidden;
+  padding: 2px;
+  border: 1px solid #dedede;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.ranking-points{
+	margin-top: 10px; text-align: center;
+	font-size: 26px;
+	margin-bottom: 0px;
+}
