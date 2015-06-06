@@ -3,6 +3,9 @@ class User
   include Mongoid::Paperclip
   include Mongoid::Timestamps
 
+  ## Constants
+  ROLES = %w(student teacher)
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,20 +23,32 @@ class User
   field :remember_created_at, type: Time
 
   ## Trackable
-  field :sign_in_count,      type: Integer, default: 0
-  field :current_sign_in_at, type: Time
-  field :last_sign_in_at,    type: Time
-  field :current_sign_in_ip, type: String
-  field :last_sign_in_ip,    type: String
+  field :sign_in_count,               type: Integer, default: 0
+  field :sign_in_sequence_count,      type: Integer, default: 0
+  field :current_sign_in_at,          type: Date
+  field :last_sign_in_at,             type: Date
+  field :current_sign_in_ip,          type: String
+  field :last_sign_in_ip,             type: String
 
   field :name,               type: String
   field :nickname,           type: String
-  field :role,               type: String
-  field :school_year,        type: String
-  field :desired_course,     type: String
+  field :role,               type: String, default: ROLES.first
   field :city,               type: String
+  field :state,              type: String
+
+  # Student fields
+  field :school_year,        type: String
+  field :current_school,     type: String
+  field :desired_course,     type: String
+
+  # Teacher fields
+  field :disciplines,      type: Array
+  field :last_answered,    type: Array
+  field :websites,         type: Array
+  field :workplace,        type: Array
+  field :phone_number,     type: String, default: ""
+
   has_mongoid_attached_file :avatar
-  #embeds_many :pictures
 
   ## Relationships
   embeds_many :questions
@@ -58,5 +73,26 @@ class User
   # field :locked_at,       type: Time
 private
   def setup_nickname
+  end
+
+  def calculate_score
+
+    if self.role == "student"
+      @score_user = 0
+
+      self.answers.each do |answer|
+        if (answer.analytics.upvotes - answer.analytics.downvotes) > 5
+          @score_user += 50
+        end
+      end
+
+      self.questions.each do |question|
+        if (question.analytics.upvotes - question.analytics.downvotes) > 5
+          @score_user += 20
+        end
+      end
+
+      @score_user += self.sign_in_sequence_count
+    end
   end
 end
