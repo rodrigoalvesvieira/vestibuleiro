@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :questions, :users do
     member do
       post 'create_answer'
+      post 'create_question_comment'
+      post 'create_answer_comment'
     end
   end
 

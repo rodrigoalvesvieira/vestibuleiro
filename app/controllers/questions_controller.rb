@@ -70,6 +70,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def create_question_comment
+  end
+
+  def create_answer_comment
+  end
+
   # PATCH/PUT /questions/1
   def update
     respond_to do |format|

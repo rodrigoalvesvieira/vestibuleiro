@@ -11,6 +11,7 @@ class Answer
   embedded_in :question
 
   embeds_one :analytics
+  embeds_many :comments
   ## Callbacks
 
   ## Validations

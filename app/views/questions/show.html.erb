@@ -12,11 +12,25 @@
       <%# end %>
     </section>
 
+    <section class="comments-question">
+      <% @question.comments.each do |comment| %>
+        <p><%= comment.body %></p>
+        <p><%= link_to comment.user.name, comment.user %></p>
+      <% end %>
+    </section>
+
     <section class="answers-content">
       <% @question.answers.each do |answer| %>
         <article class="answer-component" id="answer-#{answer.id}">
           <%= answer.body %>
         </article>
+
+        <section id="answer-comment=#{answer.id}">
+          <% answer.comments.each do |comment| %>
+            <p><%= comment.body %></p>
+            <p><%= link_to comment.user.name, comment.user %></p>
+          <% end %>
+        </section>
       <% end %>
     </section>
 
@@ -36,9 +50,7 @@
             </div>
           </div>
         </div>
-
       <% end %>
-
     </section>
 
   </div>
