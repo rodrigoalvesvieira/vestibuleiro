@@ -34,8 +34,7 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
-    @teacher.link_token = "/" + SecureRandom.hex
-
+    
     respond_to do |format|
       if @teacher.save
         format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }

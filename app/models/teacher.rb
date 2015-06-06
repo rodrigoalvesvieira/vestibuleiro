@@ -8,6 +8,8 @@ class Teacher < User
   field :direct_questions, type: Array
   field :link_token,       type: String
 
+
+  after_create:generateToken
   ## Methods
 
   class << self
@@ -19,6 +21,12 @@ class Teacher < User
       term = /.*#{search_term}.*/i
       result = Set.new Answer.find(term)
     end
+
+
+    def generateToken
+      self.link_token = SecureRandom.hex
+    end
+
   end
 
 
