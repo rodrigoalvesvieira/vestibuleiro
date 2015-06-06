@@ -9,12 +9,12 @@ url: www.2code.info
 */
 /* Css */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
-@import url("css/base.css");
-@import url("css/lists.css");
-@import url("css/bootstrap.min.css");
-@import url("css/prettyPhoto.css");
-@import url("css/font-awesome/css/font-awesome.min.css");
-@import url("css/fontello/css/fontello.css");
+@import url("base.css");
+@import url("lists.css");
+@import url("bootstrap.min.css");
+@import url("prettyPhoto.css");
+@import url("font-awesome/css/font-awesome.min.css");
+@import url("fontello/css/fontello.css");
 body {
 	background-color: #f3f3f3;
 	color: #2f3239;

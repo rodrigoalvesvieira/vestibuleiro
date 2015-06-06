@@ -34,11 +34,13 @@
 </head>
 <body>
 
-  <%= render "shared/header" %>
+  <div id="wrap" class="grid_1200">
+    <%= render "shared/header" %>
 
-  <div class="container body-container" data-ng-controller="QuestionsController">
+    <div class="container body-container" data-ng-controller="QuestionsController">
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </div>
 
 </body>
