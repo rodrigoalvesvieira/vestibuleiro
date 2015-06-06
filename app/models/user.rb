@@ -74,3 +74,12 @@ private
   def setup_nickname
   end
 end
+
+def evaluate_teacher
+  val = self.answers.count * 20
+  self.answer.analytics.each do |analityc| 
+    val += (analityc.upvotes*5) - (analityc.downvotes*5)
+    val += (analityc.favorites*10)
+  end
+  val
+end
