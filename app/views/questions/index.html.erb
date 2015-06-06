@@ -1,20 +1,22 @@
-<ul class="nav nav-tabs" id="feed-tabs">
-  <li role="presentation" class="active"><a data-tab="last-published" href="#">Últimas Feitas</a></li>
-  <li role="presentation"><a data-tab="popular" href="#">Mais Votadas</a></li>
-</ul>
+<div class="container body-container" data-ng-controller="QuestionsController">
+  <ul class="nav nav-tabs" id="feed-tabs">
+    <li role="presentation" class="active"><a data-tab="last-published" href="#">Últimas Feitas</a></li>
+    <li role="presentation"><a data-tab="popular" href="#">Mais Votadas</a></li>
+  </ul>
 
-<div class="row">
+  <div class="row">
 
-  <%= render "last_published_section", questions: @questions %>
-  <%= render "popular_section", questions: @questions %>
+    <%= render "last_published_section", questions: @questions %>
+    <%= render "popular_section", questions: @questions %>
 
-  <div class="col-md-4">
-    <br/>
-    <br/>
+    <div class="col-md-4">
+      <br/>
+      <br/>
 
-    <%= render "shared/sidebar" %>
+      <%= render "shared/sidebar" %>
+    </div>
   </div>
-</div>
+</section>
 
 <script type="text/javascript">
   $(document).ready(function () {
