@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'questions#index'
 
-  resources :questions, :users, :teachers
+  resources :questions, :users
   resources :disciplines
 
   get "tags/search/:search_term", to: "disciplines#search_tag", method: :json
