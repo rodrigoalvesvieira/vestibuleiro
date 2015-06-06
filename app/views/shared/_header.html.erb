@@ -1,26 +1,48 @@
 <header id="header">
-	<section class="container clearfix">
-		<div class="logo"><a href="index.html"><img alt="" src=""></a></div>
-		<nav class="navigation">
-			<ul>
-				<li class="parent-list">
-					<%= link_to do %>
-						<%= t("app_name") %> <span class="menu-nav-arrow"> <i class="icon-angle-down"></i></span>
-					<% end %>
+		<section class="container clearfix">
+			<div class="logo" >
+				<%= link_to t("app_name"), root_path, class: "navbar-brand", style: "margin-top:15px" %>
+			</div>
 
-					<ul style="display: none;">
-						<li><%= link_to t("app_name"), root_path, class: "navbar-brand" %></li>
-						<li class="current_page_item"><a href="index_2.html">Home 2</a></li>
-						<li><a href="index_boxed_1.html">Home Boxed 1</a></li>
-						<li><a href="index_boxed_2.html">Home Boxed 2</a></li>
-						<li><a href="index_no_box.html">Home No Box</a></li>
-					</ul>
-				</li>
-				<li class="current_page_item">
-					<%= link_to "Tire sua dúvida", new_question_path %></li>
-				<li><%= link_to "Registre-se", new_user_registration_path %></li>
-				<li><%= link_to "Entrar", new_user_session_path %></li>
-			</ul>
-		</nav>
-	</section><!-- End container -->
-</header>
+			<nav class="navigation">
+
+				<ul>
+					<li style="margin-left: 20px">
+						<form>
+							<input type="text" placeholder="Procurar" style="width: 540px"  />
+						</form>
+
+					</li>
+					<li class="current_page_item">
+						<a href="ask_question.html">Tire sua dúvida</a>
+					</li>
+
+					<% if user_signed_in? %>
+
+					<li id="hide-chevron" style="margin-left: 8px"><a href="index.html">2 <i class="icon-bell-alt"></i></a>
+						<ul>
+							<li><a href="index.html">Sua dúvida sobre Física foi respondida:</a></li>
+							
+							<li><a href="index_boxed_1.html">Sair</a></li>
+						</ul>
+					</li>
+
+					<li><a href="index.html">Renan Godoy</a>
+						<ul>
+							<li><%= link_to "Perfil", user_path(current_user) %></li>
+							<li><%= link_to "Configurações", edit_user_path(current_user) %></li>
+							<li><a href="index_boxed_1.html">Sair</a></li>
+						</ul>
+					</li>
+
+					<% else %>
+
+					<li><%= link_to "Registre-se", new_user_registration_path %></li>
+					<li><%= link_to "Entrar", new_user_session_path %></li>
+
+					<% end %> 
+
+				</ul>
+			</nav>
+		</section><!-- End container -->
+	</header><!-- End header -->
