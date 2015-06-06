@@ -45,6 +45,7 @@ GEM
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     bcrypt (3.1.10)
+    bcrypt (3.1.10-x64-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bson (2.3.0)
@@ -135,6 +136,8 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
+    nokogiri (1.6.6.2-x64-mingw32)
       mini_portile (~> 0.6.0)
     optionable (0.2.0)
     origin (2.1.1)
@@ -259,6 +262,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   active_model_serializers (~> 0.9.3)
