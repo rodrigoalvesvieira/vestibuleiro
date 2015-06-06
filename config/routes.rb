@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root 'questions#index'
 
-  resources :questions, :users
+  resources :questions, :users do
+    member do
+      post 'create_answer'
+    end
+  end
+
   resources :disciplines
 
   get "tags/search/:search_term", to: "disciplines#search_tag", method: :json

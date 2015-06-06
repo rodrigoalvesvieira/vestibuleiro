@@ -4,7 +4,6 @@ class Question
   include Mongoid::Timestamps
 
   ## Fields
-  field :title,       type: String
   field :body,        type: String
 
   field :published,   type: Boolean, default: true
@@ -14,6 +13,9 @@ class Question
   embeds_many :answers
   embeds_many :tags
   embeds_one :analytics
+
+
+  accepts_nested_attributes_for :answers
 
   ## Callbacks
 

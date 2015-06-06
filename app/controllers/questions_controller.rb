@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :update_analytics, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :update_analytics, :destroy, :create_answer]
   before_filter :authenticate_user!, except: [:index, :show, :new, :update_analytics]
 
   # GET /questions
@@ -60,6 +60,16 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def create_answer
+    answer = @question.answers.new body: params[:answer][:body]
+
+    if answer.save
+      redirect_to @question
+    else
+      # TODO: Notify the user that the operation has not been successful.
+    end
+  end
+
   # PATCH/PUT /questions/1
   def update
     respond_to do |format|
@@ -94,6 +104,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
-    params.require(:question).permit(:title, :body, :tags, :user_id)
+    params.require(:question).permit(:body, :tags, :user_id, answer_attributes: [:body])
   end
 end
