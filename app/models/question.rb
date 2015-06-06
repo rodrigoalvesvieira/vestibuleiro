@@ -12,8 +12,9 @@ class Question
   belongs_to :user
   embeds_many :answers
   embeds_many :tags
-  embeds_one :analytics
+  embeds_many :comments
 
+  embeds_one :analytics
 
   accepts_nested_attributes_for :answers
 
