@@ -37,3 +37,4 @@ public/assets/**/**/*.gz
 public/assets/**/**/**/*.gz
 
 .sass-cache/
+.editorconfig
