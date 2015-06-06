@@ -2,12 +2,14 @@
   <ul class="nav nav-tabs" id="feed-tabs">
     <li role="presentation" class="active"><a data-tab="last-published" href="#">Últimas Feitas</a></li>
     <li role="presentation"><a data-tab="popular" href="#">Mais Votadas</a></li>
+    <li role="presentation"><a data-tab="most_viewed" href="#">Mais Vizualizadas</a></li>
   </ul>
 
   <div class="row">
 
-    <%= render "last_published_section", questions: @questions %>
-    <%= render "popular_section", questions: @questions %>
+    <%= render "last_published_section", questions: @last_questions %>
+    <%= render "popular_section", questions: @upvotes_questions  %>
+    <%= render "most_viewed_section", questions: @visualizations_questions  %>
 
     <div class="col-md-4">
       <br/>

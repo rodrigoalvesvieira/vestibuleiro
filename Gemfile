@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'kaminari'
+
 gem 'delayed_job_mongoid'
 
 # Use mongoid-paperclip for files
