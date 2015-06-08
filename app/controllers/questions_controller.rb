@@ -4,7 +4,9 @@ class QuestionsController < ApplicationController
 
   # GET /questions
   def index
-    @questions = Question.where published: true
+    @last_questions = Question.order_by(:created_at.desc).page(1).per(10)
+    @upvotes_questions = Question.order_by(:created_at.desc).page(1).per(10) #Question.analytics.order_by(:upvotes.desc).page(1).per(10)
+    @visualizations_questions = Question.order_by(:created_at.desc).page(1).per(10) #Question.analytics.order_by(:visualizations).page(1).(10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -100,6 +102,17 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url }
       format.json { head :no_content }
     end
+  end
+
+  def get_next_page
+    if params[:order_by] == 'visualizations'
+      @questions = Question.analytics.order_by(:visualizations).page([:page]).(10)
+    elsif params[:order_by] == "upvotes"
+      @questions = Question.analytics.order_by(:upvotes.desc).page([:page]).per(10)
+    elsif params
+      @questions = Question.order_by(:created_at.desc).page(params[:page]).per(10)
+    end
+    render json: @questions
   end
 
 private

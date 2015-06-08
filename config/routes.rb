@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'questions#index'
-
+  get "questions/next_page", to: "questions#get_next_page"
   resources :questions, :users do
     member do
       post 'create_answer'
