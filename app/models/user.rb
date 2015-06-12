@@ -34,10 +34,10 @@ class User
   field :role,               type: String, default: ROLES.first
   field :city,               type: String
   field :state,              type: String
-  field :description         type: String
-  field :facebook            type: String
-  field :twitter             type: String
-  field :linkedin            type: String
+  field :description,         type: String
+  field :facebook,            type: String
+  field :twitter,             type: String
+  field :linkedin,            type: String
 
   # Student fields
   field :school_year,        type: String
