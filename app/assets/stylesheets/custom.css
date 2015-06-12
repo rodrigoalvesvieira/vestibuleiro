@@ -38,3 +38,7 @@
 	font-size: 26px;
 	margin-bottom: 0px;
 }
+
+#question_tags, #question_body{
+  width: 82%;
+}

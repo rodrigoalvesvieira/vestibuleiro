@@ -13,9 +13,6 @@
 						</form>
 
 					</li>
-					<li class="current_page_item">
-						<a href="ask_question.html">Tire sua dúvida</a>
-					</li>
 
 					<% if user_signed_in? %>
 
@@ -41,6 +38,10 @@
 					<li><%= link_to "Entrar", new_user_session_path %></li>
 
 					<% end %> 
+
+					<li class="current_page_item">
+						<%= link_to "Tire sua dúvida", new_question_path %>
+					</li>
 
 				</ul>
 			</nav>
