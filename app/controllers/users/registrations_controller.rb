@@ -9,8 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    puts "chegnado hein"
-
     super
   end
 
@@ -41,11 +39,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # You can put the params you want to permit in the empty array.
-  def configure_sign_up_params
-    devise_parameter_sanitizer.for(:registration) do |u|
-      u.permit(:name, :city, :state, :phone_number)
-    end
-  end
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.for(:registration) do |u|
+  #     u.permit(:name, :email, :school_year, :desired_course, :city, :state, :phone_number, :avatar, :description, :facebook, :twitter, :linkedin)
+  #   end
+  # end
 
   # You can put the params you want to permit in the empty array.
   # def configure_account_update_params

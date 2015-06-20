@@ -50,13 +50,13 @@
 
 						<br style="clear:both" />
 						<h3 style="margin-top: 20px; clear:both;"> Escolha seu tipo de cadastro: </h3>
-						
+
 						<div id="role-radios">
 							<label id="student-radio"> <%= radio_button_tag(:role, "student", checked = 'checked') %> <span> Sou um aluno </span> </label>
-							
+
 							<label id="teacher-radio">  <%= radio_button_tag(:role, "teacher") %> <span> Sou um professor </span> </label>
 						</div>
-						
+
 						<div id="student-fields">
 							<div class="row">
 									<div class="col-xs-8">
@@ -79,15 +79,14 @@
 								</div>
 								</div>
 						</div>
-						
+
 						<div id="teacher-fields">
-						
+
 							<p>
-										<label>Instituiçõe de Ensino</label>
-									    <div id="dynamicInput"></div>
+									<label>Instituiçõe de Ensino</label>
+								    <div id="dynamicInput"></div>
 
-									    <input style="margin-top: 10px;" type="button" class="button color small login-submit submit" value="Adicionar instituição de ensino" onclick="addInput('dynamicInput');" />
-
+								    <input style="margin-top: 10px;" type="button" class="button color small login-submit submit" value="Adicionar instituição de ensino" onclick="addInput('dynamicInput');" />
 								</p>
 								<p>
 									<label>Disciplinas lecionadas</label>
@@ -132,7 +131,7 @@
 									</div>
 
 								</p>
-						
+
 						</div>
 
 						</div>
@@ -170,9 +169,9 @@ function addInput(divName) {
 }
 
 $(document).ready(function(){
-	
+
 	addInput('dynamicInput');
-	
+
 	$("#role-radios input").on('change', function(event) {
       	if (this.value == 'student') {
             $("#student-fields").show();
@@ -183,7 +182,7 @@ $(document).ready(function(){
 			$("#student-fields").hide();
         }
     });
-	
+
 	$("#student-radio input").trigger("change");
 
 })

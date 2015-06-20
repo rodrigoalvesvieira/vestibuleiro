@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       end
     end
   end
-  
+
   def sort_teachers
     @teachers =  Array.new
     @users = User.all
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       if user.role == "teacher"
         @teachers << user
       end
-    end 
+    end
 
     @sorted_teachers = @teachers.sort {|a,b| a.evaluate_teacher <=> b.evaluate_teacher}
     @sorted_teachers.reverse
@@ -41,6 +41,6 @@ class UsersController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :school_year, :desired_course, :city, :avatar, :description, :facebook, :twitter, :linkedin)
+      params.require(:user).permit(:name, :email, :school_year, :current_school, :desired_course, :city, :state, :phone_number, :avatar, :description, :facebook, :twitter, :linkedin)
     end
 end
