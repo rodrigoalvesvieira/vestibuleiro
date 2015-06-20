@@ -1,18 +1,55 @@
-<div class="bs-component col-md-8 trip-form">
-  <%= form_for(@question, html: { class: "form-horizontal" }) do |f| %>
+<%= form_for(@question, html: { class: "form-horizontal" }) do |f| %>
 
-    <div class="form-group">
-      <%= f.label :body %><br>
+<div class="form-inputs clearfix">
+  <p>
+    <label class="required">Título<span>*</span></label>
+    <input type="text" id="question-title">
+    <span class="form-description">Escolha um título apropriado para sua pergunta, de modo que facilite as repostas.</span>
+  </p>
 
-      <div class="col-lg-10">
-        <%= f.text_area :body, rows: 12, class: "form-control" %>
-      </div>
+  <p>
+    <label>Tags</label>
+    <input type="text" class="input" name="question_tags" id="question_tags" data-seperator=",">
+    <span class="form-description">Escolha as palavras-chave da sua pergunta Ex : <span class="color">#FísicaElétrica</span> .</span>
+  </p>
+  <p>
+    <label class="required">Matéria<span>*</span></label>
+    <span class="styled-select">
+      <select>
+        <option value="">Selecione a categoria</option>
+        <option value="1">Português</option>
+        <option value="2">Matemática</option>
+        <option value="3">Física</option>
+        <option value="4">Química</option>
+        <option value="5">História</option>
+        <option value="6">Geografia</option>
+        <option value="7">Biologia</option>
+      </select>
+    </span>
+    <span class="form-description">Selecione a seção correta da sua pergunta para que possa ser facilmente encontrada.</span>
+  </p>
+
+  <div class="clearfix"></div>
+
+  <label>Anexo</label>
+  <div class="fileinputs">
+    <input type="file" class="file">
+    <div class="fakefile">
+      <button type="button" class="button small margin_0">Selecione o arquivo</button>
+      <span><i class="icon-arrow-up"></i>Browse</span>
     </div>
+  </div>
 
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <%= f.submit class: "btn btn-success" %>
-      </div>
-    </div>
-  <% end %>
+
+  <p>
+    <label class="required"> Conteúdo<span>*</span></label>
+    <%= f.text_area :body, rows: 7, id: "question_body" %>
+    <span class="form-description">Escreva a sua dúvida</span>
+  </p>
+
 </div>
+
+<p class="form-submit">
+  <input type="submit" id="publish-question" value="Publique sua pergunta" class="button color small submit">
+</p>
+<% end %>
