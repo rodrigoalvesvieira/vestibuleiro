@@ -16,6 +16,8 @@ class Question
   embeds_many :answers
   embeds_many :tags
   embeds_many :comments
+  embedded_in :user
+  
 
   embeds_one :analytics, class_name: "Analytics"
 

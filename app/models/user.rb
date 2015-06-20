@@ -87,6 +87,8 @@ class User
   embeds_many :questions
   embeds_many :answers
 
+  
+
   ## Callbacks
   before_create :setup_nickname
 

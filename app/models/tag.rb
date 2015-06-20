@@ -10,6 +10,7 @@ class Tag
 
   ## Relationships
   embedded_in :discipline
+  embedded_in :user
   ## Callbacks
   before_save :format_tag_name
 
