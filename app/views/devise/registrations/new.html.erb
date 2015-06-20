@@ -48,8 +48,92 @@
 								<%= f.password_field :password_confirmation, autocomplete: "off" %>
 							</p>
 
+						<br style="clear:both" />
+						<h3 style="margin-top: 20px; clear:both;"> Escolha seu tipo de cadastro: </h3>
+						
+						<div id="role-radios">
+							<label id="student-radio"> <%= radio_button_tag(:role, "student", checked = 'checked') %> <span> Sou um aluno </span> </label>
 							
+							<label id="teacher-radio">  <%= radio_button_tag(:role, "teacher") %> <span> Sou um professor </span> </label>
+						</div>
+						
+						<div id="student-fields">
+							<div class="row">
+									<div class="col-xs-8">
+										<p style="width: 100%;">
+											<label>Curso desejado</label>
+											<%= f.text_field :desired_course, autofocus: true %>
+										</p>
+									</div>
+									<div class="col-xs-4">
+										<p  style="width: 100%;">
+											<label style="text-align: left;" >Ano</label>
+											<%= f.text_field :school_year, autofocus: true %>
+										</p>
+									</div>
+									<div class="col-xs-12">
+								<p  style="width: 100%;">
+									<label>Colégio</label>
+									<%= f.text_field :current_school, autofocus: true %>
+								</p>
+								</div>
+								</div>
+						</div>
+						
+						<div id="teacher-fields">
+						
+							<p>
+										<label>Instituiçõe de Ensino</label>
+									    <div id="dynamicInput"></div>
 
+									    <input style="margin-top: 10px;" type="button" class="button color small login-submit submit" value="Adicionar instituição de ensino" onclick="addInput('dynamicInput');" />
+
+								</p>
+								<p>
+									<label>Disciplinas lecionadas</label>
+									<div class="row">
+		  								 <div class="col-xs-3" >
+									      <label><input type="checkbox" value="">Matemática</label>
+									    </div>
+									    <div class="col-xs-3">
+									      <label><input type="checkbox" value="">Português</label>
+									    </div>
+									    <div class="col-xs-3" >
+									      <label><input type="checkbox" value="" >Física</label>
+									    </div>
+									    <div class="col-xs-3" >
+									      <label><input type="checkbox" value="" >Química</label>
+									    </div>
+									    <div class="col-xs-3" >
+									      <label><input type="checkbox" value="" >Inglês</label>
+									    </div>
+									    <div class="col-xs-3" >
+									      <label><input type="checkbox" value="" >Biologia</label>
+									    </div>
+									    <div class="col-xs-3" >
+									      <label><input type="checkbox" value="" >Geografia</label>
+									    </div>
+									    <div class="col-xs-3" >
+									      <label><input type="checkbox" value="" >Sociologia</label>
+									    </div>
+									    <div class="col-xs-3" >
+									      <label><input type="checkbox" value="" >Redação</label>
+									    </div>
+									    <div class="col-xs-3" >
+									      <label><input type="checkbox" value="" >História</label>
+									    </div>
+									    <div class="col-xs-3" >
+									      <label><input type="checkbox" value="" >Literatura</label>
+									    </div>
+									    <div class="col-xs-3" >
+									      <label><input type="checkbox" value="" >Espanhol</label>
+									    </div>
+
+									</div>
+
+								</p>
+						
+						</div>
 
 						</div>
 						<p class="form-submit">
@@ -69,3 +153,39 @@
 		</aside><!-- End sidebar -->
 	</div><!-- End row -->
 </section><!-- End container -->
+
+<script type="text/javascript">
+
+function addInput(divName) {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('id', 'inputInstituicao');
+    input.setAttribute('placeholder', 'Adicione a instituição de ensino');
+    var remove = document.createElement('span');
+    remove.setAttribute('class', 'glyphicon glyphicon-remove');
+
+    document.getElementById(divName).appendChild(input);
+    input.appendChild(remove);
+
+}
+
+$(document).ready(function(){
+	
+	addInput('dynamicInput');
+	
+	$("#role-radios input").on('change', function(event) {
+      	if (this.value == 'student') {
+            $("#student-fields").show();
+			$("#teacher-fields").hide();
+        }
+        else if (this.value == 'teacher') {
+            $("#teacher-fields").show();
+			$("#student-fields").hide();
+        }
+    });
+	
+	$("#student-radio input").trigger("change");
+
+})
+
+</script>

@@ -42,3 +42,38 @@
 #question_tags, #question_body{
   width: 82%;
 }
+
+#role-radios{
+  margin-top: 0px;
+}
+
+#role-radios label {
+    display: inline-block;
+    width:49%;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    text-align: center;
+    color:#333;
+}
+
+#role-radios label span {
+    text-align:center;
+    font-size: 18px;
+    display:block;
+    padding: 15px;
+}
+
+#role-radios label input {
+    position:absolute;
+    opacity: 0;
+}
+
+#role-radios input:checked + span{
+    background-color:#fdb655;
+    color:#F7F7F7;
+    border:1px solid #fdb655;
+}
+
+#student-fields, #teacher-fields{
+  margin-top: 10px;
+}
