@@ -22,6 +22,13 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
+  resources :users do
+    member do
+      get 'ranking'
+    end
+  end
+
+
   devise_for :users, path: "", controllers: devise_controllers, path_names: { sign_in: 'login', password: 'forgot', confirmation: 'confirm', unlock: 'unblock', sign_up: 'signup', sign_out: 'signout'}
 
   get 'sobre' => 'home#about', as: :about
