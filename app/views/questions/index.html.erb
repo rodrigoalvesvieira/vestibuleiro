@@ -4,24 +4,37 @@
   <%= render "shared/welcome" %>
 <% end %>
 
-<div class="container body-container">
-  <ul class="nav nav-tabs" id="feed-tabs">
-    <li role="presentation" class="active"><a data-tab="last-published" href="#">Últimas Feitas</a></li>
-    <li role="presentation"><a data-tab="popular" href="#">Mais Votadas</a></li>
-    <li role="presentation"><a data-tab="most_viewed" href="#">Mais Vizualizadas</a></li>
-  </ul>
-
+<section class="container main-content">
   <div class="row">
+    <div class="col-md-9">
+      <div class="tabs-warp question-tab">
+        <%= render "shared/tabs" %>
 
-    <%= render "last_published_section", questions: @last_questions %>
-    <%= render "popular_section", questions: @upvotes_questions  %>
-    <%= render "most_viewed_section", questions: @visualizations_questions  %>
+        <div class="tab-inner-warp" style="display: block;">
 
-    <div class="col-md-4">
-      <br/>
-      <br/>
-
-      <%= render "shared/sidebar" %>
+        <%= render "last_published_section", questions: @last_questions %>
+        <%= render "popular_section", questions: @upvotes_questions  %>
+        <%= render "most_viewed_section", questions: @visualizations_questions  %>
+				</div>
+      </div>
     </div>
+
+    <aside class="col-md-3 sidebar">
+      <div class="widget">
+					<h3 class="widget_title">Questões Recentes</h3>
+					<ul class="related-posts">
+						<li class="related-item">
+							<h3><a href="#">Qual a temperatura do Sol?</a></h3>
+							<p>Alguns dizem que tem temperatura infinita</p>
+							<div class="clear"></div><span>22 Fev, 2014</span>
+						</li>
+						<li class="related-item">
+							<h3><a href="#">Fórmula da acelaração?</a></h3>
+							<p>Ainda não aprendi, mas queria adiantar o assunto em casa.</p>
+							<div class="clear"></div><span>21 Fev, 2014</span>
+						</li>
+					</ul>
+				</div>
+    </aside>
   </div>
 </section>
