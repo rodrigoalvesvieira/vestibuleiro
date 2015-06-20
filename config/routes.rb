@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :disciplines
 
+  get "search", to: "questions#search", as: :search
+
   get "tags/search/:search_term", to: "disciplines#search_tag", method: :json
 
   devise_controllers = {

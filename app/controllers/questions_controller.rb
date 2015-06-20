@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :update_analytics, :destroy, :create_answer]
-  before_filter :authenticate_user!, except: [:index, :show, :new, :update_analytics]
+  before_filter :authenticate_user!, except: [:index, :show, :new, :update_analytics, :search]
 
   # GET /questions
   def index
