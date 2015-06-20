@@ -5,7 +5,7 @@
 <html>
 <head>
   <title>Vestibuleiro</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <link rel='stylesheet' href='/assets/bower/textAngular/src/textAngular.css'>
 
   <script type="text/javascript" src="/assets/bower/angular/angular.min.js"></script>
@@ -32,7 +32,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-ng-app="Vestibuleiro">
 
   <div id="wrap" class="grid_1200">
     <%= render "shared/header" %>

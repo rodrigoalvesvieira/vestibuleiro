@@ -1,0 +1,23 @@
+<div class="section-warp ask-me">
+	<div class="container clearfix">
+		<div class="box_icon box_warp box_no_border box_no_background" box_border="transparent" box_background="transparent" box_color="#FFF" style="border-color: transparent; color: rgb(255, 255, 255); background-color: transparent;">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 id="home-title">Tem alguma dúvida?</h2>
+					<p id="home-caller">Faça sua pergunta no Vestibuleiro e receba rapidamente várias respostas de professores qualificados.</p>
+					<div class="clearfix"></div>
+					<%= link_to "Saiba mais", about_path, class: "color button dark_button medium" %>
+					<%= link_to "Registre-se", new_user_registration_path, class: "color button dark_button medium" %>
+					<div class="clearfix"></div>
+					<form class="form-style form-style-2">
+						<p>
+							<input type="text" id="question_title" value="Escreva aqui a sua dúvida" onfocus="if(this.value=='Escreva aqui a sua dúvida')this.value='';" onblur="if(this.value=='')this.value='Escreva aqui sua dúvida';">
+							<i class="icon-pencil"></i>
+							<span class="color button small publish-question">Pergunte</span>
+						</p>
+					</form>
+				</div>
+			</div><!-- End row -->
+		</div><!-- End box_icon -->
+	</div><!-- End container -->
+</div>

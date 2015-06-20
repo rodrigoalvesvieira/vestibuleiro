@@ -1,4 +1,10 @@
-<div class="container body-container" data-ng-controller="QuestionsController">
+<script type="text/javascript" src="/assets/controllers/questionsController.js"></script>
+
+<% unless user_signed_in? %>
+  <%= render "shared/welcome" %>
+<% end %>
+
+<div class="container body-container">
   <ul class="nav nav-tabs" id="feed-tabs">
     <li role="presentation" class="active"><a data-tab="last-published" href="#">Últimas Feitas</a></li>
     <li role="presentation"><a data-tab="popular" href="#">Mais Votadas</a></li>
@@ -19,12 +25,3 @@
     </div>
   </div>
 </section>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#feed-tabs li a").click(function () {
-      $(this).parent("li").addClass("active");
-      var tabId = $(this).data("tab");
-    });
-  });
-</script>
