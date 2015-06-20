@@ -56,136 +56,37 @@
                   <% end %>
                 </ul>
               </div>
-              <!--
-              <p>Me encontro no 2º ano do ensino médio e ainda tenho dúvidas à respeito do curso que pretendo fazer, mas provavelmente será algo na área de exatas e por influência dos meus pais, provavelmente será Ciência da Computação. Sou apaixonado por matemática e física, acredito que nada melhor do que os números para explicar as coisas, mas também acredito muito nas ciências humanas. </p>
-              -->
               <div class="clearfix"></div>
-              <!--
-              <span class="user-follow-me">Contato: </span>
-              <a href="#" original-title="Facebook" class="tooltip-n">
-                <span class="icon_i">
-                  <span class="icon_square" icon_size="30" span_bg="#3b5997" span_hover="#2f3239">
-                    <i class="social_icon-facebook"></i>
-                  </span>
-                </span>
-              </a>
-              <a href="#" original-title="Twitter" class="tooltip-n">
-                <span class="icon_i">
-                  <span class="icon_square" icon_size="30" span_bg="#00baf0" span_hover="#2f3239">
-                    <i class="social_icon-twitter"></i>
-                  </span>
-                </span>
-              </a>
-              <a href="#" original-title="Linkedin" class="tooltip-n">
-                <span class="icon_i">
-                  <span class="icon_square" icon_size="30" span_bg="#006599" span_hover="#2f3239">
-                    <i class="social_icon-linkedin"></i>
-                  </span>
-                </span>
-              </a>
-              <a href="#" original-title="Google plus" class="tooltip-n">
-                <span class="icon_i">
-                  <span class="icon_square" icon_size="30" span_bg="#c43c2c" span_hover="#2f3239">
-                    <i class="social_icon-gplus"></i>
-                  </span>
-                </span>
-              </a>
-              <a href="#" original-title="Email" class="tooltip-n">
-                <span class="icon_i">
-                  <span class="icon_square" icon_size="30" span_bg="#000" span_hover="#2f3239">
-                    <i class="social_icon-email"></i>
-                  </span>
-                </span>
-              </a>
-            -->
+ 
             </div><!-- End page-content -->
           </div><!-- End col-md-12 -->
           <div class="col-md-12">
             <div class="page-content page-content-user-profile">
               <div class="user-profile-widget">
                 <h2>Status do usuário</h2>
-                <div class="ul_list ul_list-icon-ok">
-                  <ul>
-                    <li><i class="icon-question-sign"></i><a href="user_questions.html">Questões criadas<span>: <span><%= user.questions.count %></span> </span></a></li>
-                    <li><i class="icon-comment"></i><a href="user_answers.html">Questões respondidas<span>: <span><%= user.answers.count %></span> </span></a></li>
-                    <!--
-                    <li><i class="icon-heart"></i><a href="user_points.html">Ranking: <span> <span>378º</span> </span></a></li>
-                    <li><i class="icon-asterisk"></i>Melhor resposta: <span> <span>5</span> </span></li>
-                    -->
-                  </ul>
-                </div>
-              </div><!-- End user-profile-widget -->
-            </div><!-- End page-content -->
-          </div><!-- End col-md-12 -->
-        </div><!-- End user-profile -->
+                    <div class="ul_list ul_list-icon-ok">
+                      <ul>
+                        <li><i class="icon-question-sign"></i>
+
+                          <% @user.questions.each do |question| %>
+                              <a ><%= link_to 'Questões criadas', question %><span>: <span><%= question.count %></span> </span></a>
+                          <% end %>
+
+                        </li>
+                        <li><i class="icon-comment"></i>
+                          <% @user.answers.each do |answer| %>
+                              <a ><%= link_to 'Questoes respondidas', answer %><span>: <span><%= answer.count %></span> </span></a>
+                          <% end %>
+                        </li>
+                      </ul>
+                    </div>
+                  </div><!-- End user-profile-widget -->
+                </div><!-- End page-content -->
+              </div><!-- End col-md-12 -->
+            </div><!-- End user-profile -->
+
       </div><!-- End row -->
-      <div class="clearfix"></div>
-
-    <!--
-      <div id="atividadesRecentes" class="page-content page-content-user">
-        <style>
-          #resposta {
-            font-size: 17px;
-          }
-        </style>
-        <div class="user-questions">
-          <article class="question user-question">
-            <h3 style="margin-bottom: 0px; text-align: center;">
-              <a  style="font-weight: bold;" href="#">Atividades recentes</a>
-            </h3>
-
-          </article>
-          <article class="question user-question">
-            <h3>
-              <a id="resposta" href="single_question.html">Como se acha a área do triângulo inscrito?</a>
-            </h3>
-            <div class="question-type-main"><i class="icon-question-sign"></i>Questão</div>
-            <div class="question-content">
-              <div class="question-bottom">
-                <div class="question-answered"><i class="icon-ok"></i>Em progresso</div>
-                <span class="question-favorite"><i class="icon-star-empty"></i>2</span>
-
-                <span class="question-date"><i class="icon-time"></i>1 hora atrás</span>
-                <span class="question-comment"><a href="#"><i class="icon-comment"></i>5 respostas</a></span>
-                <span class="question-view"><i class="icon-user"></i>26 visualizações</span>
-              </div>
-            </div>
-          </article>
-          <article class="question user-question">
-            <h3>
-              <a id="resposta" href="single_question.html">...Eu acho que não é possível aplicar esta fórmula... </a>
-            </h3>
-            <div class="question-type-main"><i class="icon-info-sign"></i>Resposta</div>
-            <div class="question-content">
-              <div class="question-bottom">
-                <span class="question-favorite"><i class="icon-star-empty"></i>0</span>
-
-                <span class="question-date"><i class="icon-time"></i>2 hora atrás</span>
-                <span class="question-comment"><a href="#"><i class="icon-comment"></i>2 respostas</a></span>
-              </div>
-            </div>
-          </article>
-          <article class="question user-question">
-            <h3>
-              <a id="resposta" href="single_question.html">Como se deduz a fórmula atração de dois corpos estáticos?</a>
-            </h3>
-            <div class="question-type-main"><i class="icon-question-sign"></i>Resposta</div>
-            <div class="question-content">
-              <div class="question-bottom">
-                <div class="question-answered question-answered-done"><i class="icon-ok"></i>Resolvida</div>
-                <span class="question-favorite"><i class="icon-star-empty"></i>2</span>
-
-                <span class="question-date"><i class="icon-time"></i>2 dias atrás</span>
-                <span class="question-comment"><a href="#"><i class="icon-comment"></i>5 respostas</a></span>
-                <span class="question-view"><i class="icon-user"></i>26 visualizações</span>
-              </div>
-            </div>
-          </article>
-
-
-        </div>
-      </div>
-    -->
+      
     </div><!-- End main -->
     <aside class="col-md-3 sidebar">
 
@@ -210,8 +111,7 @@
         <a href="#">Química</a>
         -->
       </div>
-
-
     </aside><!-- End sidebar -->
+
   </div><!-- End row -->
 </section><!-- End container -->
