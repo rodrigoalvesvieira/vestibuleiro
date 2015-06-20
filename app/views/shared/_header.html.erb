@@ -1,17 +1,16 @@
 <header id="header">
 	<section class="container clearfix">
-		<div class="logo" >
-			<%= link_to t("app_name"), root_path, class: "navbar-brand", style: "margin-top:15px" %>
-		</div>
 
 		<nav class="navigation">
-
 			<ul>
-				<li style="margin-left: 20px">
-					<form>
-						<input type="text" placeholder="Procurar" style="width: 540px"  />
-					</form>
+				<div class="logo" >
+					<%= link_to t("app_name"), root_path, class: "navbar-brand", style: "margin-top:15px" %>
+				</div>
 
+				<li style="margin-left: 20px">
+					<%= form_tag search_path, method: :get do %>
+					  <%= text_field_tag :search_term, nil, placeholder: "Procurar", style: "width: 440px" %>
+					<% end %>
 				</li>
 
 				<% if user_signed_in? %>
@@ -19,7 +18,7 @@
 				<li id="hide-chevron" style="margin-left: 8px"><a href="index.html">2 <i class="icon-bell-alt"></i></a>
 					<ul>
 						<li><a href="index.html">Sua dúvida sobre Física foi respondida:</a></li>
-						
+
 						<li><a href="index_boxed_1.html">Sair</a></li>
 					</ul>
 				</li>
@@ -37,7 +36,7 @@
 				<li><%= link_to "Registre-se", new_user_registration_path %></li>
 				<li><%= link_to "Entrar", new_user_session_path %></li>
 
-				<% end %> 
+				<% end %>
 
 				<li class="current_page_item">
 					<%= link_to "Tire sua dúvida", new_question_path %>
