@@ -58,10 +58,10 @@ class User
   embeds_many :answers
 
   ## Callbacks
-  after_create :setup_nickname
+  before_create :setup_nickname
 
   ## Validations
-  validates :nickname, uniqueness: true
+  validates :email, uniqueness: true
   validates_attachment_content_type :avatar, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   ## Confirmable
@@ -76,6 +76,7 @@ class User
   # field :locked_at,       type: Time
 private
   def setup_nickname
+    self.nickname = self.email.partition('@').first
   end
 end
 
