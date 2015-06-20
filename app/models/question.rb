@@ -3,10 +3,13 @@ class Question
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  ## Constants
+  STATUSES = ["open", "answered"]
+
   ## Fields
   field :body,        type: String
-
   field :published,   type: Boolean, default: true
+  field :status,      type: String, default: STATUSES.first
 
   ## Relationships
   belongs_to :user
@@ -22,6 +25,7 @@ class Question
   before_create :setup_analytics
 
   ## Validations
+  validates_inclusion_of :status, in: STATUSES
 
   ## Extras
   searchkick
