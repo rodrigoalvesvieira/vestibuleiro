@@ -1,34 +1,71 @@
-<h2>Sign up</h2>
+<div class="breadcrumbs">
+	<section class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Cadastro</h1>
+			</div>
+			<div class="col-md-12">
+				<div class="crumbs">
+					<a href="#">Home</a>
+					<span class="crumbs-span">/</span>
+					<span class="current">Cadastro</span>
+				</div>
+			</div>
+		</div><!-- End row -->
+	</section><!-- End container -->
+</div><!-- End breadcrumbs -->
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<section class="container main-content">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="page-content">
+				<div class="boxedtitle page-title"><h2>Cadastro </h2></div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+				<div class="form-style form-style-4">
+					<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+						<div class="form-inputs clearfix">
+							<p>
+								<%= f.label :name %>
+								<%= f.text_field :name, autofocus: true %>
+							</p>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+							<p>
+								<%= f.label :email %>
+								<%= f.text_field :email, autofocus: true %>
+							</p>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+							<p>
+								<%= f.label :password, style:"display:inline" %>
+                   <% if @validatable %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                   <% end %>
+								<%= f.password_field :password, autocomplete: "off" %>
+							</p>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+							<p>
+								<%= f.label :password_confirmation %>
+								<%= f.password_field :password_confirmation, autocomplete: "off" %>
+							</p>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+							
 
-<%= render "devise/shared/links" %>
+
+						</div>
+						<p class="form-submit">
+							<input type="submit" value="Registrar" class="button color small login-submit submit">
+						</p>
+					<% end %>
+				</div>
+			</div><!-- End page-content -->
+		</div><!-- End main -->
+		<aside class="col-md-3 sidebar">
+
+			<div class="widget">
+				<h3 class="widget_title">Precisa de ajuda?</h3>
+				<p>Leia a nossa seção de <a href="#">Perguntas Mais Frequentes</a> caso possua alguma dúvida sobre a plataforma.</p>
+			</div>
+
+		</aside><!-- End sidebar -->
+	</div><!-- End row -->
+</section><!-- End container -->
