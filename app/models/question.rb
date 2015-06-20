@@ -3,10 +3,13 @@ class Question
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  ## Constants
+  STATUSES = ["open", "answered"]
+
   ## Fields
   field :body,        type: String
-
   field :published,   type: Boolean, default: true
+  field :status,      type: String, default: STATUSES.first
 
   ## Relationships
   belongs_to :user
@@ -14,13 +17,15 @@ class Question
   embeds_many :tags
   embeds_many :comments
 
-  embeds_one :analytics
+  embeds_one :analytics, class_name: "Analytics"
 
   accepts_nested_attributes_for :answers
 
   ## Callbacks
+  before_create :setup_analytics
 
   ## Validations
+  validates_inclusion_of :status, in: STATUSES
 
   ## Extras
   searchkick
@@ -43,5 +48,11 @@ class Question
       term = /.*#{search_term}.*/i
       result = Set.new Question.find(term)
     end
+  end
+
+private
+
+  def setup_analytics
+    self.build_analytics
   end
 end
