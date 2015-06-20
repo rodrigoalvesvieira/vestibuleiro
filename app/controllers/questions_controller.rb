@@ -8,6 +8,9 @@ class QuestionsController < ApplicationController
     @upvotes_questions = Question.order_by(:created_at.desc).page(1).per(10) #Question.analytics.order_by(:upvotes.desc).page(1).per(10)
     @visualizations_questions = Question.order_by(:created_at.desc).page(1).per(10) #Question.analytics.order_by(:visualizations).page(1).(10)
 
+  #  puts "aqui ------------------------------------------>"
+  #  puts @last_questions.to_a
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }

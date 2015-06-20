@@ -1,4 +1,13 @@
-app.controllers.controller('QuestionsController', ['$scope', '$location', '$resource', '$http', 'QuestionService', function($scope, $location, $resource, $http, TripsService) {
+app.controller('QuestionsController', ['$scope', function($scope) {
+  $scope.currentTab = 1;
 
-    $scope.questions = QuestionService.getQuestions();
+  $scope.selectTab = function(setTab){
+
+    $scope.currentTab = setTab;
+    
+  };
+
+  $scope.isSelected = function(checkTab){
+    return $scope.currentTab === checkTab;
+  }
 }]);
