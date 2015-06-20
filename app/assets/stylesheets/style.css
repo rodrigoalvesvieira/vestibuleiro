@@ -324,11 +324,22 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	display: none;
 	overflow: hidden;
 }
-.navigation ul > li ul li {
+.navigation ul > li ul li {       /* notificacoes */
 	position: relative;
 	float: none;
 	line-height: 35px;
-	height: 35px;
+	height: 50px; margin-top: 5px; margin-bottom: 5px;
+}
+
+.navigation ul > li ul li a img{       /* notificacoes */
+	margin-right: 10px;
+	margin-left: -5px;
+	width: 50px; height: 50px;
+
+}
+
+.navigation ul > li ul li p{       /* notificacoes */
+	padding-top: 12px;
 }
 .menu-nav-arrow {
 	margin-left: 5px;

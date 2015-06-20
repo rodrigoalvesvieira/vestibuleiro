@@ -16,18 +16,30 @@
 				<% if user_signed_in? %>
 
 				<li id="hide-chevron" style="margin-left: 8px"><a href="index.html">2 <i class="icon-bell-alt"></i></a>
-					<ul>
-						<li><a href="index.html">Sua dúvida sobre Física foi respondida:</a></li>
+					<ul style="width: 400px">
+						<li><a href="index.html" ><img  class="img-circle" src="http://lorempixel.com/60/60/people/" alt="admin">Sua dúvida sobre Física foi respondida.</a></li>
+							<li><a href="index.html" ><img  class="img-circle" src="http://lorempixel.com/60/60/people/" alt="admin">Sua dúvida sobre Matemática foi respondida.</a></li>
+							<li><a href="index_2.html"><img class="img-circle" src="http://lorempixel.com/60/60/people/" alt="admin">Sua dúvida sobre Química foi respondida.</a></li>
 
-						<li><a href="index_boxed_1.html">Sair</a></li>
 					</ul>
 				</li>
 
 				<li><a href="index.html"><%= current_user.name %></a>
 					<ul>
-						<li><%= link_to "Perfil", user_path(current_user) %></li>
-						<li><%= link_to "Configurações", edit_user_path(current_user) %></li>
-						<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+						<li>
+							<%= link_to user_path(current_user) do %>
+								<p>Perfil</p>
+							<% end %>
+						</li>
+						<li><%= link_to edit_user_path(current_user) do %>
+									<p>Configurações</p>
+								<% end %>
+						</li>
+						<li><%= link_to destroy_user_session_path, method: :delete do %>
+									<p>Sair</p>
+								<% end %>
+						</li>
+
 					</ul>
 				</li>
 
