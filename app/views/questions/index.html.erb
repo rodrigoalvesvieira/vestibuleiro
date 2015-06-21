@@ -24,14 +24,19 @@
 					<h3 class="widget_title">Questões Recentes</h3>
 					<ul class="related-posts">
 						<li class="related-item">
-							<h3><a href="#">Qual a temperatura do Sol?</a></h3>
-							<p>Alguns dizem que tem temperatura infinita</p>
-							<div class="clear"></div><span>22 Fev, 2014</span>
+							<h3><a href="#"><%= @upvotes_questions.first.body %></a></h3>
+							<p><%= @upvotes_questions.first.body %></p>
+							<div class="clear"></div><span><%= @upvotes_questions.first.created_at.strftime("%d %b, %Y") %></span>
 						</li>
 						<li class="related-item">
-							<h3><a href="#">Fórmula da acelaração?</a></h3>
-							<p>Ainda não aprendi, mas queria adiantar o assunto em casa.</p>
-							<div class="clear"></div><span>21 Fev, 2014</span>
+							<h3><a href="#"><%= @upvotes_questions.second.body %></a></h3>
+							<p><%= @upvotes_questions.second.body %></p>
+							<div class="clear"></div><span><%= @upvotes_questions.second.created_at.strftime("%d %b, %Y") %></span>
+						</li>
+            <li class="related-item">
+							<h3><a href="#"><%= @upvotes_questions.third.body %></a></h3>
+							<p><%= @upvotes_questions.third.body %></p>
+							<div class="clear"></div><span><%= @upvotes_questions.third.created_at.strftime("%d %b, %Y") %></span>
 						</li>
 					</ul>
 				</div>
