@@ -79,9 +79,31 @@ private
   end
 end
 
+public
+  def ranking_user
+
+    val = self.questions.count * 10
+    val += self.answers.count * 15
+
+    self.answers.each do |answer|
+      if (answer.analytics.upvotes - answer.analytics.downvotes) >= 5
+        val += answer.analytics.upvotes + (answer.analytics.upvotes * 20)
+      end
+    end
+
+    self.questions.each do |question|
+      if (question.analytics.upvotes - question.analytics.downvotes) >= 5
+        val += question.analytics.upvotes + (question.analytics.upvotes * 10)
+      end
+    end
+
+    val += self.sign_in_count
+
+  end
+
 def evaluate_teacher
   val = self.answers.count * 20
-  self.answer.analytics.each do |analityc| 
+  self.answer.analytics.each do |analityc|
     val += (analityc.upvotes*5) - (analityc.downvotes*5)
     val += (analityc.favorites*10)
   end

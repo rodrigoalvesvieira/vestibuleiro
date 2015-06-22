@@ -1,0 +1,161 @@
+<div class="section-warp ask-me">
+		<div class="container clearfix">
+			<div class="box_icon box_warp box_no_border box_no_background" box_border="transparent" box_background="transparent" box_color="#FFF">
+				<div class="row">
+					<div class="col-md-12" style="padding-top: 0px">
+						<h2 id="home-title">Hall da fama</h2>
+						<p id="home-caller">Estes são os alunos que  mais respondem dúvidas no Vestibuleiro.</p>
+						<div class="clearfix"></div>
+					</div>
+				</div><!-- End row -->
+			</div><!-- End box_icon -->
+		</div><!-- End container -->
+	</div><!-- End section-warp -->
+
+	<section class="container main-content">
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="tabs-warp question-tab">
+		            <ul class="tabs">
+		                <li class="tab"><a href="#" class="current">Geral</a></li>
+										<% @disciplines.each do |discipline| %>
+											<li class="tab">
+												<a href="#">
+													<%= discipline.name %>
+												</a>
+											</li>
+										<% end %>
+		                <!--<li class="tab"><a href="#">Física</a></li>
+		                <li class="tab"><a href="#">Inglês</a></li>
+		                <li class="tab"><a href="#">Português</a></li>
+		                <li class="tab"><a href="#">Redação</a></li>
+		                <li class="tab"><a href="#">Matemática</a></li>
+		                <li class="tab"><a href="#">Química</a></li>
+		                <li class="tab"><a href="#">Geografia</a></li>
+		                <li class="tab"><a href="#">História</a></li>-->
+		            </ul>
+
+					<% if @users.count > 0 %>
+		       <div class="tab-inner-warp">
+						<div class="tab-inner">
+							<% @users.each do |user| %>
+								<article class="question question-type-normal">
+									<div class="row">
+									<div class="col-md-1">
+										<div class="question-author ranking">
+											<a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+										</div>
+										<h4 class="ranking-points"> <%= user.ranking_user %> </h4>
+										<span style="text-align: center; display: block">pontos</span>
+									</div>
+									<div class="col-md-11">
+									<h2 style="margin-bottom: 0px; margin-left: 0px;">
+										<a href="single_question.html"> <%= user.name %> </a>
+									</h2>
+									<div class="question-inner" style=" margin-left: 0px;">
+										<div class="clearfix"></div>
+										<p class="question-desc" style="padding-bottom: 20px;"> <%= user.description %> </p>
+										<div class="question-details">
+											<span class="question-answered question-answered-done"><i class="icon-ok"></i>87 melhores respostas</span>
+											<span class="question-favorite">
+												<i class="icon-thumbs-up"></i>
+												1795 upvotes
+											</span>
+										</div>
+										<span class="question-category"><a href="#"><i class="icon-folder-close"></i>Mais ativo em Matemática</a></span>
+										<span class="question-comment"><a href="#"><i class="icon-comment"></i> <%= user.answers.count %> respostas</a></span>
+										<div class="clearfix"></div>
+									</div>
+									</div>
+									</div>
+								</article>
+							<% end %>
+							<!--<article class="question question-type-normal">
+								<div class="row">
+								<div class="col-md-1">
+									<div class="question-author ranking">
+										<a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+									</div>
+									<h4 class="ranking-points">3454</h4>
+									<span style="text-align: center; display: block">pontos</span>
+								</div>
+								<div class="col-md-11">
+								<h2 style="margin-bottom: 0px; margin-left: 0px;">
+									<a href="single_question.html">Ednaldo Ernesto</a>
+								</h2>
+								<div class="question-inner" style=" margin-left: 0px;">
+									<div class="clearfix"></div>
+									<p class="question-desc" style="padding-bottom: 20px;">Vamos jovens.</p>
+									<div class="question-details">
+										<span class="question-answered question-answered-done"><i class="icon-ok"></i>45 melhores respostas</span>
+										<span class="question-favorite"><i class="icon-thumbs-up"></i>1321 upvotes</span>
+									</div>
+									<span class="question-category"><a href="#"><i class="icon-folder-close"></i>Mais ativo em Matemática</a></span>
+									<span class="question-comment"><a href="#"><i class="icon-comment"></i>439 respostas</a></span>
+									<div class="clearfix"></div>
+								</div>
+								</div>
+								</div>
+							</article>
+							<article class="question question-type-normal">
+								<div class="row">
+								<div class="col-md-1">
+									<div class="question-author ranking">
+										<a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+									</div>
+									<h4 class="ranking-points">2543</h4>
+									<span style="text-align: center; display: block">pontos</span>
+								</div>
+								<div class="col-md-11">
+								<h2 style="margin-bottom: 0px; margin-left: 0px;">
+									<a href="single_question.html">Fabiano Nader</a>
+								</h2>
+								<div class="question-inner" style=" margin-left: 0px;">
+									<div class="clearfix"></div>
+									<p class="question-desc" style="padding-bottom: 20px;">Matemática. Ame-a ou deixe-a.</p>
+									<div class="question-details">
+										<span class="question-answered question-answered-done"><i class="icon-ok"></i>23 melhores respostas</span>
+										<span class="question-favorite"><i class="icon-thumbs-up"></i>432 upvotes</span>
+									</div>
+									<span class="question-category"><a href="#"><i class="icon-folder-close"></i>Mais ativo em Matemática</a></span>
+									<span class="question-comment"><a href="#"><i class="icon-comment"></i>123 respostas</a></span>
+									<div class="clearfix"></div>
+								</div>
+								</div>
+								</div>
+							</article>
+							<article class="question question-type-normal">
+								<div class="row">
+								<div class="col-md-1">
+									<div class="question-author ranking">
+										<a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+									</div>
+									<h4 class="ranking-points">754</h4>
+									<span style="text-align: center; display: block">pontos</span>
+								</div>
+								<div class="col-md-11">
+								<h2 style="margin-bottom: 0px; margin-left: 0px;">
+									<a href="single_question.html">Kenji</a>
+								</h2>
+								<div class="question-inner" style=" margin-left: 0px;">
+									<div class="clearfix"></div>
+									<p class="question-desc" style="padding-bottom: 20px;">Ensino a ciência mais bela da vida (Matemática) há 37 anos. Atualmente preparo alunos para o vestibular da UFPE (e CTG), UPE, FPS e UNINASSAU no cursinho Espaço Certo.  </p>
+									<div class="question-details">
+										<span class="question-answered question-answered-done"><i class="icon-ok"></i>12 melhores respostas</span>
+										<span class="question-favorite"><i class="icon-thumbs-up"></i>234 upvotes</span>
+									</div>
+									<span class="question-category"><a href="#"><i class="icon-folder-close"></i>Mais ativo em Física</a></span>
+									<span class="question-comment"><a href="#"><i class="icon-comment"></i>113 respostas</a></span>
+									<div class="clearfix"></div>
+								</div>
+								</div>
+								</div>
+							</article>-->
+						</div>
+		      </div><!-- End page-content -->
+					<% end %>
+				</div>
+			</div><!-- End main -->
+		</div><!-- End row -->
+	</section><!-- End container -->

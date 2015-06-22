@@ -11,6 +11,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def ranking
+    @disciplines = Discipline.all
+    @users = User.all
+
+    @users.to_a.sort { |user_first,user_second| (user_second.ranking_user) <=> (user_first.ranking_user) }
+  end
+
   def update
     @user = User.find(params[:id])
 
@@ -24,7 +31,7 @@ class UsersController < ApplicationController
       end
     end
   end
-  
+
   def sort_teachers
     @teachers =  Array.new
     @users = User.all
@@ -32,7 +39,7 @@ class UsersController < ApplicationController
       if user.role == "teacher"
         @teachers << user
       end
-    end 
+    end
 
     @sorted_teachers = @teachers.sort {|a,b| a.evaluate_teacher <=> b.evaluate_teacher}
     @sorted_teachers.reverse
