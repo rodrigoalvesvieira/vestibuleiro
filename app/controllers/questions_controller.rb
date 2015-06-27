@@ -45,10 +45,16 @@ class QuestionsController < ApplicationController
   # POST /questions
   def create
     if current_user
-      @question = current_user.questions.new(question_params)
+      #@question = current_user.questions.new(question_params)
+
+      @question = Question.new(question_params)
+      cond1 = @question.save
+
+      current_user.questions = current_user.questions + [@question]
+      cond2 = current_user.save
 
       respond_to do |format|
-        if @question.save
+        if cond1 && cond2 
           format.html { redirect_to @question, notice: 'Question was successfully created.' }
           format.json { render json: @question, status: :created }
         else
@@ -64,12 +70,16 @@ class QuestionsController < ApplicationController
 
   def create_answer
     answer = @question.answers.new body: params[:answer][:body]
-    answer.save
+    cond1 = answer.save
     
     current_user.answers = current_user.answers+[answer]
-    current_user.save
+    cond2 = current_user.save
 
-    redirect_to @question
+    if cond1 && cond2
+      redirect_to @question
+    else
+      # TODO: Notify the user that the operation has not been successful.
+    end  
   end
 
   def create_question_comment
