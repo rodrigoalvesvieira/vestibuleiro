@@ -63,13 +63,13 @@ class QuestionsController < ApplicationController
   end
 
   def create_answer
-    answer = @Question.answers.new body: params[:answer][:body]
+    answer = @question.answers.new body: params[:answer][:body]
+    answer.save
+    
+    current_user.answers = current_user.answers+[answer]
+    current_user.save
 
-    if answer.save
-      redirect_to @question
-    else
-      # TODO: Notify the user that the operation has not been successful.
-    end
+    redirect_to @question
   end
 
   def create_question_comment
