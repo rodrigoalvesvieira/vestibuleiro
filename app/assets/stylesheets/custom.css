@@ -77,3 +77,8 @@
 #student-fields, #teacher-fields{
   margin-top: 10px;
 }
+
+#register-courses label{
+  font-weight: normal !important;
+  margin-bottom: 5px;
+}
