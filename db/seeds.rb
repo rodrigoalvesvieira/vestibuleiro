@@ -9,7 +9,7 @@ questions_file = File.open(File.expand_path("../" + questions_file_path, __FILE_
 
 raw_questions = JSON.parse questions_file.read
 
-models = [User]
+models = [Answer, Question, Tag, User]
 
 models.each { |model| model.destroy_all }
 
@@ -28,6 +28,12 @@ puts "Creating questions and answers..."
 
 raw_questions["questions"].each do |raw_question|
   question = users.first.questions.create body: raw_question["body"]
+
+  raw_question["answers"].each do |raw_answer|
+    answer = question.answers.new body: raw_answer["body"]
+    answer.save!
+  end
 end
 
 puts_colored "#{Question.count} questions created.\n"
+puts_colored "#{Answer.count} answers created.\n"

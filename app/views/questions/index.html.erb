@@ -23,16 +23,14 @@
       <div class="widget">
 					<h3 class="widget_title">Questões Recentes</h3>
 					<ul class="related-posts">
-						<li class="related-item">
-							<h3><a href="#">Qual a temperatura do Sol?</a></h3>
-							<p>Alguns dizem que tem temperatura infinita</p>
-							<div class="clear"></div><span>22 Fev, 2014</span>
-						</li>
-						<li class="related-item">
-							<h3><a href="#">Fórmula da acelaração?</a></h3>
-							<p>Ainda não aprendi, mas queria adiantar o assunto em casa.</p>
-							<div class="clear"></div><span>21 Fev, 2014</span>
-						</li>
+
+            <% @upvotes_questions.each do |question| %>
+              <li class="related-item">
+                <h3><%= link_to truncate(question.body, length: 40), question %></h3>
+                <p><%= truncate question.body, length: 40 %></p>
+                <div class="clear"></div><span><%= question.created_at.strftime("%d %b, %Y") %></span>
+              </li>
+            <% end %>
 					</ul>
 				</div>
     </aside>
