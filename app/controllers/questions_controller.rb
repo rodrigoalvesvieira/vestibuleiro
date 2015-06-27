@@ -70,8 +70,8 @@ class QuestionsController < ApplicationController
   end
 
   def create_answer
-    answer = @question.answers.new body: params[:title][:answer][:body]
-    answer.save
+    answer = @question.answers.new body: params[:answer][:body]
+    cond1 = answer.save
     
     current_user.answers = current_user.answers+[answer]
     cond2 = current_user.save
