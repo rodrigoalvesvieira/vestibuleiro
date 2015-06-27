@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
   <div class="col-md-8">
     <section class="col-md-1">
@@ -8,8 +6,8 @@
     <section class="question-content col-md-11">
       <p><%= @question.body %></p>
 
-      <%# @question.tags.each do |tag| %>
-      <%# end %>
+      <% @question.tags.each do |tag| %>
+      <% end %>
     </section>
 
     <section class="comments-question">
