@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def ranking
-    @disciplines = Discipline.all
     @users = User.all
 
     @users.to_a.sort { |user_first,user_second| (user_second.ranking_user) <=> (user_first.ranking_user) }
