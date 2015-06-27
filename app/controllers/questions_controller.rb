@@ -63,7 +63,7 @@ class QuestionsController < ApplicationController
   end
 
   def create_answer
-    answer = current_user.answers.new body: params[:answer][:body]
+    answer = @Question.answers.new body: params[:answer][:body]
 
     if answer.save
       redirect_to @question

@@ -68,15 +68,8 @@
                       <ul>
                         <li><i class="icon-question-sign"></i>
 
-                          <% @user.questions.each do |question| %>
-                              <a ><%= link_to 'Questões criadas', question %><span>: <span><%= question.count %></span> </span></a>
-                          <% end %>
+                          <%= link_to 'Questões criadas', @uquestions_path %><span>: <span><%= user.questions.count %>
 
-                        </li>
-                        <li><i class="icon-comment"></i>
-                          <% @user.answers.each do |answer| %>
-                              <a ><%= link_to 'Questoes respondidas', answer %><span>: <span><%= answer.count %></span> </span></a>
-                          <% end %>
                         </li>
                       </ul>
                     </div>
