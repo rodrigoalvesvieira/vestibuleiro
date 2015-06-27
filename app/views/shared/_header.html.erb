@@ -15,7 +15,11 @@
 
 				<% if user_signed_in? %>
 
-				<li id="hide-chevron" style="margin-left: 8px"><a href="index.html">2 <i class="icon-bell-alt"></i></a>
+				<li id="hide-chevron" style="margin-left: 8px">
+					<%= link_to notifications_path do %>
+						2 <i class="icon-bell-alt"></i></a>
+					<% end %>
+
 					<ul>
 						<li><a href="index.html">Sua dúvida sobre Física foi respondida:</a></li>
 
@@ -23,11 +27,11 @@
 					</ul>
 				</li>
 
-				<li><a href="index.html"><%= current_user.name %></a>
+				<li><%= link_to current_user.name, user_path(current_user) %></a>
 					<ul>
 						<li><%= link_to "Perfil", user_path(current_user) %></li>
 						<li><%= link_to "Configurações", edit_user_path(current_user) %></li>
-						<li><a href="index_boxed_1.html">Sair</a></li>
+						<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
 					</ul>
 				</li>
 

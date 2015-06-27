@@ -29,6 +29,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :name
+    devise_parameter_sanitizer.for(:sign_up) << [:name, :email, :school_year, :current_school, :desired_course, :city, :state, :phone_number, :avatar, :description, :facebook, :twitter, :linkedin]
   end
 end

@@ -1,0 +1,35 @@
+<div class="col-md-10">
+  <div class="page-content">
+
+    <div class="form-style form-style-3">
+      <%= form_for(@user, html: { class: "form-horizontal" }) do |f| %>
+        <div class="form-inputs clearfix">
+
+          <p class="login-text">
+             <%= f.text_field :name, class: "form-control", placeholder: "Nome" %>
+            <i class="icon-user"></i>
+          </p>
+
+          <p class="login-text">
+             <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+            <i class="icon-user"></i>
+          </p>
+
+          <p class="login-text">
+             <%= f.text_field :city, class: "form-control", placeholder: "Cidade" %>
+            <i class="icon-user"></i>
+          </p>
+
+          <p class="login-text">
+             <%= f.select :state, User::STATES.map { |state| state[:name] }, class: "form-control" %>
+          </p>
+        </div>
+
+        <p class="form-submit login-submit">
+          <%= f.submit "Salvar", class: "button color small login-submit submit" %>
+        </p>
+
+      <% end %>
+    </div>
+  </div><!-- End page-content -->
+</div><!-- End col-md-10 -->

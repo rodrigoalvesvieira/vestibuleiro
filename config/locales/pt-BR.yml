@@ -4,6 +4,9 @@ pt-BR:
   hello: "Hello world"
   search: "Buscar..."
   about: "Sobre"
+  statuses:
+    open: "Em progresso"
+    answered: "Finalizada"
   date:
     abbr_day_names:
     - Dom
