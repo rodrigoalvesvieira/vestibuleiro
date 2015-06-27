@@ -106,6 +106,7 @@ pt-BR:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      not_saved: Formulário não enviado
       accepted: deve ser aceito
       blank: não pode ficar em branco
       present: deve ficar em branco
