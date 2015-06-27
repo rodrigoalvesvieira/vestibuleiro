@@ -48,6 +48,7 @@ class QuestionsController < ApplicationController
       #@question = current_user.questions.new(question_params)
 
       @question = Question.new(question_params)
+      @question.user_id = current_user.id
       cond1 = @question.save
 
       current_user.questions = current_user.questions + [@question]
@@ -69,8 +70,8 @@ class QuestionsController < ApplicationController
   end
 
   def create_answer
-    answer = @question.answers.new body: params[:answer][:body]
-    cond1 = answer.save
+    answer = @question.answers.new body: params[:title][:answer][:body]
+    answer.save
     
     current_user.answers = current_user.answers+[answer]
     cond2 = current_user.save
@@ -133,6 +134,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
-    params.require(:question).permit(:body, :tags, :user_id, answer_attributes: [:body])
+    params.require(:question).permit(:title, :discipline, :body, :tags, :user_id, answer_attributes: [:body])
   end
 end

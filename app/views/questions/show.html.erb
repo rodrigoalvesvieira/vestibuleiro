@@ -1,61 +1,267 @@
-<div class="row">
-  <div class="col-md-8">
-    <section class="col-md-1">
-    </section>
 
-    <section class="question-content col-md-11">
-      <p><%= @question.body %></p>
+<div id="wrap" class="grid_1200">
 
-      <% @question.tags.each do |tag| %>
-      <% end %>
-    </section>
 
-    <section class="comments-question">
-      <% @question.comments.each do |comment| %>
-        <p><%= comment.body %></p>
-        <p><%= link_to comment.user.name, comment.user %></p>
-      <% end %>
-    </section>
 
-    <section class="answers-content">
-      <% @question.answers.each do |answer| %>
-        <article class="answer-component" id="answer-#{answer.id}">
-          <%= answer.body %>
+  <div class="breadcrumbs">
+    <section class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1><%= @question.title %></h1>
+        </div>
+        <div class="col-md-12">
+          <div class="crumbs">
+            <a href="#">Home</a>
+            <span class="crumbs-span">/</span>
+            <a href="#">Dúvidas</a>
+            <span class="crumbs-span">/</span>
+            <a href="#"><%= @question.discipline %></a>
+            <span class="crumbs-span">/</span>
+            <span class="current"><%= @question.title %></span>
+          </div>
+        </div>
+      </div><!-- End row -->
+    </section><!-- End container -->
+  </div><!-- End breadcrumbs -->
+
+  <section class="container main-content">
+    <div class="row">
+      <div class="col-md-9">
+        <article class="question single-question question-type-normal">
+          <h2 style="padding-right: 0px;">
+            <a href="single_question.html"><%= @question.title %></a>
+
+          </h2>
+
+          <div class="question-inner">
+            <div class="clearfix"></div>
+            <div class="question-desc">
+              <p><%= @question.body %></p>
+            </div>
+            <span class="question-view" style="margin-right: 20px"><i class="icon-user"></i>Perguntado por
+
+              
+            <strong><a href="#"><%= @question.user.name %></a></strong></span>
+            <span class="question-date"><i class="icon-time"></i>há 30 minutos</span>
+            <span class="single-question-vote-result">+22</span>
+            <ul class="single-question-vote">
+              <li><a href="#" class="single-question-vote-down" title="Dislike"><i class="icon-thumbs-down"></i></a></li>
+              <li><a href="#" class="single-question-vote-up" title="Like"><i class="icon-thumbs-up"></i></a></li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
         </article>
 
-        <section id="answer-comment=#{answer.id}">
-          <% answer.comments.each do |comment| %>
-            <p><%= comment.body %></p>
-            <p><%= link_to comment.user.name, comment.user %></p>
-          <% end %>
-        </section>
-      <% end %>
-    </section>
+        <h2 id="question-answers-title">Respostas para esta dúvida</h2>
 
-    <section class="new-answer-content">
-      <%= form_for(@new_answer, url: create_answer_question_path(@question), method: :post, html: { class: "form-horizontal" }) do |f| %>
-        <div class="form-group">
+        <div id="commentlist" class="page-content">
+          <br />
+          <div class="boxedtitle page-title"></div>
+          <ol class="commentlist clearfix">
+              <li class="comment">
+                  <div class="comment-body comment-body-answered clearfix">
+                      <div class="avatar"><img alt="" src="http://lorempixel.com/60/60/people/"></div>
+                      <div class="comment-text">
+                          <div class="author clearfix">
+                            <div class="comment-author"><a href="#">Carlos Japa</a></div>
+                            <div class="comment-vote">
+                              <ul class="question-vote">
+                                <li><a href="#" class="question-vote-up" title="Like"></a></li>
+                                <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
+                              </ul>
+                            </div>
+                            <span class="question-vote-result">+1</span>
+                            <div class="comment-meta">
+                                  <div class="date"><i class="icon-time"></i>15 de Janeiro de 2015 às 10:00</div>
+                              </div>
+                              <a class="comment-reply" href="#"><i class="icon-reply"></i>Responder</a>
+                          </div>
+                          <div class="text"><p>Representa o espaço percorrido pelo corpo descrito por aquela velocidade.</p>
+                          </div>
+                  <div class="question-answered question-answered-done"><i class="icon-ok"></i>Melhor resposta</div>
+                      </div>
+                  </div>
+                  <ul class="children">
+                      <li class="comment">
+                          <div class="comment-body clearfix">
+                            <div class="avatar"><img alt="" src="http://lorempixel.com/60/60/people/"></div>
+                              <div class="comment-text">
+                                  <div class="author clearfix">
+                                    <div class="comment-author"><a href="#">Pedro Machado</a></div>
+                                    <div class="comment-vote">
+                                        <ul class="question-vote">
+                                          <li><a href="#" class="question-vote-up" title="Like"></a></li>
+                                          <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
+                                        </ul>
+                                    </div>
+                                    <span class="question-vote-result">+1</span>
+                                    <div class="comment-meta">
+                                          <div class="date"><i class="icon-time"></i>15 de Janeiro de 2015 às 11:00</div>
+                                      </div>
+                                      <a class="comment-reply" href="#"><i class="icon-reply"></i>Responder</a>
+                                  </div>
+                                  <div class="text"><p>Note que para movimentos de aceleração variada é necessário fazer a integral da curva.</p>
+                                  </div>
+                              </div>
+                          </div>
 
-          <div class="col-lg-12">
-            <div class="row">
-              <div class="col-md-10">
-                <%= f.text_area :body, class: "form-control", placeholder: "Responda a pergunta..." %>
-              </div>
+                      </li>
+                      <li class="comment">
+                        <div class="comment-body clearfix">
+                                <div class="avatar"><img alt="" src="http://lorempixel.com/60/60/people/"></div>
+                                <div class="comment-text">
+                                    <div class="author clearfix">
+                                      <div class="comment-author"><a href="#">Marlon Reghert</a></div>
+                                      <div class="comment-vote">
+                                          <ul class="question-vote">
+                                            <li><a href="#" class="question-vote-up" title="Like"></a></li>
+                                            <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
+                                          </ul>
+                                      </div>
+                                      <span class="question-vote-result">-3</span>
+                                      <div class="comment-meta">
+                                            <div class="date"><i class="icon-time"></i>16 de Janeiro de 2015 às 15:00</div>
+                                        </div>
+                                        <a class="comment-reply" href="#"><i class="icon-reply"></i>Responder</a>
+                                    </div>
+                                    <div class="text"><p>Pode explicar melhor o motivo disso?</p>
+                                    </div>
+                                </div>
+                            </div>
+                      </li>
+                  </ul><!-- End children -->
+              </li>
 
-              <div class="col-md-2">
-                <%= f.submit "Responder", class: "btn btn-success" %>
+          </ol><!-- End commentlist -->
+        </div><!-- End page-content -->
+
+        <div id="commentlist" class="page-content">
+          <br />
+          <div class="boxedtitle page-title"></div>
+          <ol class="commentlist clearfix">
+              <li class="comment">
+                  <div class="comment-body comment-body-answered clearfix">
+                      <div class="avatar"><img alt="" src="http://lorempixel.com/60/60/people/"></div>
+                      <div class="comment-text">
+                          <div class="author clearfix">
+                            <div class="comment-author"><a href="#">Wendel Santos</a></div>
+                            <div class="comment-vote">
+                              <ul class="question-vote">
+                                <li><a href="#" class="question-vote-up" title="Like"></a></li>
+                                <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
+                              </ul>
+                            </div>
+                            <span class="question-vote-result">-9</span>
+                            <div class="comment-meta">
+                                  <div class="date"><i class="icon-time"></i>15 de Janeiro de 2015 às 11:00</div>
+                              </div>
+                              <a class="comment-reply" href="#"><i class="icon-reply"></i>Responder</a>
+                          </div>
+                          <div class="text"><p>Representa a aceleraçãõ do corpo descrito por aquela velocidade.</p>
+                          </div>
+                      </div>
+                  </div>
+
+              </li>
+
+          </ol><!-- End commentlist -->
+        </div><!-- End page-content -->
+
+        <div id="respond" class="comment-respond page-content clearfix">
+            <div class="boxedtitle page-title"><h2>Responder dúvida</h2></div>
+            <form action="" method="post" id="commentform" class="comment-form">
+
+                <div id="respond-textarea">
+                    <p>
+                        <label class="required" for="comment">Escreva aqui a sua resposta, você pode utilizar markdown para formatar seu texto.</label>
+                        <textarea id="comment" name="comment" aria-required="true" cols="58" rows="8"></textarea>
+                    </p>
+                </div>
+                <p class="form-submit">
+                  <input name="submit" type="submit" id="submit" value="Enviar resposta" class="button small color">
+                </p>
+            </form>
+        </div>
+
+        <div class="post-next-prev clearfix">
+            <p class="prev-post">
+                <a href="#"><i class="icon-double-angle-left"></i>&nbsp;Dúvida anterior</a>
+            </p>
+            <p class="next-post">
+                <a href="#">Próxima dúvida&nbsp;<i class="icon-double-angle-right"></i></a>
+            </p>
+        </div><!-- End post-next-prev -->
+
+
+      </div><!-- End main -->
+
+    </div><!-- End row -->
+  </section><!-- End container -->
+
+
+</div><!-- End wrap -->
+
+<div class="go-up"><i class="icon-chevron-up"></i></div>
+
+
+  <div class="row">
+    <div class="col-md-8">
+      <section class="col-md-1">
+      </section>
+
+      <section class="question-content col-md-11">
+        <p><%= @question.body %></p>
+
+        <% @question.tags.each do |tag| %>
+        <% end %>
+      </section>
+
+      <section class="comments-question">
+        <% @question.comments.each do |comment| %>
+          <p><%= comment.body %></p>
+          <p><%= link_to comment.user.name, comment.user %></p>
+        <% end %>
+      </section>
+
+      <section class="answers-content">
+        <% @question.answers.each do |answer| %>
+          <article class="answer-component" id="answer-#{answer.id}">
+            <%= answer.body %>
+          </article>
+
+          <section id="answer-comment=#{answer.id}">
+            <% answer.comments.each do |comment| %>
+              <p><%= comment.body %></p>
+              <p><%= link_to comment.user.name, comment.user %></p>
+            <% end %>
+          </section>
+        <% end %>
+      </section>
+
+      <section class="new-answer-content">
+        <%= form_for(@new_answer, url: create_answer_question_path(@question), method: :post, html: { class: "form-horizontal" }) do |f| %>
+          <div class="form-group">
+
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-md-10">
+                  <%= f.text_area :body, class: "form-control", placeholder: "Responda a pergunta..." %>
+                </div>
+
+                <div class="col-md-2">
+                  <%= f.submit "Responder", class: "btn btn-success" %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </section>
+        <% end %>
+      </section>
 
-  </div>
+    </div>
 
-  <div class="col-md-4">
-    <%= render "shared/sidebar" %>
+    <div class="col-md-4">
+      <%= render "shared/sidebar" %>
+    </div>
   </div>
-</div>
 
 <%= link_to 'Edit', edit_question_path(@question) %>

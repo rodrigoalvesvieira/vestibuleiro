@@ -7,6 +7,9 @@ class Question
   STATUSES = ["open", "answered"]
 
   ## Fields
+  field :discipline,   type: String, default: "Geral"  
+  
+  field :title,       type: String
   field :body,        type: String
   field :published,   type: Boolean, default: true
   field :status,      type: String, default: STATUSES.first

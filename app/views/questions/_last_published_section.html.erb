@@ -3,8 +3,9 @@
   <% questions.each do |question| %>
     <article class="question question-type-normal">
     	<h2>
-        <%= link_to truncate(question.body, length: 30), question %>
+        <%= link_to truncate(question.title, length: 30), question %>
     	</h2>
+        
     	<a class="question-report" href="#">Denunciar</a>
     	<div class="question-type-main"><i class="icon-question-sign"></i>Questão</div>
     	<div class="question-author">
