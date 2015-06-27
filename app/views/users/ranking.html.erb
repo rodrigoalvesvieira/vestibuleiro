@@ -50,13 +50,13 @@
 										<div class="clearfix"></div>
 										<p class="question-desc" style="padding-bottom: 20px;"> <%= user.description %> </p>
 										<div class="question-details">
-											<span class="question-answered question-answered-done"><i class="icon-ok"></i>87 melhores respostas</span>
+											<!--<span class="question-answered question-answered-done"><i class="icon-ok"></i>87 melhores respostas</span> -->
 											<span class="question-favorite">
 												<i class="icon-thumbs-up"></i>
-												1795 upvotes
+												<%= user.total_upvotes %> upvotes
 											</span>
 										</div>
-										<span class="question-category"><a href="#"><i class="icon-folder-close"></i>Mais ativo em Matemática</a></span>
+										<!-- <span class="question-category"><a href="#"><i class="icon-folder-close"></i>Mais ativo em Matemática</a></span> -->
 										<span class="question-comment"><a href="#"><i class="icon-comment"></i> <%= user.answers.count %> respostas</a></span>
 										<div class="clearfix"></div>
 									</div>
