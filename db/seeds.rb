@@ -9,7 +9,7 @@ questions_file = File.open(File.expand_path("../" + questions_file_path, __FILE_
 
 raw_questions = JSON.parse questions_file.read
 
-models = [User]
+models = [Answer, Question, Tag, User]
 
 models.each { |model| model.destroy_all }
 
