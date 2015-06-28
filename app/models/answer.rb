@@ -5,6 +5,7 @@ class Answer
 
   ## Fields
   field :body, type: String
+  field :user_id, type: Integer
 
   ## Relationships
   embedded_in :user
@@ -32,6 +33,11 @@ class Answer
       term = /.*#{search_term}.*/i
       result = Set.new Answer.find(term)
     end
+
+    def user
+      return (User.find self.user_id)
+    end
+
   end
 
 private

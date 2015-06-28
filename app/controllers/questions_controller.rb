@@ -71,6 +71,7 @@ class QuestionsController < ApplicationController
 
   def create_answer
     answer = @question.answers.new body: params[:answer][:body]
+    answer.user_id = current_user.id
     cond1 = answer.save
     
     current_user.answers = current_user.answers+[answer]
