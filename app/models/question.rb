@@ -52,6 +52,10 @@ class Question
       term = /.*#{search_term}.*/i
       result = Set.new Question.find(term)
     end
+
+    def filterByTag(tag)
+      result = Set.new Question.where(tags:tag)
+    end
   end
 
 private

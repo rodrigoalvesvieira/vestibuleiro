@@ -5,7 +5,7 @@ gem 'kaminari'
 gem 'delayed_job_mongoid'
 
 # Use mongoid-paperclip for files
-gem "mongoid-paperclip", require: "mongoid_paperclip"
+gem 'mongoid-paperclip', require: 'mongoid_paperclip'
 gem 'aws-sdk', '~> 1.3.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -31,7 +31,9 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem "twitter-bootstrap-rails", "~> 3.2.0"
+gem 'twitter-bootstrap-rails', '~> 3.2.0'
+
+gem 'tabulous'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

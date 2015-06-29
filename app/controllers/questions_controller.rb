@@ -23,6 +23,21 @@ class QuestionsController < ApplicationController
     return @results.to_a
   end
 
+  def filterByTag
+    @results_tag = Set.new
+    @results     = Set.new
+
+    @results_tag.add Tag.search params[:tag_name]
+
+    @results_tag = @results_tag.to_a
+
+    @results_tag.each do |tag|
+      @results.add Question.filterByTag params[:tag]
+    end
+
+    @results = @results.to_a
+  end
+
   # GET /questions/1
   def show
     @new_answer = Answer.new

@@ -9,6 +9,8 @@ class Tag
   field :description, type: String
 
   ## Relationships
+  belongs_to :question
+
   belongs_to :discipline
   ## Callbacks
   before_save :format_tag_name
@@ -24,6 +26,11 @@ class Tag
 
   def to_s
     self.tag_name
+  end
+
+  def search(search_term)
+    term = /.*#{search_term}.*/i
+    result = Set.new Tag.where(title: term, tag_name: term)
   end
 
 private
