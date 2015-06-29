@@ -9,7 +9,7 @@ questions_file = File.open(File.expand_path("../" + questions_file_path, __FILE_
 
 raw_questions = JSON.parse questions_file.read
 
-models = [Answer, Question, Tag, User]
+models = [Answer, Discipline, Question, Tag, User]
 
 models.each { |model| model.destroy_all }
 
@@ -30,8 +30,7 @@ raw_questions["questions"].each do |raw_question|
   question = users.first.questions.create body: raw_question["body"]
 
   raw_question["answers"].each do |raw_answer|
-    answer = question.answers.new body: raw_answer["body"]
-    answer.save!
+    question.answers.create body: raw_answer["body"]
   end
 end
 

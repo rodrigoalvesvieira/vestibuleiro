@@ -9,8 +9,8 @@ class Analytics
   field :downvotes, type: Integer, default: 0
 
   ## Relationships
-  embedded_in :question
-  embedded_in :answer
+  belongs_to :question
+  belongs_to :answer
   ## Callbacks
 
   ## Validations

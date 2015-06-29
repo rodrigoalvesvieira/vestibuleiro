@@ -8,14 +8,15 @@ class Answer
   field :user_id, type: Integer
 
   ## Relationships
-  embedded_in :user
-  embedded_in :question
+  belongs_to :user
+  belongs_to :question
 
-  embeds_one :analytics
-  embeds_many :comments
+  has_one :analytics, class_name: "Analytics"
+  has_many :comments
 
   ## Callbacks
   after_create :deliver_notification
+  after_create :setup_analytics
 
   ## Validations
   validates :body, presence: true
@@ -33,16 +34,16 @@ class Answer
       term = /.*#{search_term}.*/i
       result = Set.new Answer.find(term)
     end
-
-    def user
-      return (User.find self.user_id)
-    end
-
   end
 
 private
 
   def deliver_notification
     # Notification.new
+  end
+
+  def setup_analytics
+    self.build_analytics
+    self.analytics.save!
   end
 end
