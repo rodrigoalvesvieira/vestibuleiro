@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'delayed_job_mongoid'
+gem 'kaminari'
 
-#Use therubyracer for Javascript runtime
-gem 'therubyracer'
+gem 'delayed_job_mongoid'
 
 # Use mongoid-paperclip for files
 gem 'mongoid-paperclip', require: 'mongoid_paperclip'
@@ -53,6 +52,9 @@ platforms :ruby do # linux
   gem 'unicorn', '~> 4.8.3'
 
   gem 'puma', '~> 2.11.2'
+
+  #Use therubyracer for Javascript runtime
+  gem 'therubyracer'
 
 end
 

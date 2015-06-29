@@ -1,0 +1,94 @@
+#home-title{
+	font-size: 46px;
+}
+
+#home-caller{
+	font-size: 20px !important;
+}
+
+#question-done{
+	background-color: #87C875 !important;
+}
+
+#question-answers-title{
+	margin-top: 50px;
+}
+
+#hide-chevron .menu-nav-arrow{
+	display: none;
+}
+
+.question-author.ranking {
+  position: relative;
+  top: 0px; left: 0px;
+  float: none;
+  text-align: center;
+  width: 71px;
+  height: 71px;
+  overflow: hidden;
+  padding: 2px;
+  border: 1px solid #dedede;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.ranking-points{
+	margin-top: 10px; text-align: center;
+	font-size: 26px;
+	margin-bottom: 0px;
+}
+
+#question_tags, #question_body{
+  width: 82%;
+}
+
+#role-radios{
+  margin-top: 0px;
+}
+
+#role-radios label {
+    display: inline-block;
+    width:49%;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    text-align: center;
+    color:#333;
+}
+
+#role-radios label span {
+    text-align:center;
+    font-size: 18px;
+    display:block;
+    padding: 15px;
+}
+
+#role-radios label input {
+    position:absolute;
+    opacity: 0;
+}
+
+#role-radios input:checked + span{
+    background-color:#fdb655;
+    color:#F7F7F7;
+    border:1px solid #fdb655;
+}
+
+#student-fields, #teacher-fields{
+  margin-top: 10px;
+}
+
+#register-courses label{
+  font-weight: normal !important;
+  margin-bottom: 5px;
+}
+
+.field_with_errors input{
+  border: solid 1px #DE5B5B;
+}
+
+#error_explanation ul li{
+  list-style-type: circle;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}

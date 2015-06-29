@@ -1,32 +1,58 @@
-<h2>Log in</h2>
+<div class="breadcrumbs">
+    <section class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Entrar no Vestibuleiro</h1>
+        </div>
+        <div class="col-md-12">
+          <div class="crumbs">
+            <a href="#">Home</a>
+            <span class="crumbs-span">/</span>
+            <a href="#">Usuário</a>
+            <span class="crumbs-span">/</span>
+            <span class="current">Entrar</span>
+          </div>
+        </div>
+      </div><!-- End row -->
+    </section><!-- End container -->
+  </div><!-- End breadcrumbs -->
 
-<div class="bs-component col-md-8 trip-form">
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
-
-    <div class="form-group">
-      <%= f.label :email %><br>
-
-      <div class="col-lg-10">
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :password %><br>
-
-      <div class="col-lg-10">
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <%= f.submit "Entrar", class: "btn btn-success" %>
-      </div>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
-
-</div>
+<section class="container main-content">
+<div class="login">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="page-content">
+            <h2>Login</h2>
+            <div class="form-style form-style-3">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
+                <div class="form-inputs clearfix">
+                  <p class="login-text">
+                     <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+                    <i class="icon-user"></i>
+                  </p>
+                  <p class="login-password">
+                    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Senha" %>
+                    <i class="icon-lock"></i>
+                     <%= link_to "Esqueci a senha", new_password_path(resource_name) %><br />
+                  </p>
+                </div>
+                <p class="form-submit login-submit">
+                  <input type="submit" value="Log in" class="button color small login-submit submit">
+                </p>
+                <div class="rememberme">
+                  <label><input type="checkbox" checked="checked"> Lembrar de mim neste computador</label>
+                </div>
+              <% end %>
+            </div>
+          </div><!-- End page-content -->
+        </div><!-- End col-md-6 -->
+        <div class="col-md-6">
+          <div class="page-content">
+            <h2>Não conhece o Vestibuleiro? Inscreva-se agora.</h2>
+            <p>O Vestibuleiro é a melhor plataforma para encontrar as respostas de suas dúvidas de maneira rápida, eficiente e confiável.</p>
+            <%= link_to "Crie uma cont", new_registration_path(resource_name), class:"button small color signup" %><br />
+          </div><!-- End page-content -->
+        </div><!-- End col-md-6 -->
+      </div><!-- End row -->
+    </div><!-- End login -->
+</section>

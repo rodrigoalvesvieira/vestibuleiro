@@ -1,0 +1,110 @@
+<div class="breadcrumbs">
+  <section class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Perfil</h1>
+      </div>
+      <div class="col-md-12">
+        <div class="crumbs">
+          <a href="#">Home</a>
+          <span class="crumbs-span">/</span>
+          <a href="#">Usuário</a>
+          <span class="crumbs-span">/</span>
+          <span class="current"><%= user.name %></span>
+        </div>
+      </div>
+    </div><!-- End row -->
+  </section><!-- End container -->
+</div><!-- End breadcrumbs -->
+
+
+<section class="container main-content">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="user-profile">
+          <div class="col-md-12">
+            <div class="page-content">
+
+              <h2><%= user.name %></h2>
+              <% if user.avatar? %>
+                <div class="user-profile-img"><img width="90" height="90" src="<%= user.avatar.url %>" alt="admin"></div>
+              <% end %>
+
+              <div class="ul_list ul_list-icon-ok about-user">
+                <ul>
+                  <li><i class="icon-user"></i>Classificação: <span>Aprendiz</span></li>
+
+                  <% if user.city.present? or user.state.present? %>
+                    <li><i class="icon-map-marker"></i>De:
+                      <span>
+                        <%= "#{user.city}/#{user.state}" %>
+                      </span>
+                    </li>
+                  <% end %>
+                  <% if user.current_school.present? %>
+                    <li><i class="icon-book"></i>Estuda em:
+                      <span><%= user.current_school %>
+                        <% if user.school_year.present? %>
+                          ( <%= user.school_year %> )
+                        <% end %>
+                        </span>
+                    </li>
+                  <% end %>
+                  <% if user.desired_course.present? %>
+                    <li><i class="icon-search"></i>Curso desejado: <span><%= user.desired_course %></span></li>
+                  <% end %>
+                </ul>
+              </div>
+              <div class="clearfix"></div>
+ 
+            </div><!-- End page-content -->
+          </div><!-- End col-md-12 -->
+          <div class="col-md-12">
+            <div class="page-content page-content-user-profile">
+              <div class="user-profile-widget">
+                <h2>Status do usuário</h2>
+                    <div class="ul_list ul_list-icon-ok">
+                      <ul>
+                        <li><i class="icon-question-sign"></i>
+
+                          <%= link_to 'Questões criadas', @uquestions_path %><span>: <span><%= user.questions.count %>
+
+                        </li>
+                      </ul>
+                    </div>
+                  </div><!-- End user-profile-widget -->
+                </div><!-- End page-content -->
+              </div><!-- End col-md-12 -->
+            </div><!-- End user-profile -->
+
+      </div><!-- End row -->
+      
+    </div><!-- End main -->
+    <aside class="col-md-3 sidebar">
+
+      <div class="widget widget_stats">
+        <h3 class="widget_title">Mais sobre <%= user.name %></h3>
+        <div class="ul_list ul_list-icon-ok">
+          <ul>
+            <li>
+              <a href="#"><i class="icon-question-sign"></i>Respostas ( <span><%= user.answers.count %></span> )</a></li>
+            <!-- <li><a href="#"><i class="icon-comment"></i>Respostas ( <span>13</span> )</a></li> -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="widget widget_tag_cloud">
+        <h3 class="widget_title"><%= user.name %> em tags</h3>
+        <!--
+        <a href="#">Física</a>
+        <a href="#">Matemática</a>
+        <a href="#">Geometria</a>
+        <a href="#">Exatas</a>
+        <a href="#">Química</a>
+        -->
+      </div>
+    </aside><!-- End sidebar -->
+
+  </div><!-- End row -->
+</section><!-- End container -->

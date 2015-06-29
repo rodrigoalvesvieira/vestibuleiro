@@ -1,0 +1,11 @@
+{
+  "disciplines": [
+    { "name": "Matemática", "codename": "math"},
+    { "name": "Português", "codename": "portuguese"},
+    { "name": "História", "codename": "history"},
+    { "name": "Geografia", "codename": "geography"},
+    { "name": "Biologia", "codename": "biology"},
+    { "name": "Química", "codename": "chemistry"},
+    { "name": "Física", "codename": "physics"}
+  ]
+}

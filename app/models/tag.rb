@@ -9,10 +9,16 @@ class Tag
   field :description, type: String
 
   ## Relationships
-  embedded_in :question
+  belongs_to :question
+
+  belongs_to :discipline
   ## Callbacks
+  before_save :format_tag_name
 
   ## Validations
+  validates :title, presence: true
+  validates :tag_name, presence: true
+  validates :tag_name, uniqueness: true
 
   ## Extras
 
@@ -25,5 +31,11 @@ class Tag
   def search(search_term)
     term = /.*#{search_term}.*/i
     result = Set.new Tag.where(title: term, tag_name: term)
+  end
+
+private
+  def format_tag_name
+    self.tag_name = self.tag_name.downcase
+    self.tag_name.gsub! " ", "-"
   end
 end

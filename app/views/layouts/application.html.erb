@@ -1,36 +1,47 @@
 <!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <html>
 <head>
   <title>Vestibuleiro</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link rel='stylesheet' href='/assets/bower/textAngular/src/textAngular.css'>
 
-  <script type="text/javascript" src="assets/bower/angular/angular.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/angular-resource/angular-resource.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/angular-translate/angular-translate.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/angular-animate/angular-animate.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/angular-sanitize/angular-sanitize.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/angular-cookies/angular-cookies.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/angular-strap/dist/angular-strap.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/angular-local-storage/dist/angular-local-storage.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/angular-loading-bar/src/loading-bar.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular-resource/angular-resource.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular-translate/angular-translate.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular-animate/angular-animate.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular-sanitize/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular-cookies/angular-cookies.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular-strap/dist/angular-strap.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular-local-storage/dist/angular-local-storage.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/angular-loading-bar/src/loading-bar.js"></script>
 
-  <script type="text/javascript" src="../assets/vestibuleiro.js"></script>
+  <script type="text/javascript" src="/assets/vestibuleiro.js"></script>
 
-  <script type="text/javascript" src="../assets/bower/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="../assets/bower/bootstrap/js/dropdown.js"></script>
+  <script type="text/javascript" src="/assets/bower/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/bower/bootstrap/js/dropdown.js"></script>
+
+  <script src='/assets/bower/textAngular/dist/textAngular-rangy.min.js'></script>
+  <script src='/assets/bower/textAngular/dist/textAngular-sanitize.min.js'></script>
+  <script src='/assets/bower/textAngular/dist/textAngular.min.js'></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-ng-app="Vestibuleiro">
 
-  <%= render "shared/header" %>
-
-  <div class="container body-container" data-ng-controller="QuestionsController">
+  <div id="wrap" class="grid_1200">
+    <%= render "shared/header" %>
 
     <%= yield %>
+
+    <%= render "shared/footer" %>
+
+    <%= render "shared/footer_bottom" %>
   </div>
 
 </body>
