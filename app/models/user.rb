@@ -84,8 +84,8 @@ class User
   has_mongoid_attached_file :avatar
 
   ## Relationships
-  embeds_many :questions
-  embeds_many :answers
+  has_many :questions
+  has_many :answers
 
   ## Callbacks
   before_create :setup_nickname

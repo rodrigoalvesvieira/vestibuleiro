@@ -3,11 +3,11 @@
 <div class="form-inputs clearfix">
   <p>
     <label class="required">Título<span>*</span></label>
-    <input type="text" id="question-title">
+    <!-- <input type="text" id="question-title"> -->
+    <%= f.text_area :title, rows: 1, id: "question-title" %>
+  
     <span class="form-description">Escolha um título apropriado para sua pergunta, de modo que facilite as repostas.</span>
-  </p>
 
-  <p>
     <label>Tags</label>
     <input type="text" class="input" name="question_tags" id="question_tags" data-seperator=",">
     <span class="form-description">Escolha as palavras-chave da sua pergunta Ex : <span class="color">#FísicaElétrica</span> .</span>
@@ -15,15 +15,15 @@
   <p>
     <label class="required">Matéria<span>*</span></label>
     <span class="styled-select">
-      <select>
-        <option value="">Selecione a categoria</option>
-        <option value="1">Português</option>
-        <option value="2">Matemática</option>
-        <option value="3">Física</option>
-        <option value="4">Química</option>
-        <option value="5">História</option>
-        <option value="6">Geografia</option>
-        <option value="7">Biologia</option>
+      <select name="question[discipline]">
+        <option value="Geral">Selecione a categoria</option>
+        <option value="Português">Português</option>
+        <option value="Matemática">Matemática</option>
+        <option value="Física">Física</option>
+        <option value="Química">Química</option>
+        <option value="História">História</option>
+        <option value="Geografia">Geografia</option>
+        <option value="Biologia">Biologia</option>
       </select>
     </span>
     <span class="form-description">Selecione a seção correta da sua pergunta para que possa ser facilmente encontrada.</span>
@@ -43,7 +43,7 @@
 
   <p>
     <label class="required"> Conteúdo<span>*</span></label>
-    <%= f.text_area :body, rows: 7, id: "question_body" %>
+    <%= f.text_area :body, rows: 7, id: "question-body" %>
     <span class="form-description">Escreva a sua dúvida</span>
   </p>
 

@@ -45,7 +45,8 @@ class QuestionsController < ApplicationController
   # POST /questions
   def create
     if current_user
-      @question = current_user.questions.new(question_params)
+      @question = Question.new(question_params)
+      @question.user_id = current_user.id
 
       respond_to do |format|
         if @question.save
@@ -64,8 +65,13 @@ class QuestionsController < ApplicationController
 
   def create_answer
     answer = @question.answers.new body: params[:answer][:body]
+    answer.user_id = current_user.id
+    cond1 = answer.save
 
-    if answer.save
+    current_user.answers = current_user.answers+[answer]
+    cond2 = current_user.save
+
+    if cond1 && cond2
       redirect_to @question
     else
       # TODO: Notify the user that the operation has not been successful.
@@ -123,6 +129,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
-    params.require(:question).permit(:body, :tags, :user_id, answer_attributes: [:body])
+    params.require(:question).permit(:title, :discipline, :body, :tags, :user_id, answer_attributes: [:body])
   end
 end

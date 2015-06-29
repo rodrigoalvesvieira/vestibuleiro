@@ -9,7 +9,7 @@ class Tag
   field :description, type: String
 
   ## Relationships
-  embedded_in :discipline
+  belongs_to :discipline
   ## Callbacks
   before_save :format_tag_name
 

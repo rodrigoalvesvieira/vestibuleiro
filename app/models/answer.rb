@@ -5,16 +5,18 @@ class Answer
 
   ## Fields
   field :body, type: String
+  field :user_id, type: Integer
 
   ## Relationships
-  embedded_in :user
-  embedded_in :question
+  belongs_to :user
+  belongs_to :question
 
-  embeds_one :analytics
-  embeds_many :comments
+  has_one :analytics, class_name: "Analytics"
+  has_many :comments
 
   ## Callbacks
   after_create :deliver_notification
+  after_create :setup_analytics
 
   ## Validations
   validates :body, presence: true
@@ -38,5 +40,10 @@ private
 
   def deliver_notification
     # Notification.new
+  end
+
+  def setup_analytics
+    self.build_analytics
+    self.analytics.save!
   end
 end

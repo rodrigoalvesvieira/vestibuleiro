@@ -8,8 +8,8 @@ class Comment
   field :user_id, type: Integer
 
   ## Relationships
-  embedded_in :question
-  embedded_in :answer
+  belongs_to :question
+  belongs_to :answer
 
   def user
     return (User.find self.user_id)

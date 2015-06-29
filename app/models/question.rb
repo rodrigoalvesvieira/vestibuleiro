@@ -7,22 +7,26 @@ class Question
   STATUSES = ["open", "answered"]
 
   ## Fields
+  field :discipline,   type: String, default: "Geral"
+
+  field :title,       type: String
   field :body,        type: String
   field :published,   type: Boolean, default: true
   field :status,      type: String, default: STATUSES.first
 
   ## Relationships
-  belongs_to :user
-  embeds_many :answers
-  embeds_many :tags
-  embeds_many :comments
+  has_many :answers
+  has_many :tags
+  has_many :comments
 
-  embeds_one :analytics, class_name: "Analytics"
+  belongs_to :user
+
+  has_one :analytics, class_name: "Analytics"
 
   accepts_nested_attributes_for :answers
 
   ## Callbacks
-  before_create :setup_analytics
+  after_create :setup_analytics
 
   ## Validations
   validates_inclusion_of :status, in: STATUSES
@@ -54,5 +58,6 @@ private
 
   def setup_analytics
     self.build_analytics
+    self.analytics.save!
   end
 end

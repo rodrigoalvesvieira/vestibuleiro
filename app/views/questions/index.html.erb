@@ -26,7 +26,7 @@
 
             <% @upvotes_questions.each do |question| %>
               <li class="related-item">
-                <h3><%= link_to truncate(question.body, length: 40), question %></h3>
+                <h3><%= link_to truncate(question.title, length: 40), question %></h3>
                 <p><%= truncate question.body, length: 40 %></p>
                 <div class="clear"></div><span><%= question.created_at.strftime("%d %b, %Y") %></span>
               </li>

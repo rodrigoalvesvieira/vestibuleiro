@@ -8,7 +8,7 @@ class Discipline
   field :codename, type: String
 
   ## Relationships
-  embeds_many :tags
+  has_many :tags
   ## Callbacks
 
   ## Validations
