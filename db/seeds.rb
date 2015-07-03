@@ -19,7 +19,13 @@ pwd = "palavrafacil"
 
 users = User.create([
   { name: "Rodrigo", email: "rodrigo@vestibuleiro.com", password: pwd },
-  { name: "Rafael", email: "rafael@vestibuleiro.com", password: pwd }
+  { name: "Rafael", email: "rafael@vestibuleiro.com", password: pwd , role: "teacher"},
+  { name: "Prof1", email: "rafael2@vestibuleiro.com", password: pwd , role: "teacher"},
+  { name: "Prof2", email: "rafael3@vestibuleiro.com", password: pwd , role: "teacher"},
+  { name: "Prof3", email: "rafael4@vestibuleiro.com", password: pwd , role: "teacher"},
+  { name: "Prof4", email: "rafael5@vestibuleiro.com", password: pwd , role: "teacher"},
+
+
 ])
 
 puts_colored "#{User.count} users created.\n"
