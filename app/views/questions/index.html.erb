@@ -18,8 +18,22 @@
 				</div>
       </div>
     </div>
+    
+    <aside class="col-md-3 sidebar" style="margin-bottom:20px">
+      <div class="widget">
+					<h3 class="widget_title">Melhores Professores</h3>
+					<ul class="related-posts">
 
-    <aside class="col-md-3 sidebar">
+            <% @hall.each_with_index do |user, index| %>
+              <li class="related-item" style="margin-bottom: 0px">
+                <h1 style="float: left; margin: 5px 10px 0px 0px; background-color: #F9F9F9; padding: 10px;"><%= index + 1 %></h2>
+                <h3><%= link_to user.name, user_path(user) %></h3>
+                <p><%= user.ranking_user %> pontos</p>
+              </li>
+            <% end %>
+					</ul>
+				</div>
+        
       <div class="widget">
 					<h3 class="widget_title">Questões Recentes</h3>
 					<ul class="related-posts">
