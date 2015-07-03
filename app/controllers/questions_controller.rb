@@ -3,7 +3,6 @@ class QuestionsController < ApplicationController
   before_action :update_visualizations, only: [:show]
   before_filter :authenticate_user!, except: [:index, :show, :new, :update_analytics, :search]
 
-
   # GET /questions
   def index
     @last_questions = Question.order_by(:created_at.desc).page(1).per(10)
@@ -63,6 +62,20 @@ class QuestionsController < ApplicationController
     @question.analytics.visualizations =  @question.analytics.visualizations + 1
     @question.analytics.save
   end 
+
+  def upvote
+    @question = Question.find(params[:id])
+    @question.analytics.upvotes = @question.analytics.upvotes + 1
+    @question.analytics.save
+    redirect_to @question
+  end
+
+  def downvote
+    @question = Question.find(params[:id])
+    @question.analytics.downvotes = @question.analytics.downvotes + 1
+    @question.analytics.save
+    redirect_to @question
+  end
 
   # POST /questions
   def create
