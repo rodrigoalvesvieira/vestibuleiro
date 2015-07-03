@@ -27,7 +27,7 @@ puts_colored "#{User.count} users created.\n"
 puts "Creating questions and answers..."
 
 raw_questions["questions"].each do |raw_question|
-  question = users.first.questions.create body: raw_question["body"]
+  question = users.first.questions.create(body: raw_question["body"],title: raw_question["title"])
 
   raw_question["answers"].each do |raw_answer|
     question.answers.create body: raw_answer["body"]
