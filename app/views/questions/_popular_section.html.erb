@@ -3,7 +3,7 @@
   <% questions.each do |question| %>
     <article class="question question-type-normal">
     	<h2>
-        <%= link_to truncate(question.body, length: 30), question %>
+        <%= link_to truncate(question.title, length: 30), question %>
     	</h2>
     	<a class="question-report" href="#">Denunciar</a>
     	<div class="question-type-main"><i class="icon-question-sign"></i>Questão</div>
@@ -14,7 +14,7 @@
     		<div class="clearfix"></div>
     		<div class="question-details">
           <span class="<%= question.status == 'open' ? 'question-answered' : 'question-answered question-answered-done' %>"><i
-            class="<%= question.status == 'open' ? 'icon-remove' : 'icon-ok'   %>">
+            class="<%= question.status == 'open' ? 'icon-edit' : 'icon-ok'   %>">
           </i><%= t "statuses.#{question.status}" %>
           </span>
     			<span class="question-favorite"><i class="icon-star"></i><%= question.analytics.upvotes %></span>
