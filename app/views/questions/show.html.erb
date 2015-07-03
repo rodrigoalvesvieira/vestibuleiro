@@ -25,6 +25,11 @@
   </div><!-- End breadcrumbs -->
 
   <section class="container main-content">
+    <div class="button small color">
+      <% if signed_in? %>
+        <%= @question.user.name == current_user.name ? link_to('Editar', edit_question_path(@question)) : '' %>
+      <% end %>
+    </div>
     <div class="row">
       <div class="col-md-9" >
         <article class="question single-question question-type-normal">
@@ -216,8 +221,4 @@
 
 
   </div>
-<div>
-  <% if signed_in? %>
-    <%= @question.user.name == current_user.name ? link_to('Edit', edit_question_path(@question)) : '' %>
-  <% end %>
-</div>
+

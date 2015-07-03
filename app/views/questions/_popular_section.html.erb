@@ -14,7 +14,7 @@
     		<div class="clearfix"></div>
     		<div class="question-details">
           <span class="<%= question.status == 'open' ? 'question-answered' : 'question-answered question-answered-done' %>"><i
-            class="<%= question.status == 'open' ? 'icon-remove' : 'icon-ok'   %>">
+            class="<%= question.status == 'open' ? 'icon-edit' : 'icon-ok'   %>">
           </i><%= t "statuses.#{question.status}" %>
           </span>
     			<span class="question-favorite"><i class="icon-star"></i><%= question.analytics.upvotes %></span>
