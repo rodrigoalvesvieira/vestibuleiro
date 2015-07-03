@@ -32,7 +32,7 @@
 					<% if @users.count > 0 %>
 		       <div class="tab-inner-warp">
 						<div class="tab-inner">
-							<% @users.each do |user| %>
+							<% @users.each_with_index do |user, index| %>
 								<article class="question question-type-normal">
 									<div class="row">
 									<div class="col-md-1">
@@ -44,7 +44,7 @@
 									</div>
 									<div class="col-md-11">
 									<h2 style="margin-bottom: 0px; margin-left: 0px;">
-										<%= link_to user.name, user %>
+										<%= index + 1 %>. <%= link_to user.name, user %>
 									</h2>
 									<div class="question-inner" style=" margin-left: 0px;">
 										<div class="clearfix"></div>
