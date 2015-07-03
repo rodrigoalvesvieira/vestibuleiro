@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "ranking", to: "users#ranking"
+
   resources :disciplines
 
   get "search", to: "questions#search", as: :search
