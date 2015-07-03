@@ -1,0 +1,387 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"U",
+				"user"
+			],
+			[
+				"ANS",
+				"answer"
+			],
+			[
+				"QUE",
+				"question"
+			],
+			[
+				"que",
+				"question"
+			],
+			[
+				"an",
+				"answers"
+			],
+			[
+				"ques",
+				"question"
+			],
+			[
+				"set",
+				"set_question"
+			],
+			[
+				"user",
+				"users"
+			],
+			[
+				"num",
+				"numericMod"
+			],
+			[
+				"nume",
+				"numericBinOp"
+			],
+			[
+				"has",
+				"hasZero"
+			],
+			[
+				"get",
+				"getBool"
+			],
+			[
+				"Do",
+				"DottedList"
+			],
+			[
+				"Lis",
+				"LispVal"
+			],
+			[
+				"other",
+				"otherwise"
+			],
+			[
+				"par",
+				"user_params"
+			],
+			[
+				"ders",
+				"desired_course"
+			],
+			[
+				"ds",
+				"desired_course"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/spm/pq/vestibuleiro/app/views/questions/show.html.erb",
+		"/home/spm/pq/vestibuleiro/app/models/user.rb",
+		"/home/spm/pq/vestibuleiro/app/models/answer.rb",
+		"/home/spm/pq/vestibuleiro/app/controllers/questions_controller.rb",
+		"/home/spm/feature/create-answer/app/controllers/questions_controller.rb",
+		"/home/spm/vestibuleiro/app/controllers/questions_controller.rb",
+		"/home/spm/vestibuleiro/app/models/analytics.rb",
+		"/home/spm/vestibuleiro/app/models/answer.rb",
+		"/home/spm/vestibuleiro/app/models/question.rb",
+		"/home/spm/vestibuleiro/app/views/questions/new.html.erb",
+		"/home/spm/vestibuleiro/app/views/questions/show.html.erb",
+		"/home/spm/vestibuleiro/app/views/questions/_form.html.erb",
+		"/home/spm/vestibuleiro/app/models/notification.rb",
+		"/home/spm/vestibuleiro/app/controllers/users_controller.rb",
+		"/home/spm/vestibuleiro/app/models/user.rb",
+		"/home/spm/vestibuleiro/app/views/users/_student.html.erb",
+		"/home/spm/ImageToolbox/ImageToolbox.java",
+		"/home/spm/vestibuleiro/db/seeds.rb",
+		"/home/spm/workspace/ImageToolbox/bin/ImageToolbox.class",
+		"/home/spm/projetao/3/vestibuleiro/app/models/question.rb",
+		"/home/spm/projetao/3/vestibuleiro/app/models/notification.rb",
+		"/home/spm/projetao/3/vestibuleiro/app/models/user.rb",
+		"/home/spm/projetao/3/vestibuleiro/app/models/analytics.rb",
+		"/home/spm/projetao/3/vestibuleiro/app/models/answer.rb",
+		"/home/spm/projetao/3/vestibuleiro/app/models/comment.rb",
+		"/home/spm/projetao/3/vestibuleiro/app/models/discipline.rb",
+		"/home/spm/projetao/3/vestibuleiro/app/models/tag.rb",
+		"/home/spm/projetao/3/vestibuleiro/app/controllers/questions_controller.rb",
+		"/home/spm/projetao/3/vestibuleiro/app/views/questions/new.html.erb",
+		"/home/spm/projetao/2/vestibuleiro/app/views/users/_student.html.erb",
+		"/home/spm/projetao/3/vestibuleiro/app/views/users/_student.html.erb",
+		"/home/spm/projetao/2/vestibuleiro/config/routes.rb",
+		"/home/spm/projetao/2/vestibuleiro/app/controllers/users_controller.rb",
+		"/home/spm/projetao/2/vestibuleiro/app/views/users/back",
+		"/home/spm/projetao/1/vestibuleiro/app/views/users/_student.html.erb",
+		"/home/spm/projetao/1/vestibuleiro/app/views/questions/new.html.erb",
+		"/home/spm/projetao/1/vestibuleiro/app/controllers/questions_controller.rb",
+		"/home/spm/projetao/1/vestibuleiro/app/controllers/users_controller.rb",
+		"/home/spm/projetao/1/vestibuleiro/config/routes.rb",
+		"/home/spm/projetao/2/vestibuleiro/app/views/users/_form.html.erb",
+		"/home/spm/projetao/2/vestibuleiro/db/seeds.rb",
+		"/home/spm/projetao/2/vestibuleiro/app/controllers/questions_controller.rb",
+		"/home/spm/projetao/1/vestibuleiro/app/views/questions/show.html.erb",
+		"/home/spm/projetao/1/vestibuleiro/app/models/user.rb",
+		"/home/spm/projetao/1/vestibuleiro/app/models/question.rb",
+		"/home/spm/projetao/1/vestibuleiro/app/models/answer.rb",
+		"/home/spm/projetao/1/vestibuleiro/db/seeds.rb",
+		"/home/spm/projetao/1/vestibuleiro/app/views/users/questions.html.erb",
+		"/home/spm/projetao/1/vestibuleiro/app/views/users/user_answers.html",
+		"/home/spm/projetao/1/vestibuleiro/app/views/devise/shared/_links.html.erb",
+		"/home/spm/projetao/1/vestibuleiro/app/views/users/show.html.erb",
+		"/home/spm/projetao/1/vestibuleiro/app/views/users/backup",
+		"/home/spm/projetao/1/vestibuleiro/app/views/users/_teacher.html.erb",
+		"/home/spm/projetao/1/vestibuleiro/config/BACKUP",
+		"/home/spm/projetao/1/vestibuleiro/config/mongoid.yml",
+		"/home/spm/projetao/1/vestibuleiro/config/application.rb",
+		"/home/spm/projetao/1/vestibuleiro/app/views/shared/_header.html.erb",
+		"/home/spm/projetao/1/vestibuleiro/app/views/questions/_form.html.erb",
+		"/home/spm/projetao/1/vestibuleiro/app/views/questions/_most_viewed_section.erb",
+		"/home/spm/Desktop/cad",
+		"/home/spm/projetao/field/vestibuleiro/app/models/analytics.rb",
+		"/home/spm/projetao/field/vestibuleiro/app/models/answer.rb",
+		"/home/spm/projetao/field/vestibuleiro/app/controllers/questions_controller.rb",
+		"/home/spm/projetao/field/vestibuleiro/app/models/question.rb",
+		"/home/spm/projetao/field/vestibuleiro/app/models/user.rb",
+		"/home/spm/projetao/field/vestibuleiro/app/controllers/users_controller.rb",
+		"/home/spm/projetao/fieldUser/vestibuleiro/app/controllers/users_controller.rb",
+		"/home/spm/projetao/fieldUser/vestibuleiro/app/models/user.rb",
+		"/home/spm/projetao/sortTeacher/vestibuleiro/app/models/user.rb",
+		"/home/spm/projetao/sortTeacher/vestibuleiro/app/controllers/users_controller.rb",
+		"/home/spm/projetao/g/vestibuleiro/app/views/users/index.html.erb",
+		"/home/spm/projetao/fronend/ranking.html",
+		"/home/spm/Desktop/app/app/controllers/questions_controller.rb",
+		"/home/spm/Desktop/app/app/models/user.rb",
+		"/home/spm/Desktop/app/app/models/question.rb",
+		"/home/spm/Desktop/app/app/models/answer.rb",
+		"/home/spm/Desktop/app/app/controllers/users_controller.rb",
+		"/home/spm/Desktop/app/models/user.rb",
+		"/home/spm/Desktop/app/models/question.rb",
+		"/home/spm/Desktop/app/controllers/users_controller.rb",
+		"/home/spm/Desktop/app/controllers/questions_controller.rb",
+		"/home/spm/projetao/g/vestibuleiro/app/models/user.rb",
+		"/home/spm/projetao/g/vestibuleiro/app/controllers/users_controller.rb",
+		"/home/spm/projetao/sortTeacher/vestibuleiro/app/controllers/questions_controller.rb",
+		"/home/spm/projetao/g/vestibuleiro/app/views/users/show.json.jbuilder",
+		"/home/spm/projetao/g/vestibuleiro/app/views/users/_student.html.erb",
+		"/home/spm/projetao/g/vestibuleiro/app/views/users/show.html.erb",
+		"/home/spm/projetao/g/vestibuleiro/app/controllers/back",
+		"/home/spm/projetao/g/vestibuleiro/app/models/analytics.rb",
+		"/home/spm/projetao/g/vestibuleiro/app/models/answer.rb",
+		"/home/spm/maratona/in",
+		"/home/spm/maratona/backup",
+		"/home/spm/maratona/a.cpp",
+		"/home/spm/pt/skimscheme/LispVal.hs",
+		"/home/spm/p2/skimscheme/programs/quicksort.scm",
+		"/home/spm/p2/skimscheme/SSInterpreter.hs",
+		"/home/spm/pt/skimscheme/SSInterpreter.hs",
+		"/home/spm/proj/pro2/skimscheme/SSInterpreter.hs",
+		"/home/spm/proj/skimscheme/SSInterpreter.hs",
+		"/home/spm/skimscheme/SSPrettyPrinter.hs",
+		"/home/spm/skimscheme/SSParser.hs",
+		"/home/spm/skimscheme/SSInterpreter.hs",
+		"/home/spm/skimscheme/LispVal.hs",
+		"/home/spm/Desktop/lol.hs",
+		"/home/spm/skimscheme/README.md",
+		"/home/spm/plc/skimscheme-master/README.md",
+		"/home/spm/plc/skimscheme-master/LispVal.hs",
+		"/home/spm/plc/skimscheme-master/SSPrettyPrinter.hs",
+		"/home/spm/plc/skimscheme-master/SSInterpreter.hs",
+		"/home/spm/plc/skimscheme-master/in",
+		"/home/spm/plc/skimscheme-master/SSParser.hs",
+		"/home/spm/maratona/m.cpp",
+		"/home/spm/projetao/vestibuleiro/Gemfile",
+		"/home/spm/projetao/b2/vestibuleiro/app/models/question.rb",
+		"/home/spm/projetao/b2/vestibuleiro/app/models/answer.rb",
+		"/home/spm/projetao/b2/vestibuleiro/config/routes.rb",
+		"/home/spm/projetao/b2/vestibuleiro/app/controllers/search_controller.rb",
+		"/home/spm/projetao/b2/vestibuleiro/Gemfile",
+		"/home/spm/maratona/cama.",
+		"/home/spm/maratona/b.hs",
+		"/home/spm/maratona/c.hs",
+		"/home/spm/projetao/vestibuleiro/app/controllers/users_controller.rb",
+		"/home/spm/maratona/void program{",
+		"/home/spm/maratona/q",
+		"/home/spm/maratona/l.hs",
+		"/home/spm/maratona/a.hs",
+		"/home/spm/projetao/vestibuleiro/app/controllers/questions_controller.rb",
+		"/home/spm/rails/vestibuleiro/Gemfile"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"USER.NAME",
+			" \n",
+			"<--",
+			"path",
+			"find",
+			"current",
+			"cons",
+			"printf",
+			"numericDiv",
+			"set!",
+			"sets",
+			"map ",
+			"map (",
+			"map (\\",
+			"Prelude.map ",
+			"getArgs",
+			"set_question",
+			"question_",
+			"set_user",
+			"set_question",
+			"aws",
+			"article"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"user"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "artur.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 265.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

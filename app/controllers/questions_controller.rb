@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :update_analytics, :destroy, :create_answer]
+  before_action :update_visualizations, only: [:show]
   before_filter :authenticate_user!, except: [:index, :show, :new, :update_analytics, :search]
+
 
   # GET /questions
   def index
@@ -56,6 +58,11 @@ class QuestionsController < ApplicationController
   # GET /questions/1/edit
   def edit
   end
+
+  def update_visualizations
+    @question.analytics.visualizations =  @question.analytics.visualizations + 1
+    @question.analytics.save
+  end 
 
   # POST /questions
   def create
