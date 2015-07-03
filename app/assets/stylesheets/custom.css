@@ -92,3 +92,10 @@
   margin-bottom: 5px;
   margin-left: 20px;
 }
+
+li.tab.active{
+  background-color: #FDB655;
+  display: inline-block;
+  float:left;
+  font-weight: bold !important;
+}
