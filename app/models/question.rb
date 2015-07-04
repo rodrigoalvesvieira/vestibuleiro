@@ -47,6 +47,19 @@ class Question
     self.answers.first
   end
 
+  def add_voter(user)
+    self.analytics.users_id_vote += [user.id]
+    self.analytics.save
+  end
+
+  def is_voter(user)
+    self.analytics.users_id_vote.each do |user_id_vote|
+      return true if user_id_vote == user.id
+    end
+
+    return false
+  end
+
   class << self
 
     ## Takes a string and returns all questions from the database
@@ -56,7 +69,7 @@ class Question
       result = Set.new Question.find(term)
     end
 
-    def filterByTag(tag)
+    def filter_by_tag(tag)
       result = Set.new Question.where(tags:tag)
     end
   end
