@@ -6,10 +6,7 @@
         <%= link_to truncate(question.title, length: 30), question %>
     	</h2>
     	<a class="question-report" href="#">Denunciar</a>
-    	<div class="question-type-main"><i class="icon-question-sign"></i>Questão</div>
-    	<div class="question-author">
-    		<a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://lorempixel.com/60/60/people"></a>
-    	</div>
+      <%= render "users/minicard", question: question %>
     	<div class="question-inner">
     		<div class="clearfix"></div>
     		<div class="question-details">

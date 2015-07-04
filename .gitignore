@@ -38,3 +38,5 @@ public/assets/**/**/**/*.gz
 
 .sass-cache/
 .editorconfig
+
+.idea/

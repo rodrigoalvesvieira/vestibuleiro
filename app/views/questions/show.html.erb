@@ -1,8 +1,4 @@
-
 <div id="wrap" class="grid_1200">
-
-
-
   <div class="breadcrumbs">
     <section class="container">
       <div class="row">
@@ -44,20 +40,16 @@
               <p><%= @question.body %></p>
             </div>
             <span class="question-view" style="margin-right: 20px"><i class="icon-user"></i>Perguntado por
+              <strong><%= link_to @question.user.name, @question.user %></strong>
+            </span>
 
-
-            <strong><a href="#"><%= @question.user.name %> </a></strong></span>
-            <!-- <span class="question-date"><i class="icon-time"></i>há 30 minutos</span>
-          -->
-          <!--  <span class="single-question-vote-result">+22</span>
-          -->
            <ul class="single-question-vote">
               <li>
                 <%= link_to upvote_question_path(@question) do %>
-                  <%= @question.analytics.upvotes %> 
+                  <%= @question.analytics.upvotes %>
                   <i class="icon-thumbs-up"> </i>
                 <% end %>
-              
+
                 <%= link_to downvote_question_path(@question) do %>
                   <%= @question.analytics.downvotes %>
                   <i class="icon-thumbs-down"> </i>
@@ -192,15 +184,6 @@
 
   <div class="row">
     <div class="col-md-8">
-      <section class="col-md-1">
-      </section>
-
-      <!-- <section class="question-content col-md-11">
-        <p><%= @question.body %></p>
-
-        <% @question.tags.each do |tag| %>
-        <% end %>
-      </section> -->
 
       <section class="comments-question">
         <% @question.comments.each do |comment| %>
@@ -223,11 +206,5 @@
           </section>
         <% end %>
       </section>
-
-
-
     </div>
-
-
   </div>
-

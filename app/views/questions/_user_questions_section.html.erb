@@ -1,13 +1,12 @@
-<div data-ng-show="isSelected(2)" class="tab-inner" id="most_viewed_section" >
+<div class="tab-inner" id="user_questions_sections" >
 
   <% questions.each do |question| %>
-    <article class="question question-type-normal">
-    	<h2>
+    <article class="question user-question">
+    	<h3>
         <%= link_to truncate(question.title, length: 30), question %>
-    	</h2>
-    	<a class="question-report" href="#">Denunciar</a>
-      <%= render "users/minicard", question: question %>
-    	<div class="question-inner">
+    	</h3>
+    	
+    	
     		<div class="clearfix"></div>
     		<div class="question-details">
           <span class="<%= question.status == 'open' ? 'question-answered' : 'question-answered question-answered-done' %>"><i
@@ -20,7 +19,7 @@
     		<span class="question-comment"><a href="#"><i class="icon-comment"></i><%= question.answers.count %> Respostas</a></span>
     		<span class="question-view"><i class="icon-user"></i><%= question.analytics.visualizations %> visualizações</span>
     		<div class="clearfix"></div>
-    	</div>
+    	
     </article>
   <% end %>
 

@@ -2894,8 +2894,8 @@ input[type="checkbox"]:checked::before {
 .fileinputs {
 	position: relative;
 	float: left;
-	margin-bottom: 20px;
-	width: 82%;
+	margin: -10px 0 20px 0 !important;
+	width: 100%;
 }
 .form-style-2 .fileinputs {
 	width: 84%;
