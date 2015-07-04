@@ -68,17 +68,45 @@ class QuestionsController < ApplicationController
   end 
 
   def upvote
+    if already_voted
+      redirect_to @question and return
+    end 
+    
     @question = Question.find(params[:id])
     @question.analytics.upvotes = @question.analytics.upvotes + 1
     @question.analytics.save
+    
+    add_user_id_vote
     redirect_to @question
   end
 
   def downvote
+    if already_voted
+      redirect_to @question and return
+    end
+
     @question = Question.find(params[:id])
     @question.analytics.downvotes = @question.analytics.downvotes + 1
     @question.analytics.save
+
+    add_user_id_vote    
     redirect_to @question
+  end
+
+  def add_user_id_vote
+    @question = Question.find(params[:id])
+    @question.analytics.users_id_vote = @question.analytics.users_id_vote + [current_user.id]
+    @question.analytics.save
+  end  
+
+  def already_voted
+    @question = Question.find(params[:id])
+    @question.analytics.users_id_vote.each do |user_id_vote|
+      if user_id_vote == current_user.id
+        return true
+      end
+    end
+    false  
   end
 
   # POST /questions

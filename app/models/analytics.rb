@@ -7,6 +7,7 @@ class Analytics
   field :favorites, type: Integer, default: 0
   field :upvotes, type: Integer, default: 0
   field :downvotes, type: Integer, default: 0
+  field :users_id_vote, type: Array, default: []
 
   ## Relationships
   belongs_to :question
