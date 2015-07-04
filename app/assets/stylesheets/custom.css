@@ -1,21 +1,21 @@
 #home-title{
-	font-size: 46px;
+  font-size: 46px;
 }
 
 #home-caller{
-	font-size: 20px !important;
+  font-size: 20px !important;
 }
 
 #question-done{
-	background-color: #87C875 !important;
+  background-color: #87C875 !important;
 }
 
 #question-answers-title{
-	margin-top: 50px;
+  margin-top: 50px;
 }
 
 #hide-chevron .menu-nav-arrow{
-	display: none;
+  display: none;
 }
 
 .question-author.ranking {
@@ -34,9 +34,9 @@
 }
 
 .ranking-points{
-	margin-top: 10px; text-align: center;
-	font-size: 26px;
-	margin-bottom: 0px;
+  margin-top: 10px; text-align: center;
+  font-size: 26px;
+  margin-bottom: 0px;
 }
 
 #question_tags, #question_body{
@@ -94,8 +94,16 @@
 }
 
 li.tab.active{
-  background-color: #FDB655;
+  background-color: #E04747;
   display: inline-block;
   float:left;
   font-weight: bold !important;
+}
+
+li.tab.active a{
+   color: #FFF !important;
+}
+
+.navigation{
+  display: block !important;
 }
