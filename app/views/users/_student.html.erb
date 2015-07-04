@@ -54,6 +54,7 @@
                   <% if user.desired_course.present? %>
                     <li><i class="icon-search"></i>Curso desejado: <span><%= user.desired_course %></span></li>
                   <% end %>
+
                 </ul>
               </div>
               <div class="clearfix"></div>
@@ -71,6 +72,8 @@
                           <%= link_to 'Questões criadas', @uquestions_path %><span>: <span><%= user.questions.count %>
 
                         </li>
+
+                        <li><i class="icon-heart"></i> Ranking: <span> <%= user.rank %></span></a></li> 
                       </ul>
                     </div>
                   </div><!-- End user-profile-widget -->
