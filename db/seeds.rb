@@ -20,6 +20,7 @@ pwd = "palavrafacil"
 users = User.create([
   { name: "Rodrigo", email: "rodrigo@vestibuleiro.com", password: pwd },
   { name: "Rafael", email: "rafael@vestibuleiro.com", password: pwd , role: "teacher"},
+  { name: "Artur", email: "artur@vestibuleiro.com", password: pwd },
   { name: "Prof1", email: "rafael2@vestibuleiro.com", password: pwd , role: "teacher"},
   { name: "Prof2", email: "rafael3@vestibuleiro.com", password: pwd , role: "teacher"},
   { name: "Prof3", email: "rafael4@vestibuleiro.com", password: pwd , role: "teacher"},
@@ -34,8 +35,12 @@ users[0].save!
 image_2 = File.open(File.expand_path("../avatars/fastio.jpg", __FILE__))
 users[1].avatar = image_2
 image_2.close
-
 users[1].save!
+
+image_3 = File.open(File.expand_path("../avatars/artur.jpg", __FILE__))
+users[2].avatar = image_3
+image_3.close
+users[2].save!
 
 puts_colored "#{User.count} users created.\n"
 
@@ -49,7 +54,7 @@ raw_questions["questions"].each_with_index do |raw_question, i|
   end
 
   raw_question["answers"].each do |raw_answer|
-    question.answers.create body: raw_answer["body"]
+    question.answers.create body: raw_answer["body"], user_id: users[2].id
   end
 end
 
