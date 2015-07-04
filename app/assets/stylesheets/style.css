@@ -305,7 +305,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	left: 0;
 	top: 100%;
 	z-index: 993;
-	width: 200px;
+	width: 400px;
 }
 .navigation li ul li a {
 	height: inherit;

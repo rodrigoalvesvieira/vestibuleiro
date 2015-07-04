@@ -70,7 +70,10 @@
               <ol class="commentlist clearfix">
                   <li class="comment">
                       <div class="comment-body comment-body-answered clearfix">
-                          <div class="avatar"><img alt="" src="http://lorempixel.com/60/60/people/"></div>
+                        <div class="avatar">
+                          <%= image_tag answer.user.avatar.url %>
+                        </div>
+                          <!-- <div class="avatar"><img alt="" src="http://lorempixel.com/60/60/people/"></div> -->
                           <div class="comment-text">
                               <div class="author clearfix">
                                 <div class="comment-author"><a href="#"> <%= answer.user %> </a></div>
@@ -180,8 +183,6 @@
 </div><!-- End wrap -->
 
 <div class="go-up"><i class="icon-chevron-up"></i></div>
-
-
   <div class="row">
     <div class="col-md-8">
 
@@ -194,9 +195,6 @@
 
       <section class="answers-content">
         <% @question.answers.each do |answer| %>
-          <!-- <article class="answer-component" id="answer-#{answer.id}">
-            <%= answer.body %>
-          </article> -->
 
           <section id="answer-comment=#{answer.id}">
             <% answer.comments.each do |comment| %>

@@ -1,4 +1,5 @@
 class User
+  ## Includes
   include Mongoid::Document
   include Mongoid::Paperclip
   include Mongoid::Timestamps
@@ -86,6 +87,7 @@ class User
   ## Relationships
   has_many :questions
   has_many :answers
+  has_many :subscriptions
 
   ## Callbacks
   before_create :setup_nickname
@@ -117,6 +119,10 @@ class User
     return upvotes
   end
 
+  def to_s
+    self.name
+  end
+
 private
   def setup_nickname
     self.nickname = self.email.partition('@').first
@@ -124,6 +130,7 @@ private
 end
 
 public
+
   def ranking_user
 
     val = self.questions.count * 10
@@ -142,7 +149,6 @@ public
     end
 
     val += self.sign_in_count
-
   end
 
 def evaluate_teacher

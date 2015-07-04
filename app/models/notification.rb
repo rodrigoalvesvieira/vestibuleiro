@@ -11,6 +11,7 @@ class Notification
   field :link, type: String
 
   ## Relationships
+  # belongs_to :user
 
   ## Callbacks
 
