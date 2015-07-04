@@ -7,6 +7,7 @@ class Analytics
   field :favorites, type: Integer, default: 0
   field :upvotes, type: Integer, default: 0
   field :downvotes, type: Integer, default: 0
+  field :users_id_vote, type: Array, default: []
 
   ## Relationships
   belongs_to :question
@@ -19,11 +20,18 @@ class Analytics
   searchkick
 
   ## Methods
-  def increment_metadata(values = { visualizations: 0, favorites: 0, upvotes: 0, downvotes: 0 })
-    self.visualizations = values[:visualizations]
-    self.favorites = values[:favorites]
-    self.upvotes = values[:upvotes]
-    self.downvotes = values[:downvotes]
+
+  def increment user, visualizations:, upvotes:, downvotes:
+    self.visualizations += visualizations
+    self.upvotes += upvotes
+    self.downvotes += downvotes
     self.save
+
+    if self.question
+      unless self.question.is_subscribed? user
+        self.question.subscriptions.create user_id: user.id
+      end
+    end
+
   end
 end

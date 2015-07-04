@@ -1,4 +1,5 @@
 class User
+  ## Includes
   include Mongoid::Document
   include Mongoid::Paperclip
   include Mongoid::Timestamps
@@ -86,26 +87,16 @@ class User
   ## Relationships
   has_many :questions
   has_many :answers
+  has_many :subscriptions
+  has_many :notifications
 
   ## Callbacks
   before_create :setup_nickname
 
   ## Validations
   validates :email, uniqueness: true
-  # validates_inclusion_of :state
 
   validates_attachment_content_type :avatar, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-
-  ## Confirmable
-  # field :confirmation_token,   type: String
-  # field :confirmed_at,         type: Time
-  # field :confirmation_sent_at, type: Time
-  # field :unconfirmed_email,    type: String # Only if using reconfirmable
-
-  ## Lockable
-  # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
-  # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
-  # field :locked_at,       type: Time
 
   ## Methods
   def total_upvotes
@@ -117,6 +108,10 @@ class User
     return upvotes
   end
 
+  def to_s
+    self.name
+  end
+
 private
   def setup_nickname
     self.nickname = self.email.partition('@').first
@@ -124,6 +119,7 @@ private
 end
 
 public
+
   def ranking_user
 
     val = self.questions.count * 10
@@ -142,7 +138,6 @@ public
     end
 
     val += self.sign_in_count
-
   end
 
 def evaluate_teacher
@@ -152,4 +147,11 @@ def evaluate_teacher
     val += (analityc.favorites*10)
   end
   val
+end
+
+def total_activities
+  @activities = self.questions.to_a + self.answers.to_a
+
+  @activities.to_a.sort { |activity_first,activity_second| (activity_second.created_at.to_i) <=> (activity_first.created_at.to_i) }
+
 end

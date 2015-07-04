@@ -1,0 +1,14 @@
+<div class="tab-inner" id="user_questions_sections" >
+
+  <% questions.each do |question| %>
+    <article class="question user-question">
+    	<h3>
+        <%= link_to truncate(question.title, length: 30), question %>
+    	</h3>
+    	
+    	
+    	   <%= render "questions/analytics_section" , question: question %>
+    </article>
+  <% end %>
+
+</div>

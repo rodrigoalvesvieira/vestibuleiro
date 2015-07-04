@@ -1,15 +1,24 @@
 {
   "questions": [
     {
+      "title": "Teoria de Einstein",
       "body": "Em 1905, Einstein propôs uma teoria simples e revolucionária para explicar o efeito fotoelétrico, a qual considera que a luz é constituída por partículas sem massa, chamadas de fótons. Cada fóton carrega uma energia dada por hf, onde h=4,1×10−15eV.s é a constante de Planck, e f é a frequência da luz. Einstein relacionou a energia cinética, E",
       "answers": [
         { "body": "A) impossível, porque a velocidade da luz que emerge da pessoa e se reflete no espelho não depende da velocidade da pessoa, nem da velocidade do espelho."}
       ]
     },
     {
+      "title": "PG ILIMITADA",
       "body": "Considere uma PG ILIMITADA ( infinitos termos) e decrescente. Nestas condições, podemos considerar que no limite teremos an = 0. Resolva a equação: x + x/2 + x/4 + x/8 + x/16 + ... =100.",
       "answers": [
         { "body": "O primeiro membro é uma PG de primeiro termo x e razão 1/2. Logo, substituindo na fórmula, vem:" }
+      ]
+    },
+    {
+      "title": "De onde vem a fórmula de Bhaskara?",
+      "body": "para que serve essa equação, como calcular o determinante, exemplos, entre outras informações.",
+      "answers": [
+        { "body": "Já no caso das equações completas, é necessário utilizar uma fórmula matemática: a fórmula de Bhaskara (lê-se báscara). Uma equação de 2o grau pode ser.." }
       ]
     }
   ]

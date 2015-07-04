@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       post 'create_answer'
       post 'create_question_comment'
       post 'create_answer_comment'
+      get 'upvote'
+      get 'downvote'
     end
   end
 

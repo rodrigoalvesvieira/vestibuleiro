@@ -23,12 +23,21 @@
           <p class="login-text">
              <%= f.select :state, User::STATES.map { |state| state[:name] }, class: "form-control" %>
           </p>
+
+          <p class="login-text">
+            <div class="fileinputs">
+              <%= f.file_field :avatar, class: "file" %>
+              <div class="fakefile">
+                <button type="button" class="button small margin_0">Selecione o arquivo</button>
+                <span><i class="icon-arrow-up"></i>Browse</span>
+              </div>
+            </div>
+          </p>
         </div>
 
         <p class="form-submit login-submit">
           <%= f.submit "Salvar", class: "button color small login-submit submit" %>
         </p>
-
       <% end %>
     </div>
   </div><!-- End page-content -->

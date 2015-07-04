@@ -5,30 +5,16 @@
     	<h2>
         <%= link_to truncate(question.title, length: 30), question %>
     	</h2>
-        
-    	<a class="question-report" href="#">Denunciar</a>
-    	<div class="question-type-main"><i class="icon-question-sign"></i>Questão</div>
-    	<div class="question-author">
-    		<a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://lorempixel.com/60/60/people"></a>
-    	</div>
-    	<div class="question-inner">
-    		<div class="clearfix"></div>
-    		<div class="question-details">
-    			<span class="<%= question.status == 'open' ? 'question-answered' : 'question-answered question-answered-done' %>"><i
-            class="<%= question.status == 'open' ? 'icon-remove' : 'icon-ok'   %>">
-          </i><%= t "statuses.#{question.status}" %>
-          </span>
 
-        	<span class="question-favorite"><i class="icon-star"></i><%= question.analytics.upvotes %></span>
-    		</div>
-    		<span class="question-date"><i class="icon-time"></i><%= time_ago_in_words question.created_at %></span>
-    		<span class="question-comment"><a href="#"><i class="icon-comment"></i><%= question.answers.count %> Respostas</a></span>
-    		<span class="question-view"><i class="icon-user"></i><%= question.analytics.visualizations %> visualizações</span>
-    		<div class="clearfix"></div>
-    	</div>
+    	<a class="question-report" href="#">Denunciar</a>
+      <%= render "users/minicard", question: question %>
+      <div class="question-inner">
+        <%= render "questions/analytics_section" , question: question %>
+      </div>
     </article>
 
 
   <% end %>
-
+  <!--Here is the command to paginate-->
+  <%= paginate questions,:remote => true%>
 </div>

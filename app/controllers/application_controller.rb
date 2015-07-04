@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def notifications
+    if current_user
+      return Notification.unseen.from_user current_user
+    end
+  end
+  helper_method :notifications
+
   def check_login
     if user_signed_in?
 

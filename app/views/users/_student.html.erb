@@ -17,7 +17,6 @@
   </section><!-- End container -->
 </div><!-- End breadcrumbs -->
 
-
 <section class="container main-content">
   <div class="row">
     <div class="col-md-9">
@@ -29,6 +28,8 @@
               <h2><%= user.name %></h2>
               <% if user.avatar? %>
                 <div class="user-profile-img"><img width="90" height="90" src="<%= user.avatar.url %>" alt="admin"></div>
+              <% else %>
+                <div class="user-profile-img"><img width="90" height="90" src="/avatars/original/missing.png" alt="admin"></div>
               <% end %>
 
               <div class="ul_list ul_list-icon-ok about-user">
@@ -57,7 +58,7 @@
                 </ul>
               </div>
               <div class="clearfix"></div>
- 
+
             </div><!-- End page-content -->
           </div><!-- End col-md-12 -->
           <div class="col-md-12">
@@ -76,10 +77,97 @@
                   </div><!-- End user-profile-widget -->
                 </div><!-- End page-content -->
               </div><!-- End col-md-12 -->
-            </div><!-- End user-profile -->
 
+           <div class="col-md-12">
+            <div class="page-content page-content-user">
+              <div class="user-questions">
+                <article class="question user-question">
+                  <h3 style="margin-bottom: 0px; text-align: center;">
+                    <a style="font-weight: bold;" href="#">Minhas Perguntas</a>
+                  </h3>
+
+                </article>
+                <ul>
+                   <%= render "questions/user_questions_section", questions: @user.questions %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!-- End user-profile -->
       </div><!-- End row -->
-      
+
+      <% if user.total_activities.count > 0 %>
+        <div id="atividadesRecentes" class="page-content page-content-user">
+  					<style>
+  						#resposta {
+  							font-size: 17px;
+  						}
+  					</style>
+  					<div class="user-questions">
+  						<article class="question user-question">
+  							<h3 style="margin-bottom: 0px; text-align: center;">
+  								<a  style="font-weight: bold;" href="#">Atividades recentes</a>
+  							</h3>
+
+  						</article>
+              <% user.total_activities.each do |activity| %>
+    						<article class="question user-question">
+    							<h3>
+    								<a id="resposta"> <%= activity.class.name == 'Question' ? (link_to truncate(activity.title, length: 30), activity) : (link_to truncate(activity.body, length: 30), activity.question) %> </a>
+    							</h3>
+    							<div class="question-type-main"><i class="<%= activity.class.name == 'Question' ? 'icon-question-sign' : 'icon-info-sign' %>"></i><%= activity.class.name == 'Question' ? 'Questão' : 'Resposta' %></div>
+    							<div class="question-content">
+    								<div class="question-bottom">
+                      <% if activity.class.name == 'Question' %>
+    									  <div class="<%= activity.status == 'open' ? 'question-answered' : 'question-answered question-answered-done' %>"><i class="<%= activity.status == 'open' ? 'icon-edit' : 'icon-ok'   %>"></i> <%= t "statuses.#{activity.status}" %> </div>
+    									<% end %>
+                        <span class="question-favorite"><i class="icon-star-empty"></i> <%= activity.analytics.upvotes - activity.analytics.downvotes%> </span>
+      									<span class="question-date"><i class="icon-time"></i> <%= time_ago_in_words activity.created_at %></span>
+                      <% if activity.class.name == 'Question' %>
+      									<span class="question-comment"><a href="#"><i class="icon-comment"></i> <%= link_to "#{activity.answers.count} Resposta", activity %></a></span>
+                        <span class="question-view"><i class="icon-user"></i> <%= activity.analytics.visualizations %> visualizações</span>
+                      <% end %>
+    								</div>
+    							</div>
+    						</article>
+              <% end %>
+
+  						<!--<article class="question user-question">
+  							<h3>
+  								<a id="resposta" href="single_question.html">...Eu acho que não é possível aplicar esta fórmula... </a>
+  							</h3>
+  							<div class="question-type-main"><i class="icon-info-sign"></i>Resposta</div>
+  							<div class="question-content">
+  								<div class="question-bottom">
+  									<span class="question-favorite"><i class="icon-star-empty"></i>0</span>
+
+  									<span class="question-date"><i class="icon-time"></i>2 hora atrás</span>
+  									<span class="question-comment"><a href="#"><i class="icon-comment"></i>2 respostas</a></span>
+  								</div>
+  							</div>
+  						</article>
+  						<article class="question user-question">
+  							<h3>
+  								<a id="resposta" href="single_question.html">Como se deduz a fórmula atração de dois corpos estáticos?</a>
+  							</h3>
+  							<div class="question-type-main"><i class="icon-question-sign"></i>Resposta</div>
+  							<div class="question-content">
+  								<div class="question-bottom">
+  									<div class="question-answered question-answered-done"><i class="icon-ok"></i>Resolvida</div>
+  									<span class="question-favorite"><i class="icon-star-empty"></i>2</span>
+
+  									<span class="question-date"><i class="icon-time"></i>2 dias atrás</span>
+  									<span class="question-comment"><a href="#"><i class="icon-comment"></i>5 respostas</a></span>
+  									<span class="question-view"><i class="icon-user"></i>26 visualizações</span>
+  								</div>
+  							</div>
+  						</article> -->
+
+
+  					</div>
+  				</div>
+        <% end %>
+
     </div><!-- End main -->
     <aside class="col-md-3 sidebar">
 
