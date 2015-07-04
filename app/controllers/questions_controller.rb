@@ -63,7 +63,9 @@ class QuestionsController < ApplicationController
   end
 
   def update_visualizations
-    @question.analytics.increment current_user, visualizations: 1, upvotes: 1, downvotes: 0
+    if current_user
+      @question.analytics.increment current_user, visualizations: 1, upvotes: 0, downvotes: 0
+    end
   end
 
   def upvote

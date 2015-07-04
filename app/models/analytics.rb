@@ -26,5 +26,12 @@ class Analytics
     self.upvotes += upvotes
     self.downvotes += downvotes
     self.save
+
+    if self.question
+      unless self.question.is_subscribed? user
+        self.question.subscriptions.create user_id: user.id
+      end
+    end
+
   end
 end

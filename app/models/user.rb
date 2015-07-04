@@ -88,6 +88,7 @@ class User
   has_many :questions
   has_many :answers
   has_many :subscriptions
+  has_many :notifications
 
   ## Callbacks
   before_create :setup_nickname

@@ -20,7 +20,8 @@ class Question
   has_many :comments
 
   has_many :subscriptions
-
+  has_many :notifications
+  
   belongs_to :user
 
   has_one :analytics, class_name: "Analytics"
@@ -55,6 +56,14 @@ class Question
   def is_voter(user)
     self.analytics.users_id_vote.each do |user_id_vote|
       return true if user_id_vote == user.id
+    end
+
+    return false
+  end
+
+  def is_subscribed?(user)
+    self.subscriptions.each do |subscription|
+      return true if subscription.user == user
     end
 
     return false
