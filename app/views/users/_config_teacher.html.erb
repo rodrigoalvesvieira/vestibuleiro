@@ -1,0 +1,122 @@
+<section class="container main-content">
+		<div class="row">
+			<div class="col-md-9">
+				<div class="page-content">
+					<div class="boxedtitle page-title"><h2>Configurações</h2></div>
+
+					<div class="form-style form-style-4">
+            <%= form_for(@user, html: { class: "form-horizontal" }) do |f| %>
+							<div class="form-inputs clearfix">
+								<p>
+									<label>Nome</label>
+									<%= f.text_field :name, class: "form-control", placeholder: "Digite o seu nome" %>
+								</p>
+
+								<p>
+									<label >Telefone para contato</label>
+                  <%= f.text_field :phone_number, class: "form-control", placeholder: "(xx) 9999-9999" %>
+								</p>
+								<p>
+									<label>Estado</label>
+                  <%= f.select :state, User::STATES.map { |state| state[:name] }, class: "form-control" %>
+								</p>
+
+								<p>
+									<label>Cidade</label>
+                  <%= f.text_field :city, class: "form-control", placeholder: "Digite a sua cidade" %>
+								</p>
+
+							<!--
+								<p>
+									<label class="required">Senha<span>*</span></label>
+									<input type="password" value="">
+								</p>
+								<p>
+									<label class="required">Confirme a senha<span>*</span></label>
+									<input type="password" value="">
+								</p>
+
+								<p>
+									<label>País</label>
+									<input type="text">
+								</p>
+							Skins -->
+							</div>
+							<div class="form-style form-style-2">
+								<div class="user-profile-img"><img src="http://placehold.it/60x60/FFF/444" alt="admin"></div>
+								<p class="user-profile-p">
+									<label>Foto de Perfil</label>
+									<div class="fileinputs">
+										<input type="file" class="file">
+										<div class="fakefile">
+											<button type="button" class="button small margin_0">Escolha sua foto</button>
+											<span><i class="icon-arrow-up"></i>Procurar foto</span>
+										</div>
+									</div>
+								<p>
+
+								<div class="form-inputs clearfix" id="instituicoes">
+								<p>
+										<label>Instituiçõe de Ensino</label>
+									    <div id="dynamicInput"></div>
+
+									    <input style="margin-top: 10px;" type="button" class="button color small login-submit submit" value="Adicionar instituição de ensino" onclick="addInput('dynamicInput');" />
+
+								</p>
+								<p>
+									<label>Disciplinas lecionadas</label>
+									<div class="row">
+                      <% Discipline.all.each do |discipline| %>
+		  								<div class="col-xs-3" >
+									      <label> <%= f.check_box 'disciplines[]', value: discipline.name, checked: @user.disciplines ? @user.disciplines.include?(discipline) : false %><%= discipline.name %></label>
+									    </div>
+                    <% end %>
+									</div>
+
+								</p>
+
+							</div>
+								<div class="clearfix"></div>
+
+								<p>
+									<label>Sobre você</label>
+                  <%= f.text_area :description, class: "form-control", placeholder: "Forneça uma descrição sobre você!" %>
+								</p>
+							</div>
+							<!--
+							<div class="form-inputs clearfix">
+								<p>
+									<label>Facebook</label>
+									<input type="text">
+								</p>
+								<p>
+									<label>Twitter</label>
+									<input type="text">
+								</p>
+								<p>
+									<label>Linkedin</label>
+									<input type="email">
+								</p>
+								<p>
+									<label>Google plus</label>
+									<input type="text">
+								</p>
+							</div>
+							-->
+							<p class="form-submit">
+                <%= f.submit "Atualizar", class: "button color small login-submit submit" %>
+							</p>
+						<% end %>
+					</div>
+				</div><!-- End page-content -->
+			</div><!-- End main -->
+			<aside class="col-md-3 sidebar">
+
+				<div class="widget">
+					<h3 class="widget_title">Precisa de ajuda?</h3>
+					<p>Leia a nossa seção de <a href="#">Perguntas Mais Frequentes</a> caso possua alguma dúvida sobre a plataforma.</p>
+				</div>
+
+			</aside><!-- End sidebar -->
+		</div><!-- End row -->
+	</section><!-- End container -->

@@ -20,6 +20,10 @@
 <section class="container main-content">
   <div class="row" style="margin-top: 26px">
 
-    <%= render "form" %>
+    <% if @user.role == 'student' %>
+    <%= render "config_student", user: @user %>
+    <% else %>
+    <%= render "config_teacher", user: @user %>
+    <% end %>
   </div>
 </div>
