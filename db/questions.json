@@ -20,6 +20,62 @@
       "answers": [
         { "body": "Já no caso das equações completas, é necessário utilizar uma fórmula matemática: a fórmula de Bhaskara (lê-se báscara). Uma equação de 2o grau pode ser.." }
       ]
+    },
+    {
+      "title": "Dúvida com questão de aritmética",
+      "body": "Carlos tinha 26 livros. Ele comprou mais 23. Quantos livros ele tem agora?",
+      "answers": [
+        { "body": "Olá, a resposta correta é 49!" }
+      ]
+    },
+    {
+      "title": "Se uma casa tem quatro lados e em cada canto tem um gato e cada gato vê três gatos, quantos gatos há na casa?",
+      "body": "Se uma casa tem quatro lados e em cada canto tem um gato e cada gato vê três gatos, quantos gatos há na casa?",
+      "answers": [
+        { "body": "Olá, essa pergunta é muito interessante!" }
+      ]
+    },
+    {
+      "title": "Rails 4.1 Mailer Previews and Devise custom emails",
+      "body": "I have a brand new Rails 4.1.1 app where I'm customizing the Devise emails. I want to have them displayed on the new Rails email preview feature so I did the following:",
+      "answers": [
+        { "body": "Where do you call confirmation_url? Can you share the relevant code where you are getting this error." }
+      ]
+    },
+    {
+      "title": "How to make a Clojure function take a variable number of parameters?",
+      "body": "I'm learning Clojure and I'm trying to define a function that take a variable number of parameters (a variadic function) and sum them up (yep, just like the + procedure). However, I don't know how to implement such function",
+      "answers": [
+        { "body": "Yehoanathan mentions arity overloading but does not provide a direct example. Here's what he's talking about." }
+      ]
+    },
+    {
+      "title": "iOS 7 - Failing to instantiate default view controller",
+      "body": "I am using Xcode 5 in a newly created app and when I just create it I go for the run button e click on it, then the project gets built but it does not show in the iOS Simulator and I get the following message",
+      "answers": [
+        { "body": "So this also happened to me too. I checked 50 times and my 'Is Initial View Controller' was checked, believe me. It happened out of the blue. So how did I fix it?." }
+      ]
+    },
+    {
+      "title": "How to merge many PDF files into a single one? [closed]",
+      "body": "I have 16 pdfs that I want to convert into a single one... I am on Ubuntu 10.10, how can I do it?",
+      "answers": [
+        { "body": "Double check the PDF documents prior to merging to make sure all pertinent information is included. Its much easier to re-create a single PDF page than a multi-page document." }
+      ]
+    },
+    {
+      "title": "'SC' is not defined when using soundcloud SDK",
+      "body": "JS hint is giving me a 'SC' is not defined when using soundcloud SDK.",
+      "answers": [
+        { "body": "It does not look like you're including a soundcloud api js file, that may be the cause of this issue." }
+      ]
+    },
+    {
+      "title": "If a dynamic data structure like this is possible, why do we need a linked-list?",
+      "body": "If we have std::set and std::vector which can grow and shrink dynamically, why do we need linked lists?",
+      "answers": [
+        { "body": "Linked list is O(1) insert, removal, concatentation, ... etc. List grows big? so what, system keeps running normally. Just plan to not need random access." }
+      ]
     }
   ]
 }
