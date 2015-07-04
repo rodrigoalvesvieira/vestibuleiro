@@ -21,11 +21,7 @@
   </div><!-- End breadcrumbs -->
 
   <section class="container main-content">
-    <div class="button small color">
-      <% if signed_in? %>
-        <%= @question.user.name == current_user.name ? link_to('Editar', edit_question_path(@question)) : '' %>
-      <% end %>
-    </div>
+    
     <div class="row">
       <div class="col-md-9" >
         <article class="question single-question question-type-normal">
@@ -43,7 +39,7 @@
               <strong><%= link_to @question.user.name, @question.user %></strong>
             </span>
 
-           <ul class="single-question-vote">
+           <ul class="single-question-vote" text-decoration="underline">
               <li>
                 <%= link_to upvote_question_path(@question) do %>
                   <%= @question.analytics.upvotes %>
@@ -54,8 +50,12 @@
                   <%= @question.analytics.downvotes %>
                   <i class="icon-thumbs-down"> </i>
                 <% end %>
+                <% if signed_in? %>
+                  <%= @question.user.name == current_user.name ? link_to('Editar', edit_question_path(@question)) : '' %>                  
+                <% end %> 
               </li>
           </ul>
+
           <div class="clearfix"></div>
           </div>
         </article>
