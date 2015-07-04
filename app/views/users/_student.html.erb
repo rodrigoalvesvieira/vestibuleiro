@@ -76,8 +76,23 @@
                   </div><!-- End user-profile-widget -->
                 </div><!-- End page-content -->
               </div><!-- End col-md-12 -->
-            </div><!-- End user-profile -->
 
+           <div class="col-md-12">
+            <div class="page-content page-content-user">
+              <div class="user-questions">
+                <article class="question user-question">
+                  <h3 style="margin-bottom: 0px; text-align: center;">
+                    <a style="font-weight: bold;" href="#">Minhas Perguntas</a>
+                  </h3>
+
+                </article>
+                <ul>
+                   <%= render "questions/user_questions_section", questions: @user.questions %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!-- End user-profile -->
       </div><!-- End row -->
       
     </div><!-- End main -->

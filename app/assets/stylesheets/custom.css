@@ -94,8 +94,12 @@
 }
 
 li.tab.active{
-  background-color: #FDB655;
+  background-color: #E04747;
   display: inline-block;
   float:left;
   font-weight: bold !important;
+}
+
+li.tab.active a{
+   color: #FFF !important;
 }
