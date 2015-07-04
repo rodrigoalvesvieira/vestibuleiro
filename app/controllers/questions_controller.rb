@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :update_analytics, :destroy, :create_answer]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :create_answer, :upvote, :downvote]
   before_action :update_visualizations, only: [:show]
-  before_filter :authenticate_user!, except: [:index, :show, :new, :update_analytics, :search]
+  before_filter :authenticate_user!, except: [:index, :show, :new, :search]
 
   # GET /questions
   def index
@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
 
     @hall = User.where('role' => "teacher").take(5)
 
-    @hall.to_a.sort { |user_first,user_second| (user_second.ranking_user) <=> (user_first.ranking_user) }
+    @hall.to_a.sort { |user_first, user_second| (user_second.ranking_user) <=> (user_first.ranking_user) }
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
     return @results.to_a
   end
 
-  def filterByTag
+  def filter_by_tag
     @results_tag = Set.new
     @results     = Set.new
 
@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
     @results_tag = @results_tag.to_a
 
     @results_tag.each do |tag|
-      @results.add Question.filterByTag params[:tag]
+      @results.add Question.filter_by_tag params[:tag]
     end
 
     @results = @results.to_a
@@ -63,50 +63,29 @@ class QuestionsController < ApplicationController
   end
 
   def update_visualizations
-    @question.analytics.visualizations =  @question.analytics.visualizations + 1
-    @question.analytics.save
+    @question.analytics.increment current_user, visualizations: 1, upvotes: 1, downvotes: 0
   end
 
   def upvote
-    if already_voted
+    if @question.is_voter(current_user)
       redirect_to @question and return
     end
 
-    @question = Question.find(params[:id])
-    @question.analytics.upvotes = @question.analytics.upvotes + 1
-    @question.analytics.save
+    @question.analytics.increment current_user, visualizations: 0, upvotes: 1, downvotes: 0
+    @question.add_voter(current_user)
 
-    add_user_id_vote
     redirect_to @question
   end
 
   def downvote
-    if already_voted
+    if @question.is_voter(current_user)
       redirect_to @question and return
     end
 
-    @question = Question.find(params[:id])
-    @question.analytics.downvotes = @question.analytics.downvotes + 1
-    @question.analytics.save
+    @question.analytics.increment current_user, visualizations: 0, upvotes: 0, downvotes: 1
+    @question.add_voter(current_user)
 
-    add_user_id_vote
     redirect_to @question
-  end
-
-  def add_user_id_vote
-    @question = Question.find(params[:id])
-    @question.analytics.users_id_vote = @question.analytics.users_id_vote + [current_user.id]
-    @question.analytics.save
-  end
-
-  def already_voted
-    @question = Question.find(params[:id])
-    @question.analytics.users_id_vote.each do |user_id_vote|
-      if user_id_vote == current_user.id
-        return true
-      end
-    end
-    false
   end
 
   # POST /questions
@@ -145,12 +124,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def create_question_comment
-  end
-
-  def create_answer_comment
-  end
-
   # PATCH/PUT /questions/1
   def update
     respond_to do |format|
@@ -164,13 +137,10 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def update_analytics
-    @question.increment_metadata params[:analytics]
-  end
-
   # DELETE /questions/1
   def destroy
     @question.unpublish
+
     respond_to do |format|
       format.html { redirect_to questions_url }
       format.json { head :no_content }
@@ -178,7 +148,7 @@ class QuestionsController < ApplicationController
   end
 
   def get_next_page
-    if params[:order_by] == 'visualizations'
+    if params[:order_by] == "visualizations"
       @questions = Kaminari.paginate_array(Question.all.sort{ |a,b| b.analytics.visualizations <=> a.analytics.visualizations }).page(params[:page]).per(10)
     elsif params[:order_by] == "upvotes"
       @questions = Kaminari.paginate_array(Question.all.sort{ |a,b| b.analytics.upvotes <=> a.analytics.upvotes}).page(params[:page]).per(10)
