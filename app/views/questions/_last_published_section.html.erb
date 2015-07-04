@@ -7,10 +7,7 @@
     	</h2>
 
     	<a class="question-report" href="#">Denunciar</a>
-    	<div class="question-type-main"><i class="icon-question-sign"></i>Questão</div>
-    	<div class="question-author">
-    		<a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://lorempixel.com/60/60/people"></a>
-    	</div>
+      <%= render "users/minicard", question: question %>
     	<div class="question-inner">
     		<div class="clearfix"></div>
     		<div class="question-details">
@@ -22,8 +19,13 @@
         	<span class="question-favorite"><i class="icon-star"></i><%= question.analytics.upvotes %></span>
     		</div>
     		<span class="question-date"><i class="icon-time"></i><%= time_ago_in_words question.created_at %></span>
-    		<span class="question-comment"><a href="#"><i class="icon-comment"></i><%= question.answers.count %> Respostas</a></span>
-    		<span class="question-view"><i class="icon-user"></i><%= question.analytics.visualizations %> visualizações</span>
+    		<span class="question-comment">
+          <%= link_to question_path(question) + "#question-answers-title" do %>
+            <i class="icon-comment"></i><%= question.answers.count %> Respostas
+          <% end %>
+        </span>
+
+        <span class="question-view"><i class="icon-user"></i><%= question.analytics.visualizations %> visualizações</span>
     		<div class="clearfix"></div>
     	</div>
     </article>
