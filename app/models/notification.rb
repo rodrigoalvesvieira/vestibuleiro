@@ -22,6 +22,7 @@ class Notification
   belongs_to :question
 
   ## Callbacks
+  after_create :deliver_mail
 
   ## Validations
   validates_inclusion_of :status, in: STATUSES
@@ -29,4 +30,9 @@ class Notification
   ## Extras
 
   ## Methods
+
+private
+  def deliver_mail
+    NotificationMailer.notify_answer(self).deliver_now
+  end
 end

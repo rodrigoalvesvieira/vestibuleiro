@@ -17,7 +17,6 @@
   </section><!-- End container -->
 </div><!-- End breadcrumbs -->
 
-
 <section class="container main-content">
   <div class="row">
     <div class="col-md-9">
@@ -29,6 +28,8 @@
               <h2><%= user.name %></h2>
               <% if user.avatar? %>
                 <div class="user-profile-img"><img width="90" height="90" src="<%= user.avatar.url %>" alt="admin"></div>
+              <% else %>
+                <div class="user-profile-img"><img width="90" height="90" src="/avatars/original/missing.png" alt="admin"></div>
               <% end %>
 
               <div class="ul_list ul_list-icon-ok about-user">

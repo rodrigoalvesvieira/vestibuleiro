@@ -1,0 +1,25 @@
+{
+  "name": "vestibuleiro",
+  "version": "1.0.0",
+  "description": "Uma plataforma para obter uma resposta rápida e confiável para sua dúvida.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodrigoalvesvieira/vestibuleiro.git"
+  },
+  "keywords": [
+    "startup"
+  ],
+  "author": "Rodrigo Alves",
+  "license": "private",
+  "bugs": {
+    "url": "https://github.com/rodrigoalvesvieira/vestibuleiro/issues"
+  },
+  "homepage": "https://github.com/rodrigoalvesvieira/vestibuleiro",
+  "dependencies": {
+    "bower": "^1.4.1"
+  }
+}

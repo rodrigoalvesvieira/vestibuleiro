@@ -18,7 +18,7 @@ puts "Creating users..."
 pwd = "palavrafacil"
 
 users = User.create([
-  { name: "Rodrigo", email: "rodrigo@vestibuleiro.com", password: pwd },
+  { name: "Rodrigo", email: "rodrigovieira1994@gmail.com", password: pwd },
   { name: "Rafael", email: "rafael@vestibuleiro.com", password: pwd , role: "teacher"},
   { name: "Artur", email: "artur@vestibuleiro.com", password: pwd },
   { name: "Prof1", email: "rafael2@vestibuleiro.com", password: pwd , role: "teacher"},
@@ -58,5 +58,6 @@ raw_questions["questions"].each_with_index do |raw_question, i|
   end
 end
 
-puts_colored "#{Question.count} questions created.\n"
-puts_colored "#{Answer.count} answers created.\n"
+puts_colored "#{Question.count} questions created."
+puts_colored "#{Answer.count} answers created."
+puts_colored "#{Notification.count} notifications created.\n"
