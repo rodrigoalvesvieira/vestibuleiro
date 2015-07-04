@@ -154,3 +154,10 @@ def evaluate_teacher
   end
   val
 end
+
+def total_activities
+  @activities = self.questions.to_a + self.answers.to_a
+
+  @activities.to_a.sort { |activity_first,activity_second| (activity_second.created_at.to_i) <=> (activity_first.created_at.to_i) }
+
+end
