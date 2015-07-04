@@ -19,6 +19,8 @@ class Question
   has_many :tags
   has_many :comments
 
+  has_many :subscriptions
+
   belongs_to :user
 
   has_one :analytics, class_name: "Analytics"
@@ -27,6 +29,7 @@ class Question
 
   ## Callbacks
   after_create :setup_analytics
+  after_create :subscribe_author
 
   ## Validations
   validates_inclusion_of :status, in: STATUSES
@@ -63,5 +66,10 @@ private
   def setup_analytics
     self.build_analytics
     self.analytics.save!
+  end
+
+  # The author of the question is its first watcher
+  def subscribe_author
+    self.subscriptions.create user_id: self.user.id
   end
 end

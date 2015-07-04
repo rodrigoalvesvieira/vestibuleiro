@@ -86,6 +86,7 @@ class User
   ## Relationships
   has_many :questions
   has_many :answers
+  has_many :subscriptions
 
   ## Callbacks
   before_create :setup_nickname

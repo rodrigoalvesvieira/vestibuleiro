@@ -180,8 +180,6 @@
 </div><!-- End wrap -->
 
 <div class="go-up"><i class="icon-chevron-up"></i></div>
-
-
   <div class="row">
     <div class="col-md-8">
 
@@ -194,9 +192,6 @@
 
       <section class="answers-content">
         <% @question.answers.each do |answer| %>
-          <!-- <article class="answer-component" id="answer-#{answer.id}">
-            <%= answer.body %>
-          </article> -->
 
           <section id="answer-comment=#{answer.id}">
             <% answer.comments.each do |comment| %>

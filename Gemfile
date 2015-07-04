@@ -63,6 +63,7 @@ gem 'tzinfo-data'
 gem 'active_model_serializers', '~> 0.9.3'
 
 group :development, :test do
+  gem 'wirble'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
