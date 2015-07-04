@@ -65,17 +65,17 @@ class QuestionsController < ApplicationController
   def update_visualizations
     @question.analytics.visualizations =  @question.analytics.visualizations + 1
     @question.analytics.save
-  end 
+  end
 
   def upvote
     if already_voted
       redirect_to @question and return
-    end 
-    
+    end
+
     @question = Question.find(params[:id])
     @question.analytics.upvotes = @question.analytics.upvotes + 1
     @question.analytics.save
-    
+
     add_user_id_vote
     redirect_to @question
   end
@@ -89,7 +89,7 @@ class QuestionsController < ApplicationController
     @question.analytics.downvotes = @question.analytics.downvotes + 1
     @question.analytics.save
 
-    add_user_id_vote    
+    add_user_id_vote
     redirect_to @question
   end
 
@@ -97,7 +97,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.analytics.users_id_vote = @question.analytics.users_id_vote + [current_user.id]
     @question.analytics.save
-  end  
+  end
 
   def already_voted
     @question = Question.find(params[:id])
@@ -106,7 +106,7 @@ class QuestionsController < ApplicationController
         return true
       end
     end
-    false  
+    false
   end
 
   # POST /questions
@@ -176,7 +176,7 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
- 
+
   def get_next_page
     if params[:order_by] == 'visualizations'
       @questions = Kaminari.paginate_array(Question.all.sort{ |a,b| b.analytics.visualizations <=> a.analytics.visualizations }).page(params[:page]).per(10)

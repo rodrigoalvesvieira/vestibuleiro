@@ -1,6 +1,30 @@
-<h1>Editing Question</h1>
+<div id="wrap" class="grid_1200">
+  <div class="breadcrumbs">
+    <section class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1><%= @question.title %></h1>
+        </div>
+        <div class="col-md-12">
+          <div class="crumbs">
+            <a href="#">Home</a>
+            <span class="crumbs-span">/</span>
+            <a href="#">Dúvidas</a>
+            <span class="crumbs-span">/</span>
+            <a href="#"><%= @question.discipline %></a>
+            <span class="crumbs-span">/</span>
+            <span class="current"><%= @question.title %></span>
+          </div>
+        </div>
+      </div><!-- End row -->
+    </section><!-- End container -->
+  </div><!-- End breadcrumbs -->
+
+  <section class="container main-content">
 
 <%= render 'form' %>
+  </section>
+</div>
 
 <%= link_to 'Show', @question %> |
 <%= link_to 'Back', questions_path %>
