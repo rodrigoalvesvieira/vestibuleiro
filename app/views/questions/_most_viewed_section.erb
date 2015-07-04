@@ -7,8 +7,9 @@
     	</h2>
     	<a class="question-report" href="#">Denunciar</a>
       <%= render "users/minicard" , question: question %>
-      <%= render "questions/analytics_section" , question: question %>
-    	
+      <div class="question-inner">
+        <%= render "questions/analytics_section" , question: question %>
+    	</div>
     </article>
   <% end %>
 

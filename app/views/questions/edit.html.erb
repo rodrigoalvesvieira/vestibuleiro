@@ -1,6 +1,44 @@
-<h1>Editing Question</h1>
+<div class="breadcrumbs">
+	<section class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Fazer uma pergunta</h1>
+			</div>
+			<div class="col-md-12">
+				<div class="crumbs">
+					<a href="#">Home</a>
+					<span class="crumbs-span">/</span>
+					<a href="#">Dúvidas</a>
+					<span class="crumbs-span">/</span>
+					<span class="current">Nova dùvida</span>
+				</div>
+			</div>
+		</div><!-- End row -->
+	</section><!-- End container -->
+</div><!-- End breadcrumbs -->
 
-<%= render 'form' %>
+<section class="container main-content">
+	<div class="row">
+		<div class="col-md-9">
 
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>
+			<div class="page-content ask-question">
+				<div class="boxedtitle page-title"><h2>Faça uma pergunta</h2></div>
+
+				<div class="form-style form-style-3" id="question-submit">
+					
+					<%= render 'form' %>
+
+				</div>
+			</div><!-- End page-content -->
+		</div><!-- End main -->
+		<aside class="col-md-3 sidebar">
+
+			<div class="widget">
+				<h3 class="widget_title">Precisa de ajuda?</h3>
+				<p>Leia a nossa seção de <a href="#">Perguntas Mais Frequentes</a> caso possua alguma dúvida sobre a plataforma.</p>
+			</div>
+
+		</aside><!-- End sidebar -->
+	</div><!-- End row -->
+</section><!-- End container -->
+
