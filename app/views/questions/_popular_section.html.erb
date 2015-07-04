@@ -6,8 +6,9 @@
         <%= link_to truncate(question.title, length: 30), question %>
     	</h2>
     	<a class="question-report" href="#">Denunciar</a>
+      <%= render "users/minicard" , question: question %>
       <div class="question-inner">
-        <%= render "users/minicard", question: question %>
+        <%= render "analytics_section", question: question %>
     	</div>
     </article>
   <% end %>
