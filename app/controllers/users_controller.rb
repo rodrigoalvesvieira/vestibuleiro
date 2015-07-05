@@ -11,12 +11,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def ranking
-    @users = User.all
-
-    @users.to_a.sort { |user_first,user_second| (user_second.ranking_user) <=> (user_first.ranking_user) }
-  end
-
   def update
     @user = User.find(params[:id])
 
