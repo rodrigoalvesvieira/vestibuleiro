@@ -30,6 +30,9 @@ class Notification
   ## Extras
 
   ## Methods
+  def mark_as_seen
+    self.update_attribute :status, STATUSES.first
+  end
 
 private
   def deliver_mail

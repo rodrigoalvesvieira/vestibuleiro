@@ -37,7 +37,7 @@ class Answer
 private
 
   def deliver_notifications
-    message = "#{self.question.user.name} respondeu a pergunta"
+    message = "#{self.user.name} respondeu a pergunta"
     path = "questions/#{self.id}"
 
     self.question.subscriptions.each do |subscription|

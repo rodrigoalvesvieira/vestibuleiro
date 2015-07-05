@@ -4,7 +4,7 @@
 		<nav class="navigation">
 
 			<div class="col-xs-4 col-sm-2 col-md-2">
-			
+
 				<div class="logo" >
 					<%= link_to t("app_name"), root_path, class: "navbar-brand", style: "margin-top:15px" %>
 				</div>
@@ -31,7 +31,7 @@
 
 						<ul>
 							<% notifications.each do |notification| %>
-								<li><%= link_to truncate(notification.message, length: 30), notification.question %></li>
+								<li><%= link_to truncate(notification.message, length: 30), clear_notification_path(notification), method: :post %></li>
 							<% end %>
 						</ul>
 					</li>
