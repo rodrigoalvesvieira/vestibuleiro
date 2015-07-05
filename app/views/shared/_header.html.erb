@@ -2,51 +2,61 @@
 	<section class="container clearfix">
 
 		<nav class="navigation">
-			<ul>
+
+			<div class="col-xs-4 col-sm-2 col-md-2">
+			
 				<div class="logo" >
 					<%= link_to t("app_name"), root_path, class: "navbar-brand", style: "margin-top:15px" %>
 				</div>
 
-				<li style="margin-left: 20px">
-					<%= form_tag search_path, method: :get do %>
-					  <%= text_field_tag :search_term, nil, placeholder: "Procurar", style: "width: 440px" %>
-					<% end %>
-				</li>
+			</div>
 
-				<% if user_signed_in? %>
+			<div class="col-xs-8 col-sm-5 col-md-6" >
 
-				<li id="hide-chevron" style="margin-left: 8px">
-					<%= link_to notifications_path do %>
-						<%= notifications.size %> <i class="icon-bell-alt"></i></a>
-					<% end %>
-
-					<ul>
-						<% notifications.each do |notification| %>
-							<li><%= link_to truncate(notification.message, length: 30), notification.question %></li>
-						<% end %>
-					</ul>
-				</li>
-
-				<li><%= link_to current_user.name, user_path(current_user) %></a>
-					<ul>
-						<li><%= link_to "Perfil", user_path(current_user) %></li>
-						<li><%= link_to "Configurações", edit_user_path(current_user) %></li>
-						<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
-					</ul>
-				</li>
-
-				<% else %>
-
-				<li><%= link_to "Registre-se", new_user_registration_path %></li>
-				<li><%= link_to "Entrar", new_user_session_path %></li>
-
+				<%= form_tag search_path, method: :get do %>
+				  <%= text_field_tag :search_term, nil, placeholder: "Procurar" %>
 				<% end %>
 
-				<li class="current_page_item">
-					<%= link_to "Tire sua dúvida", new_question_path %>
-				</li>
+			</div>
 
-			</ul>
+
+			<ul class="col-xs-12 col-sm-5 col-md-4">
+
+					<% if user_signed_in? %>
+
+					<li id="hide-chevron" style="margin-left: 8px">
+						<%= link_to notifications_path do %>
+							<%= notifications.size %> <i class="icon-bell-alt"></i></a>
+						<% end %>
+
+						<ul>
+							<% notifications.each do |notification| %>
+								<li><%= link_to truncate(notification.message, length: 30), notification.question %></li>
+							<% end %>
+						</ul>
+					</li>
+
+					<li><%= link_to current_user.name, user_path(current_user) %></a>
+						<ul>
+							<li><%= link_to "Perfil", user_path(current_user) %></li>
+							<li><%= link_to "Configurações", edit_user_path(current_user) %></li>
+							<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+						</ul>
+					</li>
+
+					<% else %>
+
+					<li><%= link_to "Registre-se", new_user_registration_path %></li>
+					<li><%= link_to "Entrar", new_user_session_path %></li>
+
+					<% end %>
+
+					<li class="current_page_item">
+						<%= link_to "Tire sua dúvida", new_question_path %>
+					</li>
+
+				</ul>
+
 		</nav>
 	</section><!-- End container -->
 </header><!-- End of header -->
