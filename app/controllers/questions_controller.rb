@@ -63,7 +63,9 @@ class QuestionsController < ApplicationController
   end
 
   def update_visualizations
-    @question.analytics.increment current_user, visualizations: 1, upvotes: 1, downvotes: 0
+    if current_user
+      @question.analytics.increment current_user, visualizations: 1, upvotes: 0, downvotes: 0
+    end
   end
 
   def upvote
@@ -94,6 +96,26 @@ class QuestionsController < ApplicationController
       @question = Question.new(question_params)
       @question.user_id = current_user.id
 
+      tags = params[:question_tags]
+      tags_ar = tags.split(",")
+
+      tags_ar.each do |tag|
+        existent_tags = Tag.all
+        cond = true  
+        existent_tags.each do |existent_tag|
+          if(existent_tag.tag_name == tag)
+            cond = false
+            @question.tags = @question.tags + [existent_tag]
+            break
+          end
+        end 
+
+        if cond
+          saved_tag = Tag.create!(:tag_name => tag, :title => tag)
+          @question.tags = @question.tags + [saved_tag] 
+        end
+      end
+
       respond_to do |format|
         if @question.save
           format.html { redirect_to @question, notice: 'Question was successfully created.' }
@@ -108,7 +130,7 @@ class QuestionsController < ApplicationController
       redirect_to new_user_session_url
     end
   end
-
+  
   def create_answer
     answer = @question.answers.new body: params[:answer][:body]
     answer.user_id = current_user.id
