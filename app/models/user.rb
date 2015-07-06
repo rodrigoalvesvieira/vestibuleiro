@@ -88,6 +88,7 @@ class User
   has_many :questions
   has_many :answers
   has_many :subscriptions
+  has_many :notifications
 
   ## Callbacks
   before_create :setup_nickname
@@ -118,6 +119,23 @@ private
 end
 
 public
+  def rank
+    ranked_users = ranking
+    rank = 1
+    ranked_users.each do |user|
+      if user.id == user.id
+        break
+      end
+      rank += 1
+    end
+    rank
+  end
+
+  def ranking
+    @users = User.all
+
+    @users.to_a.sort { |user_first,user_second| (user_second.ranking_user) <=> (user_first.ranking_user) }
+  end
 
   def ranking_user
 

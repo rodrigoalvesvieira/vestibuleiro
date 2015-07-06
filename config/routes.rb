@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :notifications
+  resources :notifications do
+    member do
+      post 'clear', to: "notifications#clear_notification"
+    end
+  end
 
   root 'questions#index'
   get "questions/next_page", to: "questions#get_next_page"

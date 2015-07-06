@@ -39,4 +39,7 @@ public/assets/**/**/**/*.gz
 .sass-cache/
 .editorconfig
 
+# Ignore NPM modules directory
+node_modules/
+
 .idea/
