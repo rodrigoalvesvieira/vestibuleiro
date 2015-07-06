@@ -170,7 +170,7 @@ private
 
   def set_tags(tags, question)
     if tags != nil
-      tags_ar = delete_characters(tags.split(","))
+      tags_ar = delete_characters(tags.split(","), ' ')
       question.tags = []
       
       tags_ar.each do |tag|
@@ -193,10 +193,10 @@ private
     end 
   end 
 
-  def delete_characters(tags_ar)
+  def delete_characters(tags_ar, char)
     tags_aux = []
     tags_ar.each do |aux|
-        tags_aux += [aux.delete(' ')] 
+        tags_aux += [aux.delete(char)] 
     end
     tags_aux
   end
