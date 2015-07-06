@@ -1,10 +1,8 @@
 <div class="well" style="width:262.5px; height:239px;">
   <h4 class="lead">Assuntos favoritos</h4>
 
-  <span class="label label-warning">estequiometria</span>
-  <span class="label label-warning">citologia</span>
-  <span class="label label-warning">fisiologia-animal</span>
-  <span class="label label-warning">sistema-imunológico</span>
-  <span class="label label-warning">biogênese</span>
+  <% @question.tags.each do |tag|%>
+  	<span class="label label-warning"> <%= tag.tag_name %> </span>  
+  <% end %>
 
 </div>

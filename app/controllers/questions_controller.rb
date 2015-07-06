@@ -96,26 +96,8 @@ class QuestionsController < ApplicationController
       @question = Question.new(question_params)
       @question.user_id = current_user.id
 
-      tags = params[:question_tags]
-      tags_ar = tags.split(",")
-
-      tags_ar.each do |tag|
-        existent_tags = Tag.all
-        cond = true  
-        existent_tags.each do |existent_tag|
-          if(existent_tag.tag_name == tag)
-            cond = false
-            @question.tags = @question.tags + [existent_tag]
-            break
-          end
-        end 
-
-        if cond
-          saved_tag = Tag.create!(:tag_name => tag, :title => tag)
-          @question.tags = @question.tags + [saved_tag] 
-        end
-      end
-
+      set_tags(params[:question_tags], @question)
+      
       respond_to do |format|
         if @question.save
           format.html { redirect_to @question, notice: 'Question was successfully created.' }
@@ -185,6 +167,40 @@ private
   def set_question
     @question = Question.find(params[:id])
   end
+
+  def set_tags(tags, question)
+    if tags != nil
+      tags_ar = delete_characters(tags.split(","))
+      question.tags = []
+      
+      tags_ar.each do |tag|
+        existent_tags = Tag.all
+        cond = true  
+        
+        existent_tags.each do |existent_tag|
+          if(existent_tag.tag_name == tag)
+            cond = false
+            question.tags = @question.tags + [existent_tag]
+            break
+          end
+        end 
+
+        if cond
+          saved_tag = Tag.create!(:tag_name => tag, :title => tag)
+          question.tags = question.tags + [saved_tag]
+        end
+      end
+    end 
+  end 
+
+  def delete_characters(tags_ar)
+    tags_aux = []
+    tags_ar.each do |aux|
+        tags_aux += [aux.delete(' ')] 
+    end
+    tags_aux
+  end
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
     params.require(:question).permit(:title, :discipline, :body, :tags, :user_id, answer_attributes: [:body])

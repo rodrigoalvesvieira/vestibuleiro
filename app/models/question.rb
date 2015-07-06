@@ -27,6 +27,7 @@ class Question
   has_one :analytics, class_name: "Analytics"
 
   accepts_nested_attributes_for :answers
+  accepts_nested_attributes_for :tags
 
   ## Callbacks
   after_create :setup_analytics
