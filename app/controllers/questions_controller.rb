@@ -13,6 +13,19 @@ class QuestionsController < ApplicationController
 
     @hall.to_a.sort { |user_first, user_second| (user_second.ranking_user) <=> (user_first.ranking_user) }
 
+    @questions    = Set.new
+    @topics_user = Set.new
+
+    if current_user
+      @questions_user = Question.filter_by_iteration_user(current_user)
+      @topics_user    = current_user.user_topics(@questions_user)
+
+      @questions = (Question.all - @questions_user).to_a
+
+      @suggested_questions = Question.filter_by_disciplines(@topics_user, @questions)
+      @suggested_questions = @suggested_questions.sort{ |a,b| b.created_at <=> a.created_at }
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }
@@ -97,7 +110,7 @@ class QuestionsController < ApplicationController
       @question.user_id = current_user.id
 
       set_tags(params[:question_tags], @question)
-      
+
       respond_to do |format|
         if @question.save
           format.html { redirect_to @question, notice: 'Question was successfully created.' }
@@ -112,7 +125,7 @@ class QuestionsController < ApplicationController
       redirect_to new_user_session_url
     end
   end
-  
+
   def create_answer
     answer = @question.answers.new body: params[:answer][:body]
     answer.user_id = current_user.id
@@ -172,31 +185,31 @@ private
     if tags != nil
       tags_ar = delete_characters(tags.split(","), ' ')
       question.tags = []
-      
+
       tags_ar.each do |tag|
         existent_tags = Tag.all
-        cond = true  
-        
+        cond = true
+
         existent_tags.each do |existent_tag|
           if(existent_tag.tag_name == tag)
             cond = false
             question.tags = @question.tags + [existent_tag]
             break
           end
-        end 
+        end
 
         if cond
           saved_tag = Tag.create!(:tag_name => tag, :title => tag)
           question.tags = question.tags + [saved_tag]
         end
       end
-    end 
-  end 
+    end
+  end
 
   def delete_characters(tags_ar, char)
     tags_aux = []
     tags_ar.each do |aux|
-        tags_aux += [aux.delete(char)] 
+        tags_aux += [aux.delete(char)]
     end
     tags_aux
   end

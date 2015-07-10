@@ -112,6 +112,16 @@ class User
     self.name
   end
 
+  def user_topics(questions)
+    @topics = Set.new
+
+    questions.each do |question|
+        @topics.add question.discipline
+    end
+    
+    return @topics.to_a
+  end
+
 private
   def setup_nickname
     self.nickname = self.email.partition('@').first
