@@ -2,7 +2,7 @@
 
 <div class="form-inputs clearfix">
   <p>
-    <label class="required">Título<span>*</span></label>
+    <label class="required">Pergunta<span>*</span></label>
     <!-- <input type="text" id="question-title"> -->
     <%= f.text_area :title, rows: 1, id: "question-title" %>
 
@@ -44,7 +44,7 @@
 
 
   <p>
-    <label class="required"> Conteúdo<span>*</span></label>
+    <label style="width:60% !important;"> Informações adicionais</label>
     <%= f.text_area :body, rows: 7, id: "question-body" %>
     <span class="form-description">Escreva a sua dúvida</span>
   </p>
