@@ -78,9 +78,24 @@
 							</div>
 								<div class="clearfix"></div>
 
-								<p>
+								<p style="width: 100%;">
 									<label>Sobre você</label>
                   <%= f.text_area :description, class: "form-control", placeholder: "Forneça uma descrição sobre você!" %>
+								</p>
+
+								<p style="width: 100%;">
+									<label>Facebook</label>
+									<%= f.text_field :facebook, class: "form-control", placeholder: "Url do Facebook" %>
+								</p>
+
+								<p style="width: 100%;">
+									<label>Twitter</label>
+									<%= f.text_field :twitter, class: "form-control", placeholder: "Url do Twitter" %>
+								</p>
+
+								<p style="width: 100%;">
+									<label>Linkedin</label>
+									<%= f.text_field :linkedin, class: "form-control", placeholder: "Url do Twitter" %>
 								</p>
 							</div>
 							<!--
