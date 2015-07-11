@@ -1255,7 +1255,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	font-size: 13px;
 }
 .user-profile-img {
-	width: 85px;
+	width: 100px;
 	float: left;
 	margin-right: 15px;
 	padding: 2px;
