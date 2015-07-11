@@ -35,6 +35,8 @@ class Question
 
   ## Validations
   validates_inclusion_of :status, in: STATUSES
+  validates :title, presence: true
+  validates :discipline, presence: true
 
   ## Extras
   searchkick
