@@ -10,10 +10,10 @@ class Tag
 
   ## Relationships
   belongs_to :question
-
   belongs_to :discipline
+
   ## Callbacks
-  before_save :format_tag_name
+  before_create :format_tag_name
 
   ## Validations
   validates :title, presence: true
@@ -40,7 +40,6 @@ class Tag
 
 private
   def format_tag_name
-    self.tag_name = self.tag_name.downcase
-    self.tag_name.gsub! " ", "-"
+    self.tag_name = self.title.parameterize
   end
 end

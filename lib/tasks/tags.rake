@@ -7,6 +7,8 @@ def puts_colored(str, color=:green)
 end
 
 def create_disciplines
+  Discipline.destroy_all
+
   input_file_path = Rails.root.to_s + "/db/disciplines/pt_BR.json"
   input_file = File.read input_file_path
 
@@ -46,7 +48,7 @@ namespace :tags do
       discipline_object = Discipline.find_by codename: discipline
 
       disciplines[discipline].each do |topic|
-        discipline_object.tags.create tag_name: topic
+        discipline_object.tags.create title: topic, tag_name: topic.parameterize
       end
     end
 
