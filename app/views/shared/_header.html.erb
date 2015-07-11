@@ -23,7 +23,10 @@
 
 							<ul>
 								<% notifications.each do |notification| %>
-									<li><%= link_to truncate(notification.message, length: 30), clear_notification_path(notification), method: :post %></li>
+									<li><a href="index.html" ><img  class="img-circle" src="http://lorempixel.com/60/60/people/" alt="admin">Sua dúvida sobre Física foi respondida.</a></li>
+
+									<li><%= link_to truncate(notification.message, length: 30), clear_notification_path(notification), method: :post %>
+									</li>
 								<% end %>
 							</ul>
 						</li>
