@@ -81,6 +81,8 @@ Alguns outros comandos úteis são:
 $ heroku run console         # Inicia o console do Rails no servidor remoto
 
 $ heroku logs --tail         # Imprime como stream o log do servidor remoto
+
+$  heroku addons:open mongolab # Access production database
 ```
 
 ## Authors

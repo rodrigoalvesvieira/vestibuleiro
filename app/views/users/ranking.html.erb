@@ -1,4 +1,4 @@
-<script type="text/javascript" src="/assets/controllers/questionsController.js"></script>
+<script type="text/javascript" src="/bower/controllers/questionsController.js"></script>
 <div class="section-warp ask-me">
 	<div class="container clearfix">
 		<div class="box_icon box_warp box_no_border box_no_background" box_border="transparent" box_background="transparent" box_color="#FFF">
@@ -17,14 +17,14 @@
     	<div class="col-md-12">
      		<div class="tabs-warp question-tab">
 	            <ul class="tabs">
-	                
+
 					<li class="tab" data-ng-class="{active: isSelected(1) }"><a data-ng-click="selectTab(1)" href="">Professores</a></li>
 					<li class="tab" data-ng-class="{active: isSelected(2) }"><a data-ng-click="selectTab(2)" href="">Alunos</a></li>
 	            </ul>
 
 	            <div class="tab-inner-warp" style="display: block;">
 		      		<%= render "teacher_ranking", users: @teachers %>
-      				<%= render "student_ranking", users: @students  %>  
+      				<%= render "student_ranking", users: @students  %>
 		      	</div>
 			</div>
 		</div><!-- End main -->

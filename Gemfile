@@ -1,3 +1,5 @@
+ruby "2.2.2"
+
 source 'https://rubygems.org'
 
 gem 'kaminari'
@@ -7,6 +9,7 @@ gem 'delayed_job_mongoid'
 # Use mongoid-paperclip for files
 gem 'mongoid-paperclip', require: 'mongoid_paperclip'
 gem 'aws-sdk', '~> 1.3.4'
+gem 'paperclip', '4.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -51,7 +54,7 @@ platforms :ruby do # linux
   # Use Unicorn as the app server
   gem 'unicorn', '~> 4.8.3'
 
-  gem 'puma', '~> 2.11.2'
+
 
   #Use therubyracer for Javascript runtime
   gem 'therubyracer'
