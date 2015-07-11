@@ -1,5 +1,18 @@
 <%= form_for(@question, html: { class: "form-horizontal" }) do |f| %>
 
+
+
+<% if @question.errors.full_messages.any? %>
+  <div class="alert alert-danger">
+    <ul>
+      <% @question.errors.full_messages.each do |error_message| %>
+        <li><%= error_message if @question.errors.full_messages.first == error_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <div class="form-inputs clearfix">
   <p>
     <label class="required">Pergunta<span>*</span></label>
