@@ -56,6 +56,13 @@
 
                 </ul>
               </div>
+
+              <% if user.description %>
+                <p>
+                  <%= user.description %>
+                </p>
+              <% end %>
+
               <div class="clearfix"></div>
 
             </div><!-- End page-content -->
@@ -72,7 +79,7 @@
 
                         </li>
 
-                        <li><i class="icon-heart"></i> Ranking: <span> <%= user.rank %></span></a></li> 
+                        <li><i class="icon-heart"></i> Ranking: <span> <%= user.rank %></span></a></li>
                       </ul>
                     </div>
                   </div><!-- End user-profile-widget -->
