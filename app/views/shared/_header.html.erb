@@ -21,11 +21,15 @@
 								<%= notifications.size %> <i class="icon-bell-alt"></i></a>
 							<% end %>
 
-							<ul>
-								<% notifications.each do |notification| %>
-									<li><a href="index.html" ><img  class="img-circle" src="http://lorempixel.com/60/60/people/" alt="admin">Sua dúvida sobre Física foi respondida.</a></li>
+							
 
-									<li><%= link_to truncate(notification.message, length: 30), clear_notification_path(notification), method: :post %>
+							<ul class="notifications_center">
+								<% notifications.each do |notification| %>
+									<li>
+										<%= link_to clear_notification_path(notification), method: :post do %>
+											<%= image_tag notification.user.avatar.url, :class => "img-circle"%>
+											<%= notification.message %>
+										<% end %>
 									</li>
 								<% end %>
 							</ul>
@@ -33,9 +37,17 @@
 
 						<li><%= link_to current_user.name, user_path(current_user) %></a>
 							<ul>
-								<li><%= link_to "Perfil", user_path(current_user) %></li>
-								<li><%= link_to "Configurações", edit_user_path(current_user) %></li>
-								<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+								<li>
+									<%= link_to  user_path(current_user) do%>
+										<span> Perfil</span>
+									<% end %>
+								</li>
+								<li>
+									<%= link_to "Configurações", edit_user_path(current_user) %>
+								</li>
+								<li>
+									<%= link_to "Sair", destroy_user_session_path, method: :delete %>
+								</li>
 							</ul>
 						</li>
 					<% else %>

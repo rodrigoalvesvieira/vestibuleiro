@@ -265,6 +265,11 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	margin-top: 25px;
 	margin-right: 5px;
 }
+.navigation .notifications_center > ul li{
+
+	margin-top: 5px !important;
+	margin-right: 5px !important;
+}
 .navigation > ul li:last-child {
 	margin-right: 0;
 }
@@ -305,38 +310,35 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	left: 0;
 	top: 100%;
 	z-index: 993;
-	width: 400px;
+	width: 300px;
 }
+
 .navigation li ul li a {
 	height: inherit;
 	float: inherit;
 	text-align: left;
 	line-height: 35px;
 	display: block;
-	margin: 0 !important;
+	margin: 0;
 	padding: 0 15px;
 	z-index: 993;
 	color: #2f3239;
 	font-size: 13px;
 	font-weight: normal;
-}
+}	
+
 .navigation li > ul,.navigation li > ul li > ul,.navigation li ul li ul {
 	display: none;
 	overflow: hidden;
 }
-.navigation ul > li ul li {
-	position: relative;
-	float: none;
-	line-height: 35px;
-	height: 50px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
+
 .navigation ul > li ul li a img{
 	margin-right: 10px;
 	margin-left:  -5px;
 	width: 50px;
 	height: 50px;
+	margin-bottom: 5px;
+	margin-top: 5px;
 }
 .navigation ul > li ul li a p{
 	padding-top: 12px;
