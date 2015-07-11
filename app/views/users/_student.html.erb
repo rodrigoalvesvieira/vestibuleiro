@@ -6,9 +6,7 @@
       </div>
       <div class="col-md-12">
         <div class="crumbs">
-          <a href="#">Home</a>
-          <span class="crumbs-span">/</span>
-          <a href="#">Usuário</a>
+          <%= link_to 'Home', root_path %>
           <span class="crumbs-span">/</span>
           <span class="current"><%= user.name %></span>
         </div>
@@ -134,39 +132,6 @@
     							</div>
     						</article>
               <% end %>
-
-  						<!--<article class="question user-question">
-  							<h3>
-  								<a id="resposta" href="single_question.html">...Eu acho que não é possível aplicar esta fórmula... </a>
-  							</h3>
-  							<div class="question-type-main"><i class="icon-info-sign"></i>Resposta</div>
-  							<div class="question-content">
-  								<div class="question-bottom">
-  									<span class="question-favorite"><i class="icon-star-empty"></i>0</span>
-
-  									<span class="question-date"><i class="icon-time"></i>2 hora atrás</span>
-  									<span class="question-comment"><a href="#"><i class="icon-comment"></i>2 respostas</a></span>
-  								</div>
-  							</div>
-  						</article>
-  						<article class="question user-question">
-  							<h3>
-  								<a id="resposta" href="single_question.html">Como se deduz a fórmula atração de dois corpos estáticos?</a>
-  							</h3>
-  							<div class="question-type-main"><i class="icon-question-sign"></i>Resposta</div>
-  							<div class="question-content">
-  								<div class="question-bottom">
-  									<div class="question-answered question-answered-done"><i class="icon-ok"></i>Resolvida</div>
-  									<span class="question-favorite"><i class="icon-star-empty"></i>2</span>
-
-  									<span class="question-date"><i class="icon-time"></i>2 dias atrás</span>
-  									<span class="question-comment"><a href="#"><i class="icon-comment"></i>5 respostas</a></span>
-  									<span class="question-view"><i class="icon-user"></i>26 visualizações</span>
-  								</div>
-  							</div>
-  						</article> -->
-
-
   					</div>
   				</div>
         <% end %>
