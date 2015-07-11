@@ -9,46 +9,45 @@
     <div class="col-md-9">
       <div class="tabs-warp question-tab">
         <%= render "shared/tabs" %>
-          
 
         <div class="tab-inner-warp" style="display: block;">
           <%= render "last_published_section", questions: @last_questions %>
           <%= render "popular_section", questions: @upvotes_questions  %>
           <%= render "most_viewed_section", questions: @visualizations_questions  %>
         </div>
-          
+
       </div>
     </div>
-    
+
     <aside class="col-md-3 sidebar" style="margin-bottom:20px">
       <div class="widget">
-					<h3 class="widget_title">Melhores Professores</h3>
+					<h3 class="widget_title"><%= link_to "Melhores Professores", "ranking" %></h3>
 					<ul class="related-posts">
 
             <% @hall.each_with_index do |user, index| %>
               <li class="related-item" style="margin-bottom: 0px">
                 <h1 style="float: left; margin: 5px 10px 0px 0px; background-color: #F9F9F9; padding: 10px;"><%= index + 1 %></h2>
-                <h3><%= link_to user.name, user_path(user) %></h3>
+                <h3><%= link_to user.name, user %></h3>
                 <p><%= user.ranking_user %> pontos</p>
               </li>
             <% end %>
 					</ul>
 				</div>
-        
-      <div class="widget">
-					<h3 class="widget_title">Questões Recentes</h3>
-					<ul class="related-posts">
 
-            <% @upvotes_questions.each do |question| %>
+      <% if current_user %>
+        <div class="widget">
+  				<h3 class="widget_title">Questões Sugeridas</h3>
+  				<ul class="related-posts">
+            <% @suggested_questions.each do |question| %>
               <li class="related-item">
                 <h3><%= link_to truncate(question.title, length: 40), question %></h3>
                 <p><%= truncate question.body, length: 40 %></p>
                 <div class="clear"></div><span><%= question.created_at.strftime("%d %b, %Y") %></span>
               </li>
-   
             <% end %>
-					</ul>
-				</div>
+  				</ul>
+  			</div>
+      <% end %>
     </aside>
   </div>
 </section>

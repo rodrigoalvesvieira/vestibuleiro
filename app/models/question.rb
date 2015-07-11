@@ -21,7 +21,7 @@ class Question
 
   has_many :subscriptions
   has_many :notifications
-  
+
   belongs_to :user
 
   has_one :analytics, class_name: "Analytics"
@@ -35,6 +35,8 @@ class Question
 
   ## Validations
   validates_inclusion_of :status, in: STATUSES
+  validates :title, presence: true
+  validates :discipline, presence: true
 
   ## Extras
   searchkick
@@ -70,17 +72,63 @@ class Question
     return false
   end
 
+  def calculate_favorites
+    @result = self.analytics.upvotes - self.analytics.downvotes
+    return @result
+  end
+
   class << self
 
     ## Takes a string and returns all questions from the database
     ## whose title or body contain the term
     def search(search_term)
       term = /.*#{search_term}.*/i
-      result = Set.new Question.find(term)
+      result = Question.or({title: term}, {body: term})
     end
 
     def filter_by_tag(tag)
       result = Set.new Question.where(tags:tag)
+    end
+
+    def filter_by_disciplines(disciplines, questions)
+      @result = Set.new
+
+      if disciplines.count > 0
+        disciplines.each do |discipline|
+          questions.each do |question|
+            if question.discipline == discipline
+              @result.add question
+            end
+          end
+        end
+      else
+        @result = questions
+      end
+
+      @result = @result.sort {|a,b| a.answers.count <=> b.answers.count &&
+        a.analytics.visualizations <=> b.analytics.visualizations}
+
+      return @result.take(3)
+    end
+
+    def filter_by_iteration_user(user)
+      @result = Set.new
+
+      Question.all.each do |question|
+        if question.user.id == user.id
+          @result.add question
+        else
+          if question.answers.count > 0
+            question.answers.each do |answer|
+              if answer.user.id == user.id
+                @result.add question
+              end
+            end
+          end
+        end
+      end
+
+      return @result.to_a
     end
   end
 

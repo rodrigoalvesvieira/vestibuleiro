@@ -1,0 +1,131 @@
+<section class="container main-content">
+		<div class="row">
+			<div class="col-md-9">
+				<div class="page-content">
+					<div class="boxedtitle page-title"><h2>Configurações </h2></div>
+
+					<div class="form-style form-style-4">
+            <%= form_for(@user, html: { class: "form-horizontal" }) do |f| %>
+							<div class="form-inputs clearfix">
+								<p>
+									<label>Nome</label>
+                  <%= f.text_field :name, class: "form-control", placeholder: "Digite o seu nome" %>
+								</p>
+
+								<p>
+									<label >Email para contato</label>
+                  <%= f.text_field :email, class: "form-control", placeholder: "Digite o seu email" %>
+								</p>
+
+								<div class="row">
+									<div class="col-xs-8">
+										<p style="width: 100%;">
+											<label>Curso desejado</label>
+                      <%= f.text_field :desired_course, class: "form-control", placeholder: "Digite o seu curso" %>
+										</p>
+									</div>
+									<div class="col-xs-4">
+										<p  style="width: 100%;">
+											<label style="text-align: left;" >Ano</label>
+                      <%= f.text_field :school_year, class: "form-control", placeholder: "Digite a sua série" %>
+										</p>
+									</div>
+									<div class="col-xs-12">
+								    <p  style="width: 100%;">
+    									<label>Colégio</label>
+    									<%= f.text_field :current_school, class: "form-control", placeholder: "Digite a insituição de ensino no qual está filiado" %>
+								    </p>
+								</div>
+								</div>
+
+
+								<div class="row">
+									<div class="col-xs-7">
+										<p style="width:100%;">
+											<label>Estado</label>
+                      <%= f.select :state, User::STATES.map { |state| state[:name] }, class: "form-control" %>
+										</p>
+									</div>
+									<div class="col-xs-5">
+										<p style="width: 100%;">
+											<label>Cidade</label>
+											<%= f.text_field :city, class: "form-control", placeholder: "Digite a sua cidade" %>
+										</p>
+									</div>
+
+
+							</div>
+							<div class="form-style form-style-2">
+								<div class="user-profile-img"><img src="<%= user.avatar ? user.avatar.url : 'http://placehold.it/60x60/FFF/444'%>" alt="admin"></div>
+								<p class="user-profile-p">
+									<label>Foto de Perfil</label>
+									<div class="fileinputs">
+			              <%= f.file_field :avatar, class: "file" %>
+			              <div class="fakefile">
+			                <button type="button" class="button small margin_0"> <%= user.avatar ? user.avatar.name : 'Selecione uma foto' %> </button>
+			                <span><i class="icon-arrow-up"></i>Browse</span>
+			              </div>
+			            </div>
+								</p>
+
+
+							</div>
+								<div class="clearfix"></div>
+
+								<p style="width: 100%;">
+									<label>Sobre você</label>
+									<%= f.text_area :description, class: "form-control", placeholder: "Forneça uma descrição sobre você!" %>
+								</p>
+
+								<p style="width: 100%;">
+									<label>Facebook</label>
+									<%= f.text_field :facebook, class: "form-control", placeholder: "Url do Facebook" %>
+								</p>
+
+								<p style="width: 100%;">
+									<label>Twitter</label>
+									<%= f.text_field :twitter, class: "form-control", placeholder: "Url do Twitter" %>
+								</p>
+
+								<p style="width: 100%;">
+									<label>Linkedin</label>
+									<%= f.text_field :linkedin, class: "form-control", placeholder: "Url do Twitter" %>
+								</p>
+							</div>
+							<!--
+							<div class="form-inputs clearfix">
+								<p>
+									<label>Facebook</label>
+									<input type="text">
+								</p>
+								<p>
+									<label>Twitter</label>
+									<input type="text">
+								</p>
+								<p>
+									<label>Linkedin</label>
+									<input type="email">
+								</p>
+								<p>
+									<label>Google plus</label>
+									<input type="text">
+								</p>
+							</div>
+							-->
+							<p class="form-submit">
+                <%= f.submit "Atualizar", class: "button color small login-submit submit" %>
+							</p>
+						<% end %>
+					</div>
+				</div><!-- End page-content -->
+			</div><!-- End main -->
+			<aside class="col-md-3 sidebar">
+
+				<div class="widget">
+					<h3 class="widget_title">Precisa de ajuda?</h3>
+					<p>Leia a nossa seção de <a href="#">Perguntas Mais Frequentes</a> caso possua alguma dúvida sobre a plataforma.</p>
+				</div>
+
+			</aside><!-- End sidebar -->
+		</div><!-- End row -->
+	</section><!-- End container -->

@@ -7,11 +7,13 @@
 			</div>
 			<div class="col-md-12">
 				<div class="crumbs">
-					<a href="#">Home</a>
+					<%= link_to 'Home', root_path %>
 					<span class="crumbs-span">/</span>
-					<a href="#">Dúvidas</a>
+					<%= link_to 'Usuário', current_user %>
 					<span class="crumbs-span">/</span>
-					<span class="current">Nova dùvida</span>
+					<%= link_to 'Dúvidas', @question %>
+					<span class="crumbs-span">/</span>
+					<span class="current">Nova dúvida</span>
 				</div>
 			</div>
 		</div><!-- End row -->

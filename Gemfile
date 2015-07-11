@@ -16,7 +16,7 @@ gem 'mongoid', '~> 4.0.2'
 
 # Use ElasticSearch
 gem 'searchkick', '~> 0.8.7'
-gem 'chewy', '~> 0.7.0'
+gem 'chewy', '~> 0.8.1'
 
 # Use Devise for authentication
 gem 'devise', '~> 3.4.1'

@@ -1,0 +1,36 @@
+
+<div data-ng-show="isSelected(2)" class="tab-inner" id="ranking_student">
+	<% users.each_with_index  do |student, index| %>
+		<article class="question question-type-normal">
+			<div class="row">
+				<div class="col-md-1">
+					<div class="question-author ranking">
+						<a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://placehold.it/60x60/FFF/444"></a>
+					</div>
+					<h4 class="ranking-points"> <%= student.ranking_user %> </h4>
+					<span style="text-align: center; display: block">pontos</span>
+				</div>
+				<div class="col-md-11">
+					<h2 style="margin-bottom: 0px; margin-left: 0px;">
+						<%= index + 1 %>. <%= link_to student.name, student %>
+					</h2>
+					<div class="question-inner" style=" margin-left: 0px;">
+						<div class="clearfix"></div>
+						<p class="question-desc" style="padding-bottom: 20px;"> <%= student.description %> </p>
+						<div class="question-details">
+							<!--<span class="question-answered question-answered-done"><i class="icon-ok"></i>87 melhores respostas</span> -->
+							<span class="question-favorite">
+								<i class="icon-thumbs-up"></i>
+								<%= student.total_upvotes %> upvotes
+							</span>
+						</div>
+						<!-- <span class="question-category"><a href="#"><i class="icon-folder-close"></i>Mais ativo em Matemática</a></span> -->
+						<span class="question-comment"><a href="#"><i class="icon-comment"></i> <%= student.answers.count %> respostas</a></span>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</article>
+<% end %>
+	
+</div>	

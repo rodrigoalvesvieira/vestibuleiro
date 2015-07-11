@@ -25,6 +25,35 @@ class UsersController < ApplicationController
     end
   end
 
+ def ranking
+    @teachers = User.all.where(role: "teacher").to_a
+
+    @teachers = @teachers.sort { |a,b| b.ranking_user <=> a.ranking_user } 
+
+    @students = User.all.where(role: "student").to_a
+
+    @students = @students.sort { |a,b| b.ranking_user <=> a.ranking_user }
+    
+    p "students"
+    p @students
+
+    #@users.to_a.sort { |user_first, user_second| (user_second.ranking_user) <=> (user_first.ranking_user) }
+ 
+    # @teachers =  Array.new
+    # @users = User.all
+    # @users.each do |user|
+    #   if user.role == "teacher"
+    #     @teachers << user
+    #   end
+    # end
+
+    # # @sorted_teachers = @teachers.sort {|a,b| a.evaluate_teacher <=> b.evaluate_teacher}
+    # @sorted_teachers = @teachers
+    # @sorted_teachers.to_a.sort { |user_first,user_second| (user_second.ranking_user) <=> (user_first.ranking_user) }
+
+
+ end
+
   def sort_teachers
     @teachers =  Array.new
     @users = User.all

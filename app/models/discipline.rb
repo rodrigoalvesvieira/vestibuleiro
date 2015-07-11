@@ -19,4 +19,13 @@ class Discipline
   ## Extras
 
   ## Methods
+  class << self
+
+    ## Takes a string and returns all disciplines from the database
+    ## whose title or body contain the term
+    def search(search_term)
+      term = /.*#{search_term}.*/i
+      result = Discipline.or({name: term}, {codename: term})
+    end
+  end
 end
