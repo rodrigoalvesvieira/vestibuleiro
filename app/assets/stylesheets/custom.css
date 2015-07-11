@@ -146,3 +146,22 @@ li.tab.active a{
     
   }
 }
+
+.question-vote li{
+  display: block;
+  float: left;
+}
+
+.question-vote .question-vote-up, .question-vote .question-vote-down{
+  height: auto;
+  line-height: auto;
+  font-size: 18px;
+}
+
+.question-vote .question-vote-up:before{
+  content: "\f087";
+}
+
+.question-vote .question-vote-down:before{
+  content: "\f088";
+}
