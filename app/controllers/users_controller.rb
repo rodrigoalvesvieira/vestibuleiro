@@ -29,6 +29,14 @@ class UsersController < ApplicationController
     @teachers = User.all.where(role: "teacher").to_a
 
     @teachers = @teachers.sort { |a,b| b.ranking_user <=> a.ranking_user } 
+
+    @students = User.all.where(role: "student").to_a
+
+    @students = @students.sort { |a,b| b.ranking_user <=> a.ranking_user }
+    
+    p "students"
+    p @students
+
     #@users.to_a.sort { |user_first, user_second| (user_second.ranking_user) <=> (user_first.ranking_user) }
  
     # @teachers =  Array.new

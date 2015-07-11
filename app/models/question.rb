@@ -76,7 +76,7 @@ class Question
     ## whose title or body contain the term
     def search(search_term)
       term = /.*#{search_term}.*/i
-      result = Set.new Question.find(term)
+      result = Question.or({title: term}, {body: term})
     end
 
     def filter_by_tag(tag)
