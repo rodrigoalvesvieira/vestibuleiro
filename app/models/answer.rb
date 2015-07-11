@@ -25,6 +25,11 @@ class Answer
   searchkick
 
   ## Methods
+  def calculate_favorites
+    @result = self.analytics.upvotes - self.analytics.downvotes
+    return @result
+  end
+
   class << self
     ## Takes a string and returns all answers from the database
     ## whose title or body contain the term
