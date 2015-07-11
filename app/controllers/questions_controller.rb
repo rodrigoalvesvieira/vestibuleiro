@@ -33,12 +33,7 @@ class QuestionsController < ApplicationController
   end
 
   def search
-    @results = Set.new
-
-    @results.add Answer.search params[:search_term]
-    @results.add Question.search params[:search_term]
-
-    return @results.to_a
+    @results = Question.search(params[:search_term]).page(params[:page]).per(10)
   end
 
   def filter_by_tag
