@@ -109,7 +109,7 @@ class Question
 
       Question.all.each do |question|
         if question.user.id == user.id
-          @result.add = question
+          @result.add question
         else
           if question.answers.count > 0
             question.answers.each do |answer|
