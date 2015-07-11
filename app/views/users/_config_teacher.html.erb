@@ -135,3 +135,25 @@
 			</aside><!-- End sidebar -->
 		</div><!-- End row -->
 	</section><!-- End container -->
+
+<script type="text/javascript">
+
+
+function addInput(divName) {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('class', 'schoolTeacher')
+    input.setAttribute('name', 'schoolAt');
+    input.setAttribute('placeholder', 'Adicione a instituição de ensino');
+    var remove = document.createElement('span');
+    remove.setAttribute('class', 'glyphicon glyphicon-remove');
+
+    document.getElementById(divName).appendChild(input);
+    input.appendChild(remove);
+
+   // var x = document.getElementById("dynamicInput");
+}
+
+addInput('dynamicInput');
+
+</script>
