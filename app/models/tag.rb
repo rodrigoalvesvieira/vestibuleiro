@@ -28,9 +28,14 @@ class Tag
     self.tag_name
   end
 
-  def search(search_term)
-    term = /.*#{search_term}.*/i
-    result = Set.new Tag.where(title: term, tag_name: term)
+  class << self
+
+    ## Takes a string and returns all tags from the database
+    ## whose title or body contain the term
+    def search(search_term)
+      term = /.*#{search_term}.*/i
+      result = Tag.or({title: term})
+    end
   end
 
 private

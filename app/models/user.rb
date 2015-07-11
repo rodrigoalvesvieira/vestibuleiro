@@ -116,19 +116,12 @@ class User
     @topics = Set.new
 
     questions.each do |question|
-        @topics.add question.discipline
+      @topics.add question.discipline
     end
-    
+
     return @topics.to_a
   end
 
-private
-  def setup_nickname
-    self.nickname = self.email.partition('@').first
-  end
-end
-
-public
   def rank
     ranked_users = ranking
     rank = 1
@@ -148,7 +141,6 @@ public
   end
 
   def ranking_user
-
     val = self.questions.count * 10
     val += self.answers.count * 15
 
@@ -167,21 +159,35 @@ public
     val += self.sign_in_count
   end
 
-def evaluate_teacher
-  val = self.answers.count * 20
-  self.answers.each do |answer|
-     
-        val += (answer.analytics.upvotes*5) - (answer.analytics.downvotes*5)
-        val += (answer.analytics.favorites*10)
-     
-  end  
+  def evaluate_teacher
+    val = self.answers.count * 20
 
-  val
-end
+    self.answers.each do |answer|
+      val += (answer.analytics.upvotes*5) - (answer.analytics.downvotes*5)
+      val += (answer.analytics.favorites*10)
+    end
 
-def total_activities
-  @activities = self.questions.to_a + self.answers.to_a
+    val
+  end
 
-  @activities.to_a.sort { |activity_first,activity_second| (activity_second.created_at.to_i) <=> (activity_first.created_at.to_i) }
+  def total_activities
+    @activities = self.questions.to_a + self.answers.to_a
 
+    @activities.to_a.sort { |activity_first,activity_second| (activity_second.created_at.to_i) <=> (activity_first.created_at.to_i) }
+  end
+
+  class << self
+
+    ## Takes a string and returns all users from the database
+    ## whose title or body contain the term
+    def search(search_term)
+      term = /.*#{search_term}.*/i
+      result = User.or({name: term}, {nickname: term}, {email: term}, {description: term}, {city: term})
+    end
+  end
+
+private
+  def setup_nickname
+    self.nickname = self.email.partition('@').first
+  end
 end

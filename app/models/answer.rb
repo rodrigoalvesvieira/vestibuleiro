@@ -30,7 +30,7 @@ class Answer
     ## whose title or body contain the term
     def search(search_term)
       term = /.*#{search_term}.*/i
-      result = Set.new Answer.find(term)
+      result = Answer.or({body: term})
     end
   end
 

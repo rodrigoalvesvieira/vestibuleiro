@@ -33,7 +33,11 @@ class QuestionsController < ApplicationController
   end
 
   def search
-    @results = Question.search(params[:search_term]).page(params[:page]).per(10)
+    @answers = Answer.search(params[:search_term]).page(params[:page]).per(10)
+    @questions = Question.search(params[:search_term]).page(params[:page]).per(10)
+    @disciplines = Discipline.search(params[:search_term]).page(params[:page]).per(10)
+    @tags = Tag.search(params[:search_term]).page(params[:page]).per(10)
+    @users = User.search(params[:search_term]).page(params[:page]).per(10)
   end
 
   def filter_by_tag
