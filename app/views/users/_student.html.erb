@@ -65,6 +65,42 @@
 
               <div class="clearfix"></div>
 
+              <span class="user-follow-me">Contato: </span>
+                <% if user.facebook %>
+  								<a href='<%= user.facebook %>' target="_blank" original-title="Facebook" class="tooltip-n">
+  									<span class="icon_i">
+  										<span class="icon_square" icon_size="30" span_bg="#3b5997" span_hover="#2f3239">
+  											<i class="social_icon-facebook"></i>
+  										</span>
+  									</span>
+  								</a>
+                <% end %>
+                <% if user.twitter %>
+  								<a href="<%= user.twitter %>" target="_blank" original-title="Twitter" class="tooltip-n">
+  									<span class="icon_i">
+  										<span class="icon_square" icon_size="30" span_bg="#00baf0" span_hover="#2f3239">
+  											<i class="social_icon-twitter"></i>
+  										</span>
+  									</span>
+  								</a>
+                <% end %>
+                <% if user.linkedin %>
+  								<a href="<%= user.linkedin %>" target="_blank" original-title="Linkedin" class="tooltip-n">
+  									<span class="icon_i">
+  										<span class="icon_square" icon_size="30" span_bg="#006599" span_hover="#2f3239">
+  											<i class="social_icon-linkedin"></i>
+  										</span>
+  									</span>
+  								</a>
+                <% end %>
+								<a href="#" alt="<%= user.email %>" original-title="Email" class="tooltip-n">
+									<span class="icon_i">
+										<span class="icon_square" icon_size="30" span_bg="#000" span_hover="#2f3239">
+											<i class="social_icon-email"></i>
+										</span>
+									</span>
+								</a>
+
             </div><!-- End page-content -->
           </div><!-- End col-md-12 -->
           <div class="col-md-12">
@@ -129,7 +165,7 @@
                       <% if activity.class.name == 'Question' %>
     									  <div class="<%= activity.status == 'open' ? 'question-answered' : 'question-answered question-answered-done' %>"><i class="<%= activity.status == 'open' ? 'icon-edit' : 'icon-ok'   %>"></i> <%= t "statuses.#{activity.status}" %> </div>
     									<% end %>
-                        <span class="question-favorite"><i class="icon-star-empty"></i> <%= activity.analytics.upvotes - activity.analytics.downvotes%> </span>
+                        <span class="question-favorite"><i class="<%= activity.calculate_favorites > 0 ? 'icon-star' : 'icon-star-empty' %>"></i> <%= activity.calculate_favorites %> </span>
       									<span class="question-date"><i class="icon-time"></i> <%= time_ago_in_words activity.created_at %></span>
                       <% if activity.class.name == 'Question' %>
       									<span class="question-comment"><a href="#"><i class="icon-comment"></i> <%= link_to "#{activity.answers.count} Resposta", activity %></a></span>
