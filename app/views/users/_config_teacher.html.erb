@@ -47,12 +47,12 @@
 								<p class="user-profile-p">
 									<label>Foto de Perfil</label>
 									<div class="fileinputs">
-										<input type="file" class="file">
-										<div class="fakefile">
-											<button type="button" class="button small margin_0">Escolha sua foto</button>
-											<span><i class="icon-arrow-up"></i>Procurar foto</span>
-										</div>
-									</div>
+			              <%= f.file_field :avatar, class: "file" %>
+			              <div class="fakefile">
+			                <button type="button" class="button small margin_0">Selecione o arquivo</button>
+			                <span><i class="icon-arrow-up"></i>Browse</span>
+			              </div>
+			            </div>
 								<p>
 
 								<div class="form-inputs clearfix" id="instituicoes">
