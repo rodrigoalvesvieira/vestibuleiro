@@ -18,16 +18,19 @@ class Question
   has_many :answers
   has_many :tags
   has_many :comments
+  has_many :users
 
   has_many :subscriptions
   has_many :notifications
 
   belongs_to :user
 
+
   has_one :analytics, class_name: "Analytics"
 
   accepts_nested_attributes_for :answers
   accepts_nested_attributes_for :tags
+  accepts_nested_attributes_for :users
 
   ## Callbacks
   after_create :setup_analytics

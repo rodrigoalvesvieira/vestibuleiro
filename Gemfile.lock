@@ -304,6 +304,3 @@ DEPENDENCIES
   unicorn (~> 4.8.3)
   web-console (~> 2.0)
   wirble
-
-BUNDLED WITH
-   1.10.4

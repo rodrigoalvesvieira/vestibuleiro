@@ -109,6 +109,7 @@ class QuestionsController < ApplicationController
       @question.user_id = current_user.id
 
       set_tags(params[:question_tags], @question)
+      set_teachers(params[:teacher_tags], @question)
 
       respond_to do |format|
         if @question.save
@@ -178,6 +179,45 @@ private
   # Use callbacks to share common setup or constraints between actions.
   def set_question
     @question = Question.find(params[:id])
+  end
+
+  def set_teachers(teachers, question)
+    if teachers != nil
+      teacher_ar = delete_characters(teachers.split(","), ' ')
+      existent_teachers = get_teachers()
+
+      teacher_ar.each do |teacher|
+
+        existent_teachers.each do |existent_teacher|
+          if teacher == existent_teacher.email
+              if question.users.class != [existent_teacher].class
+                puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                puts(question.users.class )
+                puts([existent_teacher].class)
+                1/0
+              end
+              question.users = [existent_teacher]
+              existent_teacher.questions = existent_teacher.questions +  [question]
+              existent_teacher.save
+            break
+          end
+        end
+      end
+
+      question.save
+    end
+  end
+
+  def get_teachers
+    ar = User.all
+    teachers = []
+
+    ar.each do |user|
+      if user.role == "teacher"
+        teachers = teachers + [user]
+      end
+    end
+    return teachers
   end
 
   def set_tags(tags, question)

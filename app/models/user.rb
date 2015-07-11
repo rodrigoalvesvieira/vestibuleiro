@@ -98,6 +98,8 @@ class User
 
   validates_attachment_content_type :avatar, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  accepts_nested_attributes_for :questions
+
   ## Methods
   def total_upvotes
     upvotes = 0
