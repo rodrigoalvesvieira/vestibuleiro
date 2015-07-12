@@ -22,7 +22,8 @@ class Question
 
   has_many :subscriptions
   has_many :notifications
-  has_many :indicated_teachers, class_name: "User"
+
+  has_and_belongs_to_many :indicated_teachers, class_name: "User", inverse_of: nil
 
   belongs_to :user
 

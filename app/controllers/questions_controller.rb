@@ -183,13 +183,13 @@ private
 
   def set_teachers(teachers, question)
     unless teachers.blank?
-      teachers = teachers.split(",").map {|str| str.strip }
+      teachers = teachers.split(",").map { |str| str.strip }
 
-      teachers.each_with_index do |teacher, i|
-        possible_teacher = User.students.where email: teacher
-        
-        if possible_teacher
-          question.indicated_teachers << possible_teacher
+      teachers.each_with_index do |teacher_email, i|
+        possible_teachers = User.teachers.where email: teacher_email
+
+        possible_teachers.each do |teacher|
+          question.indicated_teachers << teacher
         end
       end
 
