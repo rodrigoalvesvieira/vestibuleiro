@@ -23,7 +23,7 @@
   </div><!-- End breadcrumbs -->
 
   <section class="container main-content">
-    
+
     <div class="row">
       <div class="col-md-9" >
         <article class="question single-question question-type-normal">
@@ -53,8 +53,8 @@
                   <i class="icon-thumbs-down"> </i>
                 <% end %>
                 <% if signed_in? %>
-                  <%= @question.user.name == current_user.name ? link_to('Editar', edit_question_path(@question)) : '' %>                  
-                <% end %> 
+                  <%= @question.user.name == current_user.name ? link_to('Editar', edit_question_path(@question)) : '' %>
+                <% end %>
               </li>
           </ul>
 
@@ -63,6 +63,14 @@
         </article>
 
         <h2 id="question-answers-title">Respostas para esta dúvida</h2>
+
+        <% if @question.teachers.count > 0 %>
+          <% @question.teachers.each do | teacher| %>
+            <%= teacher.email %>
+
+            oi
+          <% end %>
+        <% end %>
 
         <% if @question.answers.count > 0 %>
           <% @question.answers.each do | answer| %>
