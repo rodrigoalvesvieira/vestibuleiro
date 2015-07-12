@@ -182,42 +182,19 @@ private
   end
 
   def set_teachers(teachers, question)
-    if teachers != nil
-      teacher_ar = delete_characters(teachers.split(","), ' ')
-      existent_teachers = get_teachers()
+    unless teachers.blank?
+      teachers = teachers.split(",").map {|str| str.strip }
 
-      teacher_ar.each do |teacher|
-
-        existent_teachers.each do |existent_teacher|
-          if teacher == existent_teacher.email
-              if question.users.class != [existent_teacher].class
-                puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-                puts(question.users.class )
-                puts([existent_teacher].class)
-                1/0
-              end
-              question.users = [existent_teacher]
-              existent_teacher.questions = existent_teacher.questions +  [question]
-              existent_teacher.save
-            break
-          end
+      teachers.each_with_index do |teacher, i|
+        possible_teacher = User.students.where email: teacher
+        
+        if possible_teacher
+          question.indicated_teachers << possible_teacher
         end
       end
 
       question.save
     end
-  end
-
-  def get_teachers
-    ar = User.all
-    teachers = []
-
-    ar.each do |user|
-      if user.role == "teacher"
-        teachers = teachers + [user]
-      end
-    end
-    return teachers
   end
 
   def set_tags(tags, question)

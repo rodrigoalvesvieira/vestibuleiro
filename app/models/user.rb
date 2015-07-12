@@ -7,6 +7,10 @@ class User
   ## Constants
   ROLES = %w(student teacher)
 
+  ## Scopes
+  scope :students, -> { where(role: ROLES.first) }
+  scope :teachers, -> { where(role: ROLES.last) }
+
   STATES = [
     { name: "Acre", acronym: "AC" },
     { name: "Alagoas", acronym: "AL" },

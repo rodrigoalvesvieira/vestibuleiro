@@ -22,9 +22,9 @@ class Question
 
   has_many :subscriptions
   has_many :notifications
+  has_many :indicated_teachers, class_name: "User"
 
   belongs_to :user
-
 
   has_one :analytics, class_name: "Analytics"
 
