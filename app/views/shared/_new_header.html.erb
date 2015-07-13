@@ -1,0 +1,27 @@
+<nav id="vestibuleiro-navbar" class="collapse navbar-collapse">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li>
+        <%= link_to root_url, class: "logo-link" do %>
+          <img class="logo" src="/images/logo.png">
+        <% end %>
+      </li>
+
+      <li class="search">
+        <%= form_tag search_path, method: :get do %>
+          <%= text_field_tag :search_term, nil, placeholder: "Procurar", value: params[:search_term] %>
+        <% end %>
+      </li>
+
+      <li><a href="../javascript/">JavaScript</a></li>
+      <li><a href="../customize/">Customize</a></li>
+    </ul>
+
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Registre-se", new_user_registration_path %></li>
+      <li><%= link_to "Entrar", new_user_session_path %></li>
+      <li><%= link_to "Tire sua dúvida", new_question_path %></li>
+    </ul>
+  </div>
+</nav>

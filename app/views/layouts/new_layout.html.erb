@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<html>
+<head>
+  <title>Vestibuleiro</title>
+  <link rel='stylesheet' href='/bower/bootstrap/dist/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='/stylesheets/fonts.css'>
+  <link rel='stylesheet' href='/stylesheets/styles.css'>
+
+  <script type="text/javascript" src="/bower/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/bower/vestibuleiro.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+</head>
+
+<body data-ng-app="Vestibuleiro">
+  <%= render "shared/new_header" %>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8 section-data user-info-section">
+        <%= yield %>
+      </div>
+
+      <div class="col-md-1"></div>
+
+      <div class="col-md-3 section-data sidebar-section">
+        <aside class="col-md-3 sidebar">
+
+          <div class="widget widget_stats">
+            <h3 class="widget_title">Mais sobre <%= @user.name %></h3>
+            <div class="ul_list ul_list-icon-ok">
+              <ul>
+                <li>
+                  <a href="#"><i class="icon-question-sign"></i>Respostas ( <span><%= @user.answers.count %></span> )</a></li>
+                <!-- <li><a href="#"><i class="icon-comment"></i>Respostas ( <span>13</span> )</a></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="widget widget_tag_cloud">
+            <h3 class="widget_title"><%= @user.name %> em tags</h3>
+            <!--
+            <a href="#">Física</a>
+            <a href="#">Matemática</a>
+            <a href="#">Geometria</a>
+            <a href="#">Exatas</a>
+            <a href="#">Química</a>
+            -->
+          </div>
+        </aside><!-- End sidebar -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

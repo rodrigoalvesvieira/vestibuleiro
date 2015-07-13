@@ -1,0 +1,67 @@
+body {
+  background: #E9E9E9 !important;
+  font: 500 15px/20px "museo-sans-rounded",sans-serif;
+}
+
+.container {
+  width: 1020px;
+}
+
+.row .section-data {
+  margin: 30px 0 0 0 !important;
+  background: #fff;
+}
+
+.row .user-info-section, .row .sidebar-section {
+  border-radius: 10px;
+}
+
+.row .user-info-section h2 span {
+  color: #999;
+  margin: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.row .user-info-section img {
+  margin: 34px 0 0 0;
+  width: 120px;
+  height: 120px;
+}
+
+.row .user-info-section p.description {
+  color: #999;
+}
+
+#vestibuleiro-navbar {
+  background: #2f3239;
+  height: 70px !important;
+}
+
+#vestibuleiro-navbar .logo {
+  margin: -10px 0 0 0;
+  max-width: 140px;
+}
+
+#vestibuleiro-navbar .logo-link:hover {
+  background: none;
+}
+
+#vestibuleiro-navbar .search input {
+  width: 200px;
+  margin: 10px 10px 10px 10px;
+  height: 20px;
+  border-radius: 5px;
+  border: 0;
+}
+
+#vestibuleiro-navbar .container {
+  margin-top: 10px;
+}
+
+#vestibuleiro-navbar .container a {
+  color: #fff;
+}
+
+#vestibuleiro-navbar .container li:hover {
+  color: #000 !important;
+}

@@ -1,1 +1,16 @@
-<%= render "student", user: @user %>
+<%#= render "student", user: @user %>
+
+<div class="text-center">
+  <%= link_to @user do %>
+    <% if @user.avatar? %>
+      <img class="img-circle" src="<%= @user.avatar.url %>">
+    <% else %>
+      <img src="/avatars/original/missing.png">
+    <% end %>
+  <% end %>
+
+  <h2><%= @user.name %><span><%= @user.location %></span></h2>
+
+  <p class="description"><%= @user.description %></p>
+  <p class="since"><%= @user.created_at.strftime("%d/%m/%Y") %></p>
+</div>

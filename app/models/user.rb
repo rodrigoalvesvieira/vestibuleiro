@@ -182,6 +182,16 @@ class User
     @activities.to_a.sort { |activity_first,activity_second| (activity_second.created_at.to_i) <=> (activity_first.created_at.to_i) }
   end
 
+  def location
+    if self.city.present? && self.state.blank?
+      return self.city
+    elsif self.city.present? && self.state.present?
+      return "#{self.city}/#{self.state}"
+    end
+
+    return ""
+  end
+
   class << self
 
     ## Takes a string and returns all users from the database
