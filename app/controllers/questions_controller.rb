@@ -156,12 +156,10 @@ class QuestionsController < ApplicationController
 
   # DELETE /questions/1
   def destroy
-    @question.unpublish
+    @question = Question.find(params[:id])
+    @question.destroy
 
-    respond_to do |format|
-      format.html { redirect_to questions_url }
-      format.json { head :no_content }
-    end
+    redirect_to questions_path
   end
 
   def get_next_page
