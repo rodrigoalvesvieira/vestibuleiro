@@ -54,6 +54,8 @@
                 <% end %>
                 <% if signed_in? %>
                   <%= @question.user.name == current_user.name ? link_to('Editar', edit_question_path(@question)) : '' %>
+                  <%= @question.user.name == current_user.name ? link_to('Excluir', question_path(@question),
+                    method: :delete, data: { confirm: 'Você tem certeza que deseja excluir essa questão?' }) : '' %>
                 <% end %>
               </li>
           </ul>
