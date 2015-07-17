@@ -48,7 +48,7 @@
 							<ul>
 								<li><%= link_to "Perfil", user_path(current_user) %></li>
 								<li><%= link_to "Configurações", edit_user_path(current_user) %></li>
-								<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+								<li><%= link_to "Sair", destroy_user_session_path, :method => 'get' %></li>
 							</ul>
 						</li>
 					<% else %>
