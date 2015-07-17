@@ -18,9 +18,12 @@ class Question
   has_many :answers
   has_many :tags
   has_many :comments
+  has_many :users
 
   has_many :subscriptions
   has_many :notifications
+
+  has_and_belongs_to_many :indicated_teachers, class_name: "User", inverse_of: nil
 
   belongs_to :user
 
@@ -28,13 +31,17 @@ class Question
 
   accepts_nested_attributes_for :answers
   accepts_nested_attributes_for :tags
+  accepts_nested_attributes_for :users
 
   ## Callbacks
   after_create :setup_analytics
   after_create :subscribe_author
+  after_create :subscribe_teachers
 
   ## Validations
   validates_inclusion_of :status, in: STATUSES
+  validates :title, presence: true
+  validates :discipline, presence: true
 
   ## Extras
   searchkick
@@ -68,6 +75,11 @@ class Question
     end
 
     return false
+  end
+
+  def calculate_favorites
+    @result = self.analytics.upvotes - self.analytics.downvotes
+    return @result
   end
 
   class << self
@@ -135,5 +147,12 @@ private
   # The author of the question is its first watcher
   def subscribe_author
     self.subscriptions.create user_id: self.user.id
+  end
+
+  # Subscribe all indicated teachers to the question
+  def subscribe_teachers
+    self.indicated_teachers.each do |teacher|
+      self.subscriptions.create user_id: teacher.id
+    end
   end
 end

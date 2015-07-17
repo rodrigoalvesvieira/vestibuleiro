@@ -33,7 +33,11 @@ class QuestionsController < ApplicationController
   end
 
   def search
-    @results = Question.search(params[:search_term]).page(params[:page]).per(10)
+    @answers = Answer.search(params[:search_term]).page(params[:page]).per(10)
+    @questions = Question.search(params[:search_term]).page(params[:page]).per(10)
+    @disciplines = Discipline.search(params[:search_term]).page(params[:page]).per(10)
+    @tags = Tag.search(params[:search_term]).page(params[:page]).per(10)
+    @users = User.search(params[:search_term]).page(params[:page]).per(10)
   end
 
   def filter_by_tag
@@ -105,6 +109,7 @@ class QuestionsController < ApplicationController
       @question.user_id = current_user.id
 
       set_tags(params[:question_tags], @question)
+      set_teachers(params[:teacher_tags], @question)
 
       respond_to do |format|
         if @question.save
@@ -151,12 +156,10 @@ class QuestionsController < ApplicationController
 
   # DELETE /questions/1
   def destroy
-    @question.unpublish
+    @question = Question.find(params[:id])
+    @question.destroy
 
-    respond_to do |format|
-      format.html { redirect_to questions_url }
-      format.json { head :no_content }
-    end
+    redirect_to questions_path
   end
 
   def get_next_page
@@ -174,6 +177,22 @@ private
   # Use callbacks to share common setup or constraints between actions.
   def set_question
     @question = Question.find(params[:id])
+  end
+
+  def set_teachers(teachers, question)
+    unless teachers.blank?
+      teachers = teachers.split(",").map { |str| str.strip }
+
+      teachers.each_with_index do |teacher_email, i|
+        possible_teachers = User.teachers.where email: teacher_email
+
+        possible_teachers.each do |teacher|
+          question.indicated_teachers << teacher
+        end
+      end
+
+      question.save
+    end
   end
 
   def set_tags(tags, question)

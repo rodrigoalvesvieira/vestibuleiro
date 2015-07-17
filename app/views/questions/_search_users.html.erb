@@ -1,0 +1,54 @@
+<div data-ng-show="isSelected(4)" class="tab-inner">
+    <% @users.each do |user| %>
+      <article class="question question-type-normal">
+        <h2 style="margin-bottom: 4px">
+          <%= link_to user.name, user %>
+        </h2>
+
+        <!--<a class="question-report" href="#">Denunciar</a>-->
+        <div class="question-author">
+          <%= link_to user, class: "question-author-img tooltip-n" do %>
+            <%= image_tag user.avatar.url %>
+          <% end %>
+        </div>
+
+        <div class="question-inner">
+          <% if user.role == "teacher" %>
+            <strong><span style="color: #ff2700">Professor</span></strong>
+          <% else %>
+            <strong><span style="color: #818DF5">Aluno</span></strong>
+
+            <ul class="user-inner-result">
+              <li><i class="icon-user"></i>Classificação: <span>Aprendiz</span></li>
+
+              <% if user.city.present? or user.state.present? %>
+                <li><i class="icon-map-marker"></i>De:
+                  <span>
+                    <%= "#{user.city}/#{user.state}" %>
+                  </span>
+                </li>
+              <% end %>
+              <% if user.current_school.present? %>
+                <li><i class="icon-book"></i>Estuda em:
+                  <span><%= user.current_school %>
+                    <% if user.school_year.present? %>
+                      ( <%= user.school_year %> )
+                    <% end %>
+                    </span>
+                </li>
+              <% end %>
+              <% if user.desired_course.present? %>
+                <li><i class="icon-search"></i>Curso desejado: <span><%= user.desired_course %></span></li>
+              <% end %>
+
+            </ul>
+
+          <% end %>
+          <div class="clearfix"></div>
+        </div>
+      </article>
+
+
+    <% end %>
+
+</div>

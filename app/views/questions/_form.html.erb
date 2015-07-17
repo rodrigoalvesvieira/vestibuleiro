@@ -1,5 +1,18 @@
 <%= form_for(@question, html: { class: "form-horizontal" }) do |f| %>
 
+
+
+<% if @question.errors.full_messages.any? %>
+  <div class="alert alert-danger">
+    <ul>
+      <% @question.errors.full_messages.each do |error_message| %>
+        <li><%= error_message if @question.errors.full_messages.first == error_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <div class="form-inputs clearfix">
   <p>
     <label class="required">Pergunta<span>*</span></label>
@@ -11,6 +24,10 @@
     <label>Tags</label>
     <input type="text" class="input" name="question_tags" id="question_tags" data-seperator=",">
     <span class="form-description">Escolha as palavras-chave da sua pergunta Ex : <span class="color">#FísicaElétrica</span> .</span>
+
+    <label>Professores</label>
+    <input type="text" class="input" name="teacher_tags" id="question_tags" data-seperator=",">
+    <span class="form-description">Selecione os professores para esta pergunta Ex : <span class="color">marlon2005, samuel007xxt</span> .</span>
   </p>
   <p>
     <label class="required">Matéria<span>*</span></label>
@@ -31,7 +48,7 @@
 
   <div class="clearfix"></div>
 
-  <label>Anexo</label>
+  <!--<label>Anexo</label>
   <br>
   <br>
   <div class="fileinputs">
@@ -40,13 +57,13 @@
       <button type="button" class="button small margin_0">Selecione o arquivo</button>
       <span><i class="icon-arrow-up"></i>Browse</span>
     </div>
-  </div>
+  </div>-->
 
 
   <p>
     <label style="width:60% !important;"> Informações adicionais</label>
     <%= f.text_area :body, rows: 7, id: "question-body" %>
-    <span class="form-description">Escreva a sua dúvida</span>
+    <span class="form-description" style="margin-left: 1px">Explique melhor sua dúvida</span>
   </p>
 
 </div>

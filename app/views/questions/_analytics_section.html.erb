@@ -6,9 +6,13 @@
       class="<%= question.status == 'open' ? 'icon-edit' : 'icon-ok'   %>">
     </i><%= t "statuses.#{question.status}" %>
     </span>
-		<span class="question-favorite"><i class="icon-star"></i><%= question.analytics.upvotes - question.analytics.downvotes %></span>
+		<span class="question-favorite"><i class="<%= question.calculate_favorites > 0 ? 'icon-star' : 'icon-star-empty' %>"></i><%= question.calculate_favorites %></span>
 	</div>
 	<span class="question-date"><i class="icon-time"></i><%= time_ago_in_words question.created_at %></span>
 	<span class="question-comment"><a href="#"><i class="icon-comment"></i><%= question.answers.count %> Respostas</a></span>
 	<span class="question-view"><i class="icon-user"></i><%= question.analytics.visualizations %> visualizações</span>
+
+	<a href="#" title="Like" style=" font-size: 16px; margin-left: 15px"><i class="fa fa-thumbs-o-up"></i></a>
+    <a href="#" title="Dislike" style="margin: 0px 8px; font-size: 16px"><i class="fa fa-thumbs-o-down"></i></a>
+
 	<div class="clearfix"></div>

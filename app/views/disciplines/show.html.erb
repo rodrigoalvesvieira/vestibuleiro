@@ -1,1 +1,5 @@
 <h1><%= @discipline.name %></h1>
+
+<% @discipline.tags.each do |tag| %>
+  <p><%= tag %></p>
+<% end %>

@@ -10,10 +10,10 @@ class Tag
 
   ## Relationships
   belongs_to :question
-
   belongs_to :discipline
+
   ## Callbacks
-  before_save :format_tag_name
+  before_create :format_tag_name
 
   ## Validations
   validates :title, presence: true
@@ -28,14 +28,18 @@ class Tag
     self.tag_name
   end
 
-  def search(search_term)
-    term = /.*#{search_term}.*/i
-    result = Set.new Tag.where(title: term, tag_name: term)
+  class << self
+
+    ## Takes a string and returns all tags from the database
+    ## whose title or body contain the term
+    def search(search_term)
+      term = /.*#{search_term}.*/i
+      result = Tag.or({title: term})
+    end
   end
 
 private
   def format_tag_name
-    self.tag_name = self.tag_name.downcase
-    self.tag_name.gsub! " ", "-"
+    self.tag_name = self.title.parameterize
   end
 end

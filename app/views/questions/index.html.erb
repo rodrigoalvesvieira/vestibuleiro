@@ -1,4 +1,4 @@
-<script type="text/javascript" src="/assets/controllers/questionsController.js"></script>
+<script type="text/javascript" src="/bower/controllers/questionsController.js"></script>
 
 <% unless user_signed_in? %>
   <%= render "shared/welcome" %>
@@ -9,7 +9,6 @@
     <div class="col-md-9">
       <div class="tabs-warp question-tab">
         <%= render "shared/tabs" %>
-
 
         <div class="tab-inner-warp" style="display: block;">
           <%= render "last_published_section", questions: @last_questions %>

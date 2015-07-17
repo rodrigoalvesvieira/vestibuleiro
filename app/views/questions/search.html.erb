@@ -1,11 +1,29 @@
-<section class="container main-content" data-ng-controller="QuestionsController">
+<script type="text/javascript" src="/bower/controllers/searchController.js"></script>
+
+<section class="container main-content" data-ng-controller="SearchController">
   <div class="row" style="margin-top: 26px">
     <div class="col-md-9">
       <div class="tabs-warp question-tab">
+        <%= render "shared/search_tabs" %>
+
         <div class="tab-inner-warp" style="display: block;">
-          <%= render "last_published_section", questions: @results %>
+          <%= render "last_published_section", questions: @questions %>
+          <%= render "search_answers", answers: @answers %>
+          <%= render "search_disciplines", disciplines: @disciplines %>
+          <%= render "search_users", users: @users %>
         </div>
       </div>
     </div>
+
+    <aside class="col-md-3 sidebar">
+      <div class="well" style="width:262.5px; height:239px;">
+        <h4 class="lead">Tags</h4>
+
+        <% @tags.each do |tag| %>
+          <span class="label label-info"><%= tag %></span>
+        <% end %>
+      </div>
+
+    </aside>
   </div>
 </section>

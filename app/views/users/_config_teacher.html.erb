@@ -78,9 +78,24 @@
 							</div>
 								<div class="clearfix"></div>
 
-								<p>
+								<p style="width: 100%;">
 									<label>Sobre você</label>
                   <%= f.text_area :description, class: "form-control", placeholder: "Forneça uma descrição sobre você!" %>
+								</p>
+
+								<p style="width: 100%;">
+									<label>Facebook</label>
+									<%= f.text_field :facebook, class: "form-control", placeholder: "Url do Facebook" %>
+								</p>
+
+								<p style="width: 100%;">
+									<label>Twitter</label>
+									<%= f.text_field :twitter, class: "form-control", placeholder: "Url do Twitter" %>
+								</p>
+
+								<p style="width: 100%;">
+									<label>Linkedin</label>
+									<%= f.text_field :linkedin, class: "form-control", placeholder: "Url do Twitter" %>
 								</p>
 							</div>
 							<!--
@@ -120,3 +135,25 @@
 			</aside><!-- End sidebar -->
 		</div><!-- End row -->
 	</section><!-- End container -->
+
+<script type="text/javascript">
+
+
+function addInput(divName) {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('class', 'schoolTeacher')
+    input.setAttribute('name', 'schoolAt');
+    input.setAttribute('placeholder', 'Adicione a instituição de ensino');
+    var remove = document.createElement('span');
+    remove.setAttribute('class', 'glyphicon glyphicon-remove');
+
+    document.getElementById(divName).appendChild(input);
+    input.appendChild(remove);
+
+   // var x = document.getElementById("dynamicInput");
+}
+
+addInput('dynamicInput');
+
+</script>

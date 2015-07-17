@@ -23,7 +23,7 @@
   </div><!-- End breadcrumbs -->
 
   <section class="container main-content">
-    
+
     <div class="row">
       <div class="col-md-9" >
         <article class="question single-question question-type-normal">
@@ -53,8 +53,10 @@
                   <i class="icon-thumbs-down"> </i>
                 <% end %>
                 <% if signed_in? %>
-                  <%= @question.user.name == current_user.name ? link_to('Editar', edit_question_path(@question)) : '' %>                  
-                <% end %> 
+                  <%= @question.user.name == current_user.name ? link_to('Editar', edit_question_path(@question)) : '' %>
+                  <%= @question.user.name == current_user.name ? link_to('Excluir', question_path(@question),
+                    method: :delete, data: { confirm: 'Você tem certeza que deseja excluir essa questão?' }) : '' %>
+                <% end %>
               </li>
           </ul>
 
@@ -63,6 +65,12 @@
         </article>
 
         <h2 id="question-answers-title">Respostas para esta dúvida</h2>
+
+        <% if @question.indicated_teachers.count > 0 %>
+          <% @question.indicated_teachers.each do | teacher| %>
+            <%= teacher.email %>
+          <% end %>
+        <% end %>
 
         <% if @question.answers.count > 0 %>
           <% @question.answers.each do | answer| %>
@@ -82,10 +90,8 @@
 					<%= link_to answer.user, answer.user %>
 				</div>
                                 <div class="comment-vote">
-                                  <ul class="question-vote">
-                                    <li><a href="#" class="question-vote-up" title="Like"></a></li>
-                                    <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
-                                  </ul>
+                                    <a href="#" title="Like" style=" font-size: 16px"><i class="fa fa-thumbs-o-up"></i></a>
+                                    <a href="#" title="Dislike" style="margin: 0px 8px; font-size: 16px"><i class="fa fa-thumbs-o-down"></i></a>
                                 </div>
                                 <span class="question-vote-result">+1</span>
                                 <div class="comment-meta">
@@ -99,8 +105,8 @@
                               </div>
                               <div class="text"><p><%= answer.body %></p>
                               </div>
-                      <div class="question-answered question-answered-done"><i class="icon-ok"></i>Melhor resposta</div>
-                          </div>
+                     <!--  <div class="question-answered question-answered-done"><i class="icon-ok"></i>Melhor resposta</div>
+                          </div> -->
                       </div>
                       <ul class="children">
                       <% if @question.comments.count > 0 %>
