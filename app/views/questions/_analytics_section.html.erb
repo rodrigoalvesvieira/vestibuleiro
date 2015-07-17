@@ -12,7 +12,20 @@
 	<span class="question-comment"><a href="#"><i class="icon-comment"></i><%= question.answers.count %> Respostas</a></span>
 	<span class="question-view"><i class="icon-user"></i><%= question.analytics.visualizations %> visualizações</span>
 
-	<a href="#" title="Like" style=" font-size: 16px; margin-left: 15px"><i class="fa fa-thumbs-o-up"></i></a>
-    <a href="#" title="Dislike" style="margin: 0px 8px; font-size: 16px"><i class="fa fa-thumbs-o-down"></i></a>
+	<a href="#" title="Like" style=" font-size: 16px; margin-left: 15px">
+		<%= link_to upvote_question_path(question) do %>
+			<%= question.analytics.upvotes %>
+			<i class="icon-thumbs-up"> </i>
+		<% end %>
+		<i class="fa fa-thumbs-o-up"></i>
+	</a>
+
+	<a href="#" title="Dislike" style="margin: 0px 8px; font-size: 16px">
+		<%= link_to downvote_question_path(question) do %>
+			<%= question.analytics.downvotes %>
+			<i class="icon-thumbs-down"> </i>
+		<% end %>
+		<i class="fa fa-thumbs-o-down"></i>
+	</a>
 
 	<div class="clearfix"></div>

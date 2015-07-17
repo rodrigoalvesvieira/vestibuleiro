@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy, :create_answer, :upvote, :downvote]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :create_answer, :upvote, :downvote, :upvote_feed]
   before_action :update_visualizations, only: [:show]
   before_filter :authenticate_user!, except: [:index, :show, :new, :search]
 
@@ -100,7 +100,7 @@ class QuestionsController < ApplicationController
     @question.add_voter(current_user)
 
     redirect_to @question
-  end
+  end  
 
   # POST /questions
   def create
