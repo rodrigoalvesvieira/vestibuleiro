@@ -1,6 +1,6 @@
-<div class="question-author">
-  <%= link_to question.user, class: "question-author-img tooltip-n" do %>
+<div class="question-author">   <!-- class: "question-author-img tooltip-n" neste link_to embaixo se bugar -->
+  <%= link_to question.user, class: "tooltip-n" do %>
     <span></span>
-    <%= image_tag question.user.avatar.url %>
+    <%= image_tag question.user.avatar.url%>
   <% end %>
 </div>
