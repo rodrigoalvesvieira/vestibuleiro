@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       post 'create_answer_comment'
       get 'upvote'
       get 'downvote'
+      get 'upvote_feed'
     end
   end
 

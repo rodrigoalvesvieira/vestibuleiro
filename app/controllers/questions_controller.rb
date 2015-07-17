@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy, :create_answer, :upvote, :downvote]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :create_answer, :upvote, :downvote, :upvote_feed]
   before_action :update_visualizations, only: [:show]
   before_filter :authenticate_user!, except: [:index, :show, :new, :search]
 
@@ -100,6 +100,11 @@ class QuestionsController < ApplicationController
     @question.add_voter(current_user)
 
     redirect_to @question
+  end
+
+  def upvote_feed
+    @question.analytics.increment current_user, visualizations: 0, upvotes: 0, downvotes: 1
+    @question.add_voter(current_user)
   end
 
   # POST /questions
