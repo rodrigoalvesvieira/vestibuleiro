@@ -44,12 +44,12 @@
            <ul class="single-question-vote" text-decoration="underline">
               <li>
                 <a href="" id="<%= @question._id %>#upvote" title="Like" onClick="upvote(id)">
-                  <%= @question.analytics.upvotes %>
+                  <%= @question.analytics.try(:upvotes) %>
                   <i class="icon-thumbs-up"> </i>
                 </a>
 
                 <a href="" id="<%= @question._id %>#downvote" title="Dislike" onClick="downvote(id)">
-                  <%= @question.analytics.downvotes %>
+                  <%= @question.analytics.try(:downvotes) %>
                   <i class="icon-thumbs-down"> </i>
                 </a>
 
