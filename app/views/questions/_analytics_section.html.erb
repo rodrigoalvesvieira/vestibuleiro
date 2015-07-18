@@ -12,20 +12,60 @@
 	<span class="question-comment"><a href="#"><i class="icon-comment"></i><%= question.answers.count %> Respostas</a></span>
 	<span class="question-view"><i class="icon-user"></i><%= question.analytics.visualizations %> visualizações</span>
 
-	<ul class="single-question-vote" text-decoration="underline">
-		 <li>
+	<a id="<%= question._id %>#upvote" href="" title="Like" style=" font-size: 14px; margin-left: 15px" onClick="upvote(id)">
+		<%= question.analytics.upvotes %>
+		<i class="icon-thumbs-up"> </i>
+		<i class="fa fa-thumbs-o-up"></i>
+	</a>
 
-				 <i class="icon-thumbs-up" style="margin-left: 30px;"> </i>
-
-
-
-				 <i class="icon-thumbs-down" style="margin-left: 10px;"> </i>
-
-		 </li>
- </ul>
-
-
-	<a href="#" title="Like" style=" font-size: 16px; margin-left: 15px"><i class="fa fa-thumbs-o-up"></i></a>
-    <a href="#" title="Dislike" style="margin: 0px 8px; font-size: 16px"><i class="fa fa-thumbs-o-down"></i></a>
+	<a href="" id="<%= question._id %>#downvote" title="Dislike" style="margin: 0px 8px; font-size: 14px" onClick="downvote(id)">
+		<%= question.analytics.downvotes %>
+		<i class="icon-thumbs-down"> </i>
+		<i class="fa fa-thumbs-o-down"></i>
+	</a>
 
 	<div class="clearfix"></div>
+
+	<script type="text/javascript">
+			function upvote(id)
+			{
+				id = id.split("#")[0];
+					$.ajax({
+						type: "GET",
+						dataType: "json",
+						data: {_id: id},
+						url: "/questions/"+ id +"/upvote",
+						success: function(data){
+							console.log(data);
+							if(data.sucess) {
+								var a = document.getElementById(id+"#upvote");
+								a.innerHTML = data.upvotes + " <i class=\"icon-thumbs-up\"> </i> <i class=\"fa fa-thumbs-o-up\"></i>"
+							}
+						},
+						error: function(data) {
+							window.location = "/login";
+						}
+				});
+			}
+
+			function downvote(id)
+			{
+				id = id.split("#")[0];
+					$.ajax({
+						type: "GET",
+						dataType: "json",
+						data: {_id: id},
+						url: "/questions/"+ id +"/downvote",
+						success: function(data){
+							console.log(data);
+							if(data.sucess) {
+								var a = document.getElementById(id+"#downvote");
+								a.innerHTML = data.downvotes + " <i class=\"icon-thumbs-down\"> </i> <i class=\"fa fa-thumbs-o-down\"></i>"
+							}
+						},
+						error: function(data) {
+								window.location = "/login";
+						}
+				});
+			}
+	</script>

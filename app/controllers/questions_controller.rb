@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy, :create_answer, :upvote, :downvote]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :create_answer, :upvote, :downvote, :upvote_feed]
   before_action :update_visualizations, only: [:show]
   before_filter :authenticate_user!, except: [:index, :show, :new, :search]
 
@@ -81,25 +81,29 @@ class QuestionsController < ApplicationController
   end
 
   def upvote
-    if @question.is_voter(current_user)
-      redirect_to @question and return
+    sucess_upvote = false
+    if !@question.is_voter(current_user)
+
+      #redirect_to @question and return
+
+
+      @question.analytics.increment current_user, visualizations: 0, upvotes: 1, downvotes: 0
+      @question.add_voter(current_user)
+      sucess_upvote = true
     end
 
-    @question.analytics.increment current_user, visualizations: 0, upvotes: 1, downvotes: 0
-    @question.add_voter(current_user)
-
-    redirect_to @question
+    #redirect_to @question
+    render json: {sucess: sucess_upvote, upvotes: @question.analytics.upvotes}
   end
 
   def downvote
-    if @question.is_voter(current_user)
-      redirect_to @question and return
+    sucess_downvote = false
+    if !@question.is_voter(current_user)
+      @question.analytics.increment current_user, visualizations: 0, upvotes: 0, downvotes: 1
+      @question.add_voter(current_user)
+      sucess_downvote = true
     end
-
-    @question.analytics.increment current_user, visualizations: 0, upvotes: 0, downvotes: 1
-    @question.add_voter(current_user)
-
-    redirect_to @question
+    render json: {sucess: sucess_downvote, downvotes: @question.analytics.downvotes}
   end
 
   # POST /questions
