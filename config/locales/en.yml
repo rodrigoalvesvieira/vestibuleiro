@@ -24,3 +24,12 @@ en:
   hello: "Hello world"
   search: "Buscar..."
   about: "Sobre"
+  
+pt-BR:
+  views:
+    pagination:
+      first: "Primeiro"
+      last: "Ultimo"
+      previous: "Anterior"
+      next: "Proximo"
+      truncate: "..."
