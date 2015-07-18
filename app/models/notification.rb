@@ -2,6 +2,8 @@ class Notification
   ## Includes
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   ## Constants
   STATUSES = %w(seen unseen)

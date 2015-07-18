@@ -2,6 +2,8 @@ class Question
   ## Includes
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   ## Constants
   STATUSES = ["open", "answered"]
@@ -44,7 +46,6 @@ class Question
   validates :discipline, presence: true
 
   ## Extras
-  searchkick
 
   ## Methods
   def unpublish
@@ -83,14 +84,6 @@ class Question
   end
 
   class << self
-
-    ## Takes a string and returns all questions from the database
-    ## whose title or body contain the term
-    def search(search_term)
-      term = /.*#{search_term}.*/i
-      result = Question.or({title: term}, {body: term})
-    end
-
     def filter_by_tag(tag)
       result = Set.new Question.where(tags:tag)
     end

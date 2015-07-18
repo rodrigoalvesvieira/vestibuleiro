@@ -21,6 +21,8 @@ $ npm install           # Instala dependências de build
 $ bower install         # Instala as dependências de front-end do projeto
 
 $ rake db:seed          # Preenche o BD de desenvolvimento (local) com alguns dados prontos
+
+$ rake indexes:create   # Create ElasticSearch indexes for all models
 ```
 
 ## Usage
@@ -78,11 +80,13 @@ Esse projeto está [hospedado no Heroku]. Para deployar uma nova versão, execut
 Alguns outros comandos úteis são:
 
 ```shell
-$ heroku run console         # Inicia o console do Rails no servidor remoto
+$ heroku run console            # Inicia o console do Rails no servidor remoto
 
-$ heroku logs --tail         # Imprime como stream o log do servidor remoto
+$ heroku logs --tail            # Imprime como stream o log do servidor remoto
 
-$  heroku addons:open mongolab # Access production database
+$ heroku addons:open mongolab   # Access production database
+
+$ heroku config                 # Access all Heroku config data
 ```
 
 ## Authors

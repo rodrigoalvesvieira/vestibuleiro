@@ -1,6 +1,9 @@
 class Analytics
   ## Includes
   include Mongoid::Document
+  include Mongoid::Timestamps
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   ## Fields
   field :visualizations, type: Integer, default: 0
@@ -17,7 +20,6 @@ class Analytics
   ## Validations
 
   ## Extras
-  searchkick
 
   ## Methods
 

@@ -3,6 +3,8 @@ class User
   include Mongoid::Document
   include Mongoid::Paperclip
   include Mongoid::Timestamps
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   ## Constants
   ROLES = %w(student teacher)

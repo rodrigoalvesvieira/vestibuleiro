@@ -2,6 +2,8 @@ class Comment
   ## Includes
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   ## Fields
   field :body, type: String
