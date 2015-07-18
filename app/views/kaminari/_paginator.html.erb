@@ -1,5 +1,5 @@
 <%= paginator.render do -%>
-  <ul class="pagination">
+  <div class="row" style="padding-left: 250px; ">
     <%= first_page_tag unless current_page.first? %>
     <%= prev_page_tag unless current_page.first? %>
     <% each_page do |page| -%>
@@ -9,7 +9,9 @@
         <%= gap_tag %>
       <% end -%>
     <% end -%>
-    <%= next_page_tag unless current_page.last? %>
     <%= last_page_tag unless current_page.last? %>
-  </ul>
+    <%= next_page_tag unless current_page.last? %>
+
+  </div>
 <% end -%>
+
