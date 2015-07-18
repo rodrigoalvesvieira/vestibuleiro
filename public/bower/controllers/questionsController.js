@@ -13,15 +13,30 @@ app.controller('QuestionsController', ['$scope', function($scope) {
   }
   $scope.currentTab = $scope.getTab();
 
-  $scope.selectTab = function(setTab){
+  function oie(){
+    alert('beleza');
+  }
 
+
+  $scope.selectTab = function(setTab){
+    alert('seelected ' + setTab);
     $scope.currentTab = setTab;
     $scope.saveTab();
   };
 
+  $scope.gotoTab = function(setTab){
+   // alert('xlabual');
+    //$.get("/?page=1");
+    window.location =  "/?page=1/?"+setTab+"";
+    //load("https://www.google.com");
+    //$($scope).load("/?page=1", oie);
+   // window.location.href = ;
+   // $scope.selectTab(setTab);
+  };  
+
   $scope.isSelected = function(checkTab){
   	$scope.getTab();
-  	alert('is selected ' + checkTab + ' scope: ' + $scope.currentTab);
+  	// alert('is selected ' + checkTab + ' scope: ' + $scope.currentTab);
     return $scope.currentTab == checkTab;
   }
 

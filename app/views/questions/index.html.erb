@@ -55,13 +55,60 @@
 
 
 <script type="text/javascript">
+    
+
   if (typeof(Storage) != "undefined") {
 
   } else {
     alert('seu browser nao aceita paginacao');
-  }
-//  alert('oi');
 
+  }
+/*
+   $(document).ready(function() {
+
+    var url = window.location +"";
+    //alert('oieeee --> url: ' + url );
+    //alert('length? ' + url.length );
+    //alert('oi');
+    //alert(url.charAt(url.length-1));
+    if(url.charAt(url.length-1) == '$' &&  url.charAt(url.length-2) == '!'){
+      var p = url.charAt(url.length-3) - '0';
+
+      alert('getting controller ');
+
+      var el = angular.element('QuestionsController'); 
+      alert("elem -> " + el );
+      el.scope().selectTab(p);
+    }   
+  });
+*/
+
+
+  //alert('angular: ' + angular );
+   
+  //alert('url: ' + url);
+
+  /*
+//  alert('oi');
+  function backToIndex (argument) {
+    window.location.href = "/?page=1";
+  }
+
+  $(document).ready(function() {
+    // body...
+    //alert('blzaa');
+    $('#tabChangerMostViewed').load(function () {
+      // body...
+      alert('alertado');
+    })
+    $('#tabChangerLastQuestions').click(backToIndex);
+    $('#tabChangerMostViewed').click(backToIndex);
+    $('#tabChangerMostVoted').click(backToIndex);
+
+    
+
+  });
+  */
 
 
 

@@ -6,8 +6,8 @@ class QuestionsController < ApplicationController
   # GET /questions
   def index
     @last_questions = Question.order_by(:created_at.desc).page(params[:page]).per(10)
-    @upvotes_questions = Kaminari.paginate_array(Question.all.sort{ |a,b| b.analytics.upvotes <=> a.analytics.upvotes}).page(1).per(10) #Question.analytics.order_by(:upvotes.desc).page(1).per(10)
-    @visualizations_questions = Kaminari.paginate_array(Question.all.sort{ |a,b| b.analytics.visualizations <=> a.analytics.visualizations }).page(1).per(10) #Question.analytics.order_by(:visualizations).page(1).(10)
+    @upvotes_questions = Kaminari.paginate_array(Question.all.sort{ |a,b| b.analytics.upvotes <=> a.analytics.upvotes}).page(params[:page]).per(10) #Question.analytics.order_by(:upvotes.desc).page(1).per(10)
+    @visualizations_questions = Kaminari.paginate_array(Question.all.sort{ |a,b| b.analytics.visualizations <=> a.analytics.visualizations }).page(params[:page]).per(10) #Question.analytics.order_by(:visualizations).page(1).(10)
 
     @hall = User.where('role' => "teacher")
 
