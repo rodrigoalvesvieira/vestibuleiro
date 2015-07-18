@@ -40,7 +40,7 @@
             <span class="question-view" style="margin-right: 20px"><i class="icon-user"></i>Perguntado por
               <strong><%= link_to @question.user.name, @question.user %></strong>
             </span>
-
+            <span class="question-date"><i class="icon-time"></i> <%= time_ago_in_words @question.created_at %> </span>
            <ul class="single-question-vote" text-decoration="underline">
               <li>
                 <a href="" id="<%= @question._id %>#upvote" title="Like" onClick="upvote(id)">
@@ -88,23 +88,26 @@
                           <div class="comment-text">
                               <div class="author clearfix">
                                 <div class="comment-author">
-					<%= link_to answer.user, answer.user %>
-				</div>
-                                <div class="comment-vote">
-                                    <a href="#" title="Like" style=" font-size: 16px"><i class="fa fa-thumbs-o-up"></i></a>
-                                    <a href="#" title="Dislike" style="margin: 0px 8px; font-size: 16px"><i class="fa fa-thumbs-o-down"></i></a>
-                                </div>
-                                <span class="question-vote-result">+1</span>
+                                  <%= link_to answer.user, answer.user %>
+				                        </div>
                                 <div class="comment-meta">
-
-                                  <!--
-                                      <div class="date"><i class="icon-time"></i>15 de Janeiro de 2015 às 10:00</div>
-
-                                    -->
-                                  </div>
-                                  <a class="comment-reply"><i class="icon-reply"></i>Responder</a>
+                                      <div class="date"><i class="icon-time"></i> <%= time_ago_in_words answer.created_at %></div>
+                                </div>
+                                <!--<a class="comment-reply"><i class="icon-reply"></i>Responder</a>-->
                               </div>
                               <div class="text"><p><%= answer.body %></p>
+                              </div>
+                              <div class="comment-vote" style="margin-top: 10px">
+                                  <a href="" id="<%= answer._id %>#<%= @question._id %>#upvote" title="Like" style=" font-size: 16px" onClick="upvoteAnswer(id)">
+                                    <%= answer.analytics.upvotes %>
+                                    <i class="icon-thumbs-up"> </i>
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                  </a>
+                                  <a href="" id="<%= answer._id %>#<%= @question._id %>#downvote" title="Dislike" style="margin: 0px 8px; font-size: 16px" onClick="downvoteAnswer(id)">
+                                    <%= answer.analytics.downvotes %>
+                                    <i class="icon-thumbs-down"> </i>
+                                    <i class="fa fa-thumbs-o-down"></i>
+                                  </a>
                               </div>
                      <!--  <div class="question-answered question-answered-done"><i class="icon-ok"></i>Melhor resposta</div>
                           </div> -->
@@ -248,6 +251,46 @@
             error: function(data) {
               window.location = "/login";
             }
+        });
+      }
+
+      function upvoteAnswer(id) {
+        var idQuestion = id.split("#")[1];
+        id = id.split("#")[0];
+        $.ajax({
+          type: "GET",
+          dataType: "json",
+          data: {_id: id},
+          url: "/questions/" + idQuestion + "/answers/" + id + "/upvote",
+          success: function(data) {
+            if(data.sucess) {
+              var a = document.getElementById(id + "#" + idQuestion +"#upvote");
+              a.innerHTML = data.upvotes + " <i class=\"icon-thumbs-up\"> </i> <i class=\"fa fa-thumbs-o-up\"></i>"
+            }
+          },
+          error: function(data) {
+            window.location = "/login";
+          }
+        });
+      }
+
+      function downvoteAnswer(id) {
+        var idQuestion = id.split("#")[1];
+        id = id.split("#")[0];
+        $.ajax({
+          type: "GET",
+          dataType: "json",
+          data: {_id: id},
+          url: "/questions/" + idQuestion + "/answers/" + id + "/downvote",
+          success: function(data) {
+            if(data.sucess) {
+              var a = document.getElementById(id + "#" + idQuestion +"#downvote");
+              a.innerHTML = data.downvotes + " <i class=\"icon-thumbs-down\"> </i> <i class=\"fa fa-thumbs-o-down\"></i>"
+            }
+          },
+          error: function(data) {
+            window.location = "/login";
+          }
         });
       }
   </script>
