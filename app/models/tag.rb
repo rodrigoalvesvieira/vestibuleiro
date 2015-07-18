@@ -25,6 +25,15 @@ class Tag
   ## Extras
 
   ## Methods
+  class << self
+    def perform_search(param)
+      self.send(:search, param).records
+    end
+  end
+  
+  def as_indexed_json(options={})
+    as_json(except: [:id, :_id])
+  end
 
   def to_s
     self.tag_name

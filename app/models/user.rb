@@ -107,6 +107,16 @@ class User
   accepts_nested_attributes_for :questions
 
   ## Methods
+  class << self
+    def perform_search(param)
+      self.send(:search, param).records
+    end
+  end
+
+  def as_indexed_json(options={})
+    as_json(except: [:id, :_id])
+  end
+
   def total_upvotes
     upvotes = 0
 
@@ -182,16 +192,6 @@ class User
     @activities = self.questions.to_a + self.answers.to_a
 
     @activities.to_a.sort { |activity_first,activity_second| (activity_second.created_at.to_i) <=> (activity_first.created_at.to_i) }
-  end
-
-  class << self
-
-    ## Takes a string and returns all users from the database
-    ## whose title or body contain the term
-    def search(search_term)
-      term = /.*#{search_term}.*/i
-      result = User.or({name: term}, {nickname: term}, {email: term}, {description: term}, {city: term})
-    end
   end
 
 private
