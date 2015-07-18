@@ -1,0 +1,253 @@
+<div id="wrap" class="grid_1200">
+  <div class="breadcrumbs">
+    <section class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1><%= @question.title %></h1>
+        </div>
+        <div class="col-md-12">
+          <div class="crumbs">
+            <%= link_to 'Home', root_path %>
+            <span class="crumbs-span">/</span>
+            <% if signed_in? %>
+            	<%= link_to 'Usuário', current_user %>
+            	<span class="crumbs-span">/</span>
+            <% end %>
+            <a href="#"> Disciplina: <%= @question.discipline %></a>
+            <span class="crumbs-span">/</span>
+            <span class="current"><%= @question.title %></span>
+          </div>
+        </div>
+      </div><!-- End row -->
+    </section><!-- End container -->
+  </div><!-- End breadcrumbs -->
+
+  <section class="container main-content">
+
+    <div class="row">
+      <div class="col-md-9" >
+        <article class="question single-question question-type-normal">
+          <h2 style="padding-right: 0px;">
+            <%= @question.title %>
+
+          </h2>
+
+          <div class="question-inner">
+            <div class="clearfix"></div>
+            <div class="question-desc">
+              <p><%= @question.body %></p>
+            </div>
+            <span class="question-view" style="margin-right: 20px"><i class="icon-user"></i>Perguntado por
+              <strong><%= link_to @question.user.name, @question.user %></strong>
+            </span>
+
+           <ul class="single-question-vote" text-decoration="underline">
+              <li>
+                <a href="" id="<%= @question._id %>#upvote" title="Like" onClick="upvote(id)">
+                  <%= @question.analytics.upvotes %>
+                  <i class="icon-thumbs-up"> </i>
+                </a>
+
+                <a href="" id="<%= @question._id %>#downvote" title="Dislike" onClick="downvote(id)">
+                  <%= @question.analytics.downvotes %>
+                  <i class="icon-thumbs-down"> </i>
+                </a>
+
+                <% if signed_in? %>
+                  <%= @question.user.name == current_user.name ? link_to('Editar', edit_question_path(@question)) : '' %>
+                  <%= @question.user.name == current_user.name ? link_to('Excluir', question_path(@question),
+                    method: :delete, data: { confirm: 'Você tem certeza que deseja excluir essa questão?' }) : '' %>
+                <% end %>
+              </li>
+          </ul>
+
+          <div class="clearfix"></div>
+          </div>
+        </article>
+
+        <h2 id="question-answers-title">Respostas para esta dúvida</h2>
+
+        <% if @question.indicated_teachers.count > 0 %>
+          <% @question.indicated_teachers.each do | teacher| %>
+            <%= teacher.email %>
+          <% end %>
+        <% end %>
+
+        <% if @question.answers.count > 0 %>
+          <% @question.answers.each do | answer| %>
+            <div id="commentlist" class="page-content">
+              <br />
+              <div class="boxedtitle page-title"></div>
+              <ol class="commentlist clearfix">
+                  <li class="comment">
+                      <div class="comment-body comment-body-answered clearfix">
+                        <div class="avatar">
+                          <%= image_tag answer.user.avatar.url %>
+                        </div>
+                          <!-- <div class="avatar"><img alt="" src="http://lorempixel.com/60/60/people/"></div> -->
+                          <div class="comment-text">
+                              <div class="author clearfix">
+                                <div class="comment-author">
+					<%= link_to answer.user, answer.user %>
+				</div>
+                                <div class="comment-vote">
+                                    <a href="#" title="Like" style=" font-size: 16px"><i class="fa fa-thumbs-o-up"></i></a>
+                                    <a href="#" title="Dislike" style="margin: 0px 8px; font-size: 16px"><i class="fa fa-thumbs-o-down"></i></a>
+                                </div>
+                                <span class="question-vote-result">+1</span>
+                                <div class="comment-meta">
+
+                                  <!--
+                                      <div class="date"><i class="icon-time"></i>15 de Janeiro de 2015 às 10:00</div>
+
+                                    -->
+                                  </div>
+                                  <a class="comment-reply"><i class="icon-reply"></i>Responder</a>
+                              </div>
+                              <div class="text"><p><%= answer.body %></p>
+                              </div>
+                     <!--  <div class="question-answered question-answered-done"><i class="icon-ok"></i>Melhor resposta</div>
+                          </div> -->
+                      </div>
+                      <ul class="children">
+                      <% if @question.comments.count > 0 %>
+
+                        <% @question.comments.each do | comment | %>
+                            <li class="comment">
+                                <div class="comment-body clearfix">
+                                  <div class="avatar"><img alt="" src="http://lorempixel.com/60/60/people/"></div>
+                                    <div class="comment-text">
+                                        <div class="author clearfix">
+                                          <div class="comment-author"><a href="#"><%= comment.user %></a></div>
+                                          <div class="comment-vote">
+                                              <ul class="question-vote">
+                                                <li><a href="#" class="question-vote-up" title="Like"></a></li>
+                                                <li><a href="#" class="question-vote-down" title="Dislike"></a></li>
+                                              </ul>
+                                          </div>
+                                          <span class="question-vote-result">+1</span>
+                                          <div class="comment-meta">
+                                               <!-- <div class="date"><i class="icon-time"></i>15 de Janeiro de 2015 às 11:00</div>
+                                             -->
+                                            </div>
+                                            <a class="comment-reply" href="#"><i class="icon-reply"></i>Responder</a>
+                                        </div>
+                                        <div class="text"><p> <%= comment.body  %></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                        <% end %>
+                      <% end %>
+
+                      </ul><!-- End children -->
+                  </li>
+
+              </ol><!-- End commentlist -->
+            </div><!-- End page-content -->
+
+
+          <% end %>
+
+
+        <% end %>
+
+
+
+        <div id="respond" class="comment-respond page-content clearfix">
+            <div class="boxedtitle page-title"><h2>Responder dúvida</h2></div>
+            <%= form_for(@new_answer, url: create_answer_question_path(@question), method: :post, html: { class: "form-horizontal" }) do |f| %>
+
+                <div id="respond-textarea">
+                    <p>
+                        <label class="required" for="comment">Escreva aqui a sua resposta, você pode utilizar markdown para formatar seu texto.</label>
+                        <textarea id="comment" name="answer[body]" aria-required="true" cols="58" rows="8"></textarea>
+                    </p>
+                </div>
+                <p class="form-submit">
+
+                  <input name="Responder" type="submit" id="submit" value="Enviar resposta" class="button small color">
+                </p>
+            <% end  %>
+        </div>
+
+      </div><!-- End main -->
+      <aside class="col-md-3 sidebar">
+        <%= render "shared/sidebar" %>
+      </aside>
+    </div><!-- End row -->
+  </section><!-- End container -->
+
+
+</div><!-- End wrap -->
+
+<div class="go-up"><i class="icon-chevron-up"></i></div>
+  <div class="row">
+    <div class="col-md-8">
+
+      <section class="comments-question">
+        <% @question.comments.each do |comment| %>
+          <p><%= comment.body %></p>
+          <p><%= link_to comment.user.name, comment.user %></p>
+        <% end %>
+      </section>
+
+      <section class="answers-content">
+        <% @question.answers.each do |answer| %>
+
+          <section id="answer-comment=#{answer.id}">
+            <% answer.comments.each do |comment| %>
+              <p><%= comment.body %></p>
+              <p><%= link_to comment.user.name, comment.user %></p>
+            <% end %>
+          </section>
+        <% end %>
+      </section>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      function upvote(id)
+      {
+        id = id.split("#")[0];
+          $.ajax({
+            type: "GET",
+            dataType: "json",
+            data: {_id: id},
+            url: "/questions/"+ id +"/upvote",
+            success: function(data){
+              console.log(data);
+              if(data.sucess) {
+                var a = document.getElementById(id+"#upvote");
+                a.innerHTML = data.upvotes + " <i class=\"icon-thumbs-up\"> </i>"
+              }
+            },
+            error: function(data) {
+              window.location = "/login";
+            }
+        });
+      }
+
+      function downvote(id)
+      {
+        id = id.split("#")[0];
+          $.ajax({
+            type: "GET",
+            dataType: "json",
+            data: {_id: id},
+            url: "/questions/"+ id +"/downvote",
+            success: function(data){
+              console.log(data);
+              if(data.sucess) {
+                var a = document.getElementById(id+"#downvote");
+                a.innerHTML = data.downvotes + " <i class=\"icon-thumbs-down\"> </i>"
+              }
+            },
+            error: function(data) {
+              window.location = "/login";
+            }
+        });
+      }
+  </script>
