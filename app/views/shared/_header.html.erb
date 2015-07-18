@@ -37,13 +37,13 @@
 								<%= notifications.size %> <i class="icon-bell-alt"></i></a>
 							<% end %>
 
-							
+
 
 							<ul class="notifications_center">
-								<% notifications.each do |notification| %>
+								<% notifications.reverse.each do |notification| %>
 									<li>
 										<%= link_to clear_notification_path(notification), method: :post do %>
-											<%= image_tag notification.user.avatar.url, :class => "img-circle"%>
+											<%= image_tag notification.get_avatar_user, :class => "img-circle"%>
 											<%= notification.message %>
 										<% end %>
 									</li>
