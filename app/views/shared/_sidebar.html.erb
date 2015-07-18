@@ -2,16 +2,18 @@
 
   <div class="widget widget_tag_cloud">
 					<h3 class="widget_title">Tags</h3>
-					<a href="#">Física</a>
-					<a href="#">MRU</a>
+          <% @question.tags.each do |tag| %>
+					<a><%= tag.tag_name %></a>
+					<!-- <a href="#">MRU</a>
 					<a href="#">Mecânica Geral</a>
 					<a href="#">Gráficos</a>
-					<a href="#">Movimento Retilíneo Uniforme</a>
+					<a href="#">Movimento Retilíneo Uniforme</a> -->
+          <% end %>
 				</div>
 
 
-  <% @question.tags.each do |tag|%>
+  <!-- <% @question.tags.each do |tag|%>
   	<span class="label label-warning"> <%= tag.tag_name %> </span> </br>
-  <% end %>
+  <% end %> -->
 
 </div>
