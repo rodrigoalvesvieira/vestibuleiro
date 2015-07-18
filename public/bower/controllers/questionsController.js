@@ -1,5 +1,5 @@
 app.controller('QuestionsController', ['$scope', function($scope) {
- 
+
   $scope.saveTab = function(){
   	localStorage.setItem('currentTab', $scope.currentTab);
   }
@@ -13,13 +13,7 @@ app.controller('QuestionsController', ['$scope', function($scope) {
   }
   $scope.currentTab = $scope.getTab();
 
-  function oie(){
-    alert('beleza');
-  }
-
-
   $scope.selectTab = function(setTab){
-    alert('seelected ' + setTab);
     $scope.currentTab = setTab;
     $scope.saveTab();
   };
@@ -32,7 +26,7 @@ app.controller('QuestionsController', ['$scope', function($scope) {
     //$($scope).load("/?page=1", oie);
    // window.location.href = ;
    // $scope.selectTab(setTab);
-  };  
+  };
 
   $scope.isSelected = function(checkTab){
   	$scope.getTab();

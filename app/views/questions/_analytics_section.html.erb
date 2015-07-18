@@ -10,16 +10,16 @@
 	</div>
 	<span class="question-date"><i class="icon-time"></i><%= time_ago_in_words question.created_at %></span>
 	<span class="question-comment"><a href="#"><i class="icon-comment"></i><%= question.answers.count %> Respostas</a></span>
-	<span class="question-view"><i class="icon-user"></i><%= question.analytics.visualizations %> visualizações</span>
+	<span class="question-view"><i class="icon-user"></i><%= question.analytics.try(:visualizations) || 0 %> visualizações</span>
 
 	<a id="<%= question._id %>#upvote" href="" title="Like" style=" font-size: 14px; margin-left: 15px" onClick="upvote(id)">
-		<%= question.analytics.upvotes %>
+		<%= question.analytics.try(:upvotes) || 0 %>
 		<i class="icon-thumbs-up"> </i>
 		<i class="fa fa-thumbs-o-up"></i>
 	</a>
 
 	<a href="" id="<%= question._id %>#downvote" title="Dislike" style="margin: 0px 8px; font-size: 14px" onClick="downvote(id)">
-		<%= question.analytics.downvotes %>
+		<%= question.analytics.try(:downvotes) || 0 %>
 		<i class="icon-thumbs-down"> </i>
 		<i class="fa fa-thumbs-o-down"></i>
 	</a>
