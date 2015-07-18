@@ -1684,7 +1684,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .commentlist li p {
 	margin-bottom: 0;
-	color: #848991;
+	color: #000000;
 	font-weight: normal;
 }
 .commentlist li ul {
