@@ -18,8 +18,8 @@ gem 'rails', '4.2.1'
 gem 'mongoid', '~> 4.0.2'
 
 # Use ElasticSearch
-gem 'searchkick', '~> 0.8.7'
-gem 'chewy', '~> 0.8.1'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 # Use Devise for authentication
 gem 'devise', '~> 3.4.1'
@@ -53,12 +53,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 platforms :ruby do # linux
   # Use Unicorn as the app server
   gem 'unicorn', '~> 4.8.3'
-
-
-
+  
   #Use therubyracer for Javascript runtime
   gem 'therubyracer'
-
 end
 
 gem 'tzinfo-data'

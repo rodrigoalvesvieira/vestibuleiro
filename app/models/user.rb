@@ -3,6 +3,8 @@ class User
   include Mongoid::Document
   include Mongoid::Paperclip
   include Mongoid::Timestamps
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   ## Constants
   ROLES = %w(student teacher)
@@ -105,6 +107,16 @@ class User
   accepts_nested_attributes_for :questions
 
   ## Methods
+  class << self
+    def perform_search(param)
+      self.send(:search, param).records
+    end
+  end
+
+  def as_indexed_json(options={})
+    as_json(except: [:id, :_id])
+  end
+
   def total_upvotes
     upvotes = 0
 
@@ -182,16 +194,6 @@ class User
     @activities = @activities.to_a.sort { |activity_first,activity_second| (activity_second.created_at.to_i) <=> (activity_first.created_at.to_i) }
 
     @activities = @activities.take(10)
-  end
-
-  class << self
-
-    ## Takes a string and returns all users from the database
-    ## whose title or body contain the term
-    def search(search_term)
-      term = /.*#{search_term}.*/i
-      result = User.or({name: term}, {nickname: term}, {email: term}, {description: term}, {city: term})
-    end
   end
 
 private

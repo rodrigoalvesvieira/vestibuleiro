@@ -2,6 +2,8 @@ class Answer
   ## Includes
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   ## Fields
   field :body, type: String
@@ -22,9 +24,18 @@ class Answer
   validates :body, presence: true
 
   ## Extras
-  searchkick
 
   ## Methods
+  class << self
+    def perform_search(param)
+      self.send(:search, param).records
+    end
+  end
+
+  def as_indexed_json(options={})
+    as_json(except: [:id, :_id])
+  end
+
   def calculate_favorites
     @result = self.analytics.upvotes - self.analytics.downvotes
     return @result
@@ -42,16 +53,6 @@ class Answer
 
     return false
   end
-
-  class << self
-    ## Takes a string and returns all answers from the database
-    ## whose title or body contain the term
-    def search(search_term)
-      term = /.*#{search_term}.*/i
-      result = Answer.or({body: term})
-    end
-  end
-
 private
 
   def deliver_notifications
