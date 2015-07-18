@@ -3,7 +3,7 @@
   <% questions.each do |question| %>
     <article class="question question-type-normal">
     	<h2>
-        <%= link_to truncate(question.title, length: 30), question %>
+        <%= link_to truncate(question.title, length: 150), question %>
     	</h2>
     	<!--<a class="question-report" href="#">Denunciar</a>-->
       <%= render "users/minicard" , question: question %>
