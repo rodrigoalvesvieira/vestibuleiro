@@ -46,7 +46,9 @@ private
     path = "questions/#{self.id}"
 
     self.question.subscriptions.each do |subscription|
-      subscription.user.notifications.create message: message, question: self.question
+      if subscription.user.id != self.user.id
+        subscription.user.notifications.create(message: message, user_who_id: self.user.id, question: self.question)
+      end
     end
   end
 
