@@ -157,7 +157,7 @@
               <% user.total_activities.each do |activity| %>
     						<article class="question user-question">
     							<h3>
-    								<a id="resposta"> <%= activity.class.name == 'Question' ? (link_to truncate(activity.title, length: 30), activity) : (link_to truncate(activity.body, length: 30), activity.question) %> </a>
+    								<a id="resposta"> <%= activity.class.name == 'Question' ? (link_to truncate(activity.title, length: 150), activity) : (link_to truncate(activity.body, length: 30), activity.question) %> </a>
     							</h3>
     							<div class="question-type-main"><i class="<%= activity.class.name == 'Question' ? 'icon-question-sign' : 'icon-info-sign' %>"></i><%= activity.class.name == 'Question' ? 'Questão' : 'Resposta' %></div>
     							<div class="question-content">
