@@ -15,7 +15,13 @@ Rails.application.routes.draw do
       get 'upvote'
       get 'downvote'
     end
+    resources :answers do
+      get 'downvote'
+      get 'upvote'
+    end
   end
+
+  
 
   get "ranking", to: "users#ranking"
 
