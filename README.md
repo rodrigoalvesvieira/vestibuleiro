@@ -22,6 +22,8 @@ $ bower install         # Instala as dependências de front-end do projeto
 
 $ rake db:seed          # Preenche o BD de desenvolvimento (local) com alguns dados prontos
 
+$ rake indexes:setup    # Import the model data into the index
+
 $ rake indexes:create   # Create ElasticSearch indexes for all models
 ```
 

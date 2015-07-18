@@ -1,4 +1,4 @@
-models = %w(Analytics Answer Comment Discipline Notification Question Subscription Tag User)
+models = %w(Answer Question)
 
 namespace :indexes do
   desc "Import the model data into the index"

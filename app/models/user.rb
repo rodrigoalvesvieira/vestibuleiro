@@ -3,8 +3,6 @@ class User
   include Mongoid::Document
   include Mongoid::Paperclip
   include Mongoid::Timestamps
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
 
   ## Constants
   ROLES = %w(student teacher)
@@ -107,16 +105,6 @@ class User
   accepts_nested_attributes_for :questions
 
   ## Methods
-  class << self
-    def perform_search(param)
-      self.send(:search, param).records
-    end
-  end
-
-  def as_indexed_json(options={})
-    as_json(except: [:id, :_id])
-  end
-
   def total_upvotes
     upvotes = 0
 
