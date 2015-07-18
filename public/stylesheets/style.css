@@ -325,7 +325,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	color: #2f3239;
 	font-size: 13px;
 	font-weight: normal;
-}	
+}
 
 .navigation li > ul,.navigation li > ul li > ul,.navigation li ul li ul {
 	display: none;
@@ -1263,12 +1263,14 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 	font-size: 14px !important;
 }
 .user-follow-me {
+
 	color: #2f3239;
-	margin: 0 15px 0 0;
+	margin: 20px 15px 0 0;
 	display: inline-block;
 	font-size: 13px;
 }
 .user-profile-img {
+	height: 100px;
 	width: 100px;
 	float: left;
 	margin-right: 15px;
@@ -1281,10 +1283,31 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 .user-profile-img img {
 	width: 100%;
+	height: 100%;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
 }
+.user-profile-img2 {
+	height: 85px;
+	width: 85px;
+	float: left;
+	margin-right: 15px;
+	padding: 2px;
+	border: 1px solid #e0e0e0;
+	background-color: #FFF;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+.user-profile-img2 img {
+	width: 100%;
+	height: 100%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
 .page-content-user {
 	padding-top: 0;
 }
@@ -5266,4 +5289,8 @@ html[xmlns] .slides {
 }
 .go-up,.widget_bxslider .bxslider-widget-item .bxslider_img:before,.popular_posts .popular_img a:before,.widget_flickr a:before,.button,.button:hover,.pagination a:hover,.pagination span:hover,.pagination span.current,.tipsy-inner,.widget_highest_points a:before,.social_icon a,.social_icon a:hover,.social_icon_2 a,.about-author .author-image a:hover:before,.question-author-img:hover span:before,.icon_circle,.icon_square,.tabs-style-3 .tab a:hover,.ul_list_square ul li:before,.ul_list_circle ul li:before,.ul_list_square ul li i,i.ul_l_square,.ul_list_circle ul li i,i.ul_l_circle,.table-style-2 thead th,.dropcap.dropcap_circle,.dropcap.dropcap_square,.dropcap.dropcap_soft_r,.carousel-arrow a:hover,.color_white,.icon_circle,.icon_square,.icon_soft_r,.box_icon:hover .icon_circle i,.box_icon:hover .icon_soft_r i,.box_icon:hover .icon_square i,.box_warp_hover:hover,.box_warp_hover:hover .icon_i i,.box_warp_colored,.box_warp_colored a,.large_bg,.navigation_mobile_click:before,.post .boxedtitle i,.single-question-title i,.question-type,.post-type,.breadcrumbs,#header .logo a,.navigation > ul > li:hover > a,#header.header_light .navigation > ul > li:hover > a,.navigation > ul > li.current_page_item > a,#header.header_light .navigation > ul > li.current_page_item > a,.main-content .boxedtitle h1,.main-content .boxedtitle h2,.main-content .boxedtitle h3,.main-content .boxedtitle h4,.main-content .boxedtitle h5,.main-content .boxedtitle h6,.header-top-nav li a,.header-top-nav li i,.header-search input[type="text"],.header-search input:focus,.header-search .search-submit:before,.login-panel h2,.login-panel li a:hover,.login-panel .rememberme label,.flex-caption .text,.overlay-lightbox,.overlay-link,.ask-me,.ask-me h2,.ask-me p,.navigation ul li ul li:hover > a,.navigation > ul > li > a,.navigation ul li ul li.current_page_item > a,.navigation > ul > li > a:hover > .menu-nav-arrow,.navigation > ul > li.current_page_item > a > .menu-nav-arrow,.navigation > ul > li:hover > a .menu-nav-arrow,#footer-bottom,#footer,#footer .widget_contact ul li,#footer-bottom .social_icons ul li a:hover,#footer .related-item h3 a,#footer .widget_twitter ul li a,#footer a,#footer .widget a:hover,#footer .widget_contact ul li,input[type="checkbox"]:checked::before,.widget_stats li i,.widget_social li span,.widget_social li a small,.ask-me .col-md-9 p i,.tab a.current,.question-type-main,.login-panel ul.login-links a,.del-poll-li,.form-style-3 .form-inputs p #add_poll:hover i,.styled-select::before,.fileinputs:hover span i,.fileinputs span,.alert-message i,.single-question-vote-up:hover,.single-question-vote-down:hover,.user-profile-widget .ul_list li i,.post-read-more:hover:before,.widget_menu li.current_page_item a,.accordion .accordion-title a,.tab a,.tab a:hover,.ask-me .box_icon h2 {
 	color: #FFF;
+}
+
+#infoad {
+	width:60% !important;
 }
