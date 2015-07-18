@@ -33,15 +33,15 @@
 			<ul class="col-xs-12 col-sm-5 col-md-4">
 					<% if user_signed_in? %>
 						<li id="hide-chevron" style="margin-left: 8px">
-							<%= link_to notifications_path do %>
-								<%= notifications.size %> <i class="icon-bell-alt"></i></a>
+							<%= link_to "" do %>
+								<%= notifications.size %> <i class="icon-bell-alt"></i>
 							<% end %>
 
 
 
-							<ul class="notifications_center">
+							<ul class="notifications_center" style="height: 240px; overflow: auto;">
 								<% notifications.reverse.each do |notification| %>
-									<li>
+									<li style="height: 60px;" >
 										<%= link_to clear_notification_path(notification), method: :post do %>
 											<%= image_tag notification.get_avatar_user, :class => "img-circle"%>
 											<%= notification.message %>
