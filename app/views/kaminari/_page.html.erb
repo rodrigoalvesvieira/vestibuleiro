@@ -1,9 +1,11 @@
 <% if page.current? %>
-  <li class='active'>
-    <%= content_tag :a, page, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)) %>
-  </li>
+  <div class="col-xs-2">
+  
+    	<%= content_tag :a, page, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)), style: "float: left; margin: 5px 10px 0px 0px; background-color: #F9F9F9; padding: 10px; border-radius: 0px; " %>
+	
+  </div>
 <% else %>
-  <li>
-    <%= link_to page, url, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)) %>
-  </li>
+  <div class="col-xs-2">
+    <%= link_to page, url, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)), style: "float: left; margin: 5px 10px 0px 0px; background-color: #F9F9F9; padding: 10px; border-radius: 0px; " %>
+  </div>
 <% end %>
